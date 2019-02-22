@@ -17,14 +17,6 @@
 
 //   capitalize('a short sentence') --> 'A Short Sentence'
 
-//steps to solve:
-// make an empty array
-//split the input string by spaces to get an array
-//for each word in the array
-    //uppercase the first letter of the word
-    //join first letter with rest of the string
-    // push result into words array
-//join words into a string and return 
 
 
 function capitalize(str) {
@@ -37,4 +29,12 @@ function capitalize(str) {
     
 }
 
-module.exports = capitalize;
+//steps to solve:
+// make an empty array
+//split the input string by spaces to get an array
+//for each word in the array
+    //uppercase the first letter of the word
+    //join first letter with rest of the string
+    // push result into words array
+//join words into a string and return 
+
