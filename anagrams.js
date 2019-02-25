@@ -17,6 +17,8 @@ function cleanString(str) {
     return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
 
+
+
 // function anagrams(stringA, stringB) {
 //     const aCharMap = buildCharMap(stringA);
 //     const bCharMap = buildCharMap(stringB);

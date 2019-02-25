@@ -7,6 +7,7 @@
 //   steps(2)
 //       '#_ '
 //       '##'
+
 //   steps(3)
 //       '#_ _ '
 //       '##_ '
@@ -17,23 +18,13 @@
 //       '###_'
 //       '####'
 
-steps 
+// steps 
 // iterate through rows until less n
 // iterate through cols less than n
 // if col <= row add # to string
 // else add ' '
 
-for (var i = 0; i < n; i++) {
-    let stair = '';
-    for (var j = 0; j < n; j++){
-        if (j <= i) {
-            stair += '#';
-        } else {
-            stair += ' ';
-        }
-    }
-    console.log(stair);
-}
+
 // from 0 to n (iterate through rows)
 //  create an empty string 'stair'
     // from 0 to n (iterate through col)
