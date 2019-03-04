@@ -21,3 +21,10 @@ function vowels(str) {
     return count;
 }
 
+//regex solution
+function vowels(str) {
+    const matches = str.match(/[aeioi]/gi);
+    return matches ? matches.length : 0; 
+}
+
+
