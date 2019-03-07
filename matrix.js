@@ -15,6 +15,7 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
+
 //solution:
 // we need to create array of subarrays
 
@@ -24,7 +25,7 @@
 //  |
 //  |
 // end row 
-
+ 
 
 function matrix(n) {
     const results = [];
@@ -72,6 +73,8 @@ function matrix(n) {
     }
     return results;
 }
+
+
 
 
 
