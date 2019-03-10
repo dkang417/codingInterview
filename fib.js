@@ -26,5 +26,16 @@ function fib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 
+// recursion for normal fibonacci
+function fibonacci(num) {
+    if (num <= 1) return 1;
+  
+    return fibonacci(num - 1) + fibonacci(num - 2);
+}
+  
 
+//solution for memoize 
+function fibonacci(num) {
+    
+}
 
