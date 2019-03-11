@@ -26,16 +26,36 @@ function fib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 
-// recursion for normal fibonacci
-function fibonacci(num) {
-    if (num <= 1) return 1;
-  
-    return fibonacci(num - 1) + fibonacci(num - 2);
-}
-  
 
+
+
+
+
+// MEMOIZE
 //solution for memoize 
-function fibonacci(num) {
+// takes a function that returns a function
+// fn.apply(this,args) need to use apply method
+
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+
+        const result = fn.apply(this, args);
+        cache[args] = result;
+
+        return result;
+    };
+}
+
+function slowFib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 2) + fib(n - 1);
     
 }
+const fib = memoize(slowFib);
 
