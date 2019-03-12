@@ -59,3 +59,28 @@ function slowFib(n) {
 }
 const fib = memoize(slowFib);
 
+
+
+// memoize 
+
+// take in a function and return a function using .apply()
+
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+        const value = fn.apply(this, args);
+        cache[args] = value;
+        return value; 
+    }
+}
+function slowFib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowFib);
+
