@@ -10,21 +10,21 @@
 
 // first in first out 
 
- // add 
-// remove 
-
 class Queue {
     constructor() {
-        this.data = {};
+        this.data = [];
     }
-    
+    // add record to the front of the array-unshift
     add(record) {
         this.data.unshift(record);
     }
+    // remove from the end of the queue 
     remove() {
-        this.data.remove();
+        return this.data.pop();
     }
 }
+
+
 
 
 
