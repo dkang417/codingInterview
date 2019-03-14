@@ -22,10 +22,14 @@ class Queue {
     remove() {
         return this.data.pop();
     }
+    // return the last element of the queue or the next element to be returned
+    peek() {
+        return this.data[this.data.length - 1];
+    }
 }
 
 
-
+module.exports = Queue;
 
 
 
