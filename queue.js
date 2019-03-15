@@ -9,6 +9,7 @@
 //     q.remove(); // returns 1;
 
 // first in first out 
+// unshift is how to add to the front of an array
 
 class Queue {
     constructor() {
@@ -30,6 +31,4 @@ class Queue {
 
 
 module.exports = Queue;
-
-
 
