@@ -13,7 +13,23 @@
 // first in last out FILO
 
 class Stack {
+    constructor() {
+        this.data = [];
+    }
 
+    //push 
+    push(record) {
+        this.data.push(data);
+    }
+    //pop
+    pop() {
+        return this.data.pop();
+    }
+
+    //peek  without actually popping it out of that array
+    peek() {
+        return this.data[this.data.length - 1];
+    }
 }
 
 module.exports = Stack;
