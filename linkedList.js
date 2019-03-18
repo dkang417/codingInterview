@@ -14,7 +14,15 @@ class LinkedList {
     constructor() {
         this.head = null;
     }
+
+    insertFirst(data) {
+        // const node = new Node(data, this.head);
+        // this.head = node;
+        // above code can be condensed to this:
+        this.head = new Node(data, this.head);
+    }
 }
+
 
 
 module.exports = { Node, LinkedList };
