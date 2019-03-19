@@ -9,7 +9,6 @@ class Node {
     }
 }
 
-
 class LinkedList {
     constructor() {
         this.head = null;
@@ -21,6 +20,17 @@ class LinkedList {
         // above code can be condensed to this:
         this.head = new Node(data, this.head);
     }
+    // size method - returns number of nodes in linkedlist
+    size() {
+        let counter = 0;
+        let node = this.head;
+
+        while (node) {
+            counter++;
+            node = node.next;
+        }
+    }
+
 }
 
 
