@@ -20,6 +20,7 @@ class LinkedList {
         // above code can be condensed to this:
         this.head = new Node(data, this.head);
     }
+
     // size method - returns number of nodes in linkedlist
     size() {
         let counter = 0;
@@ -29,7 +30,31 @@ class LinkedList {
             counter++;
             node = node.next;
         }
+        return counter;
     }
+
+    // return the first node 
+    getFirst() {
+        return this.head; 
+    }
+
+
+    // get the last node 
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+
+
 
 }
 
