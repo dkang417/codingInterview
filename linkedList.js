@@ -44,7 +44,7 @@ class LinkedList {
         if (!this.head) {
             return null;
         }
-        
+
         let node = this.head;
         while (node) {
             if (!node.next) {
@@ -54,6 +54,18 @@ class LinkedList {
         }
     }
 
+    // clear all nodes 
+    clear() {
+        this.head = null;
+    }
+
+    // remove the first node 
+    removeFirst() {
+        if (!this.head) {
+            return;
+        }
+        this.head = this.head.next;
+    }
 
 
 }
