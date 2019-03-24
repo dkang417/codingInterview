@@ -87,6 +87,36 @@ class LinkedList {
         previous.next = null;
     }
 
+    // insert data as a new node into last 
+
+    insertLast(data) {
+        const last = this.getlast();
+        if (last) {
+            // there are some nodes in the chain
+            last.next = new Node(data);
+        } else {
+            // chain is empty
+            this.head = new Node(data);
+        }
+        
+    }
+
+    // get at - returns the node at the provided index 
+    getAt(index) {
+        let counter = 0;
+        let node = this.head;
+        while (node) {
+            if (counter === index) { 
+                return node;
+            }
+            counter++;
+            node = node.next;
+
+        }
+        // if index is invalid then just return null
+        return null;
+    }
+
 
 }
 
