@@ -38,7 +38,7 @@ class LinkedList {
         return this.head; 
     }
 
-
+   
     // get the last node 
     getLast() {
         if (!this.head) {
@@ -100,6 +100,7 @@ class LinkedList {
         }
         
     }
+   
 
     // get at - returns the node at the provided index 
     getAt(index) {
@@ -116,6 +117,27 @@ class LinkedList {
         // if index is invalid then just return null
         return null;
     }
+   
+    removeAt(index) {
+        // 4 edge cases to think about here 
+        
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        const previous = this.getAt(index - 1);
+        if (!previous || !previous.next) {
+            return;
+        }
+
+        previous.next = previous.next.next; 
+
+    }
+
 
 
 }
