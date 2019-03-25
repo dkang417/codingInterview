@@ -120,7 +120,7 @@ class LinkedList {
    
     removeAt(index) {
         // 4 edge cases to think about here 
-        
+
         if (!this.head) {
             return;
         }
@@ -137,6 +137,25 @@ class LinkedList {
         previous.next = previous.next.next; 
 
     }
+
+    insertAt(data, index) {
+        // empty linkedlist
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        // only 1 node in linkedlist
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        // if index is non existant just use the last node and add new node to the end of the linkedlist 
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data,this.prev.next);
+        previous.next = node;
+
+    }
+
 
 
 
