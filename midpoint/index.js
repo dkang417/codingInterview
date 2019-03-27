@@ -16,7 +16,6 @@
 // slow and fast nodes - pointing at this.head
 // is there 2 nodes in front of node? if yes move 2 ahead and slow 1 ahead 
 // now slow is pointing at midpoint cause its traveling half as fast
-
 function midpoint(list) {
     let slow = list.getFirst();
     let fast = list.getFirst();
@@ -28,4 +27,3 @@ function midpoint(list) {
     return slow;
 }
 
-module.exports = midpoint;
