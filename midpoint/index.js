@@ -26,4 +26,3 @@ function midpoint(list) {
     }
     return slow;
 }
-
