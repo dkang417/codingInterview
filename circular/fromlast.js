@@ -11,6 +11,11 @@
 //    list.insertLast('d');
 //    fromLast(list, 2).data // 'b'
 
+// create slow and fast pointers 
+// move fast  n spaces using for loop or while loop
+// while there is a fast.next increment 1 to both slow and fast
+// return slow  which will be the element n spaces from the last node
+
 function fromLast(list, n) {
 
     let slow = list.head;
