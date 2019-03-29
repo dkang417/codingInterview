@@ -15,6 +15,12 @@ class Node {
         this.data = data;
         this.children = [];
     }
+    add(data) {
+        // const node = new Node(data);
+        // this.children.push(node);
+        this.children.push(new Node(data));
+    }
+   
 }
 
 class Tree {
