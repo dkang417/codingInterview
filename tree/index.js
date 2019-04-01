@@ -28,6 +28,16 @@ class Tree {
         this.root = null;
     }
     traverseBF(fn) {
+        // stick top node into new array 
+        const arr = [this.root];
+        // while array has something in it  
+        while (arr.length) {
+            // take out the first element in the array.  shift() - removes first element
+            const node = arr.shift();
+            //  take all of its children and push it in the array
+            arr.push(...node.children);
+            fn(node);
+        }
         
     }
 }
