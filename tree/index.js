@@ -51,7 +51,6 @@ class Tree {
         }
     }
 
-    
 }
 
 // const node = new Node(1);
