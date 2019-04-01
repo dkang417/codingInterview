@@ -27,6 +27,7 @@ class Tree {
     constructor() {
         this.root = null;
     }
+    // bf and df almost the same except where you are putting the children at
     traverseBF(fn) {
         // stick top node into new array 
         const arr = [this.root];
@@ -37,9 +38,20 @@ class Tree {
             //  take all of its children and push it in the array
             arr.push(...node.children);
             fn(node);
-        }
-        
+        }            
     }
+
+    traverseDF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            // unshift adds to the front of array
+            arr.unshift(...node.children);
+            fn(node);
+        }
+    }
+
+    
 }
 
 // const node = new Node(1);
