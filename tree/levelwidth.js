@@ -11,7 +11,6 @@
 // 4       5
 // Answer: [1, 3, 2]
 
-
 // width = bf traversal 
 
 function levelWidth(root) {
@@ -32,6 +31,7 @@ function levelWidth(root) {
 
     return counters;
 }
+
 
 
 module.exports = levelwidth;
