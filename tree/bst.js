@@ -78,6 +78,10 @@ function validate(node, min=null, max=null) {
 
 }
 
+function validate(node, min = null, max = null) {
+    
+}
+
 
 
 
