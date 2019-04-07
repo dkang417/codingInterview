@@ -19,7 +19,7 @@ class Node {
         this.right = null;
     }
 
-    // insert method 
+    // insert method   RECURSION SOLUTION 
     insert(data) {
         if (data < this.data && this.left) {
             this.left.insert(data);
@@ -32,6 +32,13 @@ class Node {
             this.right = new Node(data);
         }
     }
+
+        //        10
+    //     5    15
+    //    0         20
+    //  -5 3        
+    // does this tree contain '3' ? -   RECURSION SOLUTION 
+
 
     contains(data) {
         if (this.data === data) {
@@ -47,6 +54,30 @@ class Node {
     }
 
 }
+
+// validate if binary search tree 
+// recursion solution 
+
+function validate(node, min=null, max=null) {
+
+    if (max !== null && node.data > max) {
+        return false;
+    }
+    if (min !== null && node.data < min) {
+        return false;
+    }
+
+    if (node.left && !validate(node.left, min, node.data)) {
+        return false;
+    }
+    if (node.right && !validate(node.right, node.data, max)) {
+        return false;
+    }
+
+    return true;
+
+}
+
 
 
 
