@@ -58,6 +58,10 @@ class Node {
 // validate if binary search tree 
 // recursion solution 
 
+//  10
+// 5   12  
+// params = node, min = null, max = null, recurse 
+
 function validate(node, min=null, max=null) {
 
     if (max !== null && node.data > max) {
@@ -78,11 +82,3 @@ function validate(node, min=null, max=null) {
 
 }
 
-function validate(node, min = null, max = null) {
-    
-}
-
-
-
-
-module.exports = Node;
