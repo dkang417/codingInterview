@@ -42,6 +42,7 @@ class Node {
     // does this tree contain '3' ? -   RECURSION SOLUTION 
 
 
+
     contains(data) {
         if (this.data === data) {
             return this;
@@ -63,6 +64,7 @@ class Node {
 //  10
 // 5   12  
 // params = node, min = null, max = null, recurse 
+
 
 function validate(node, min=null, max=null) {
 
