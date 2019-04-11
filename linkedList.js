@@ -9,6 +9,9 @@ class Node {
     }
 }
 
+
+
+
 class LinkedList {
     constructor() {
         this.head = null;
@@ -32,7 +35,6 @@ class LinkedList {
         }
         return counter;
     }
-
     
 
     // return the first node 
@@ -40,6 +42,7 @@ class LinkedList {
         return this.head; 
     }
 
+    
    
     // get the last node 
     getLast() {

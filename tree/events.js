@@ -15,6 +15,7 @@ class Events {
             this.events[eventName] = [callback];
         }
     }
+
   
     // Trigger all callbacks associated
     // with a given eventName
@@ -25,13 +26,15 @@ class Events {
             }
         }
     }
+
+    
   
     // Remove all event handlers associated
     // with the given eventName
     off(eventName) {
         delete this.events[eventName];
     }
-    
+
   }
   
 module.exports = Events;
