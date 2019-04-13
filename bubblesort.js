@@ -24,14 +24,35 @@ function bubbleSort(arr) {
 
 
 
-
-
-
-
 // selection sort 
+// prove me wrong sort
+
+// from i = 0 < arr length  . indexMin
+// assume the elemet at index i is the lowest value
+    // for j from i + 1 to end of array
+        // see if there is an element with lower val
+            // if there is record its index
+    // if the index of current element and the index of the lowest
+    // element is not the same swap em
 
 function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++){
+        let indexMin = i;
 
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[indexMin]) {
+                indexMin = j;
+            }
+        }
+
+        if (indexMin !== i) {
+            let lesser = arr[indexMin];
+            arr[indexMin] = arr[i];
+            arr[i] = lesser;
+        }
+    }
+
+    return arr;
 
 }
 
