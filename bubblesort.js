@@ -6,6 +6,13 @@
 // find the largest number in array
 // and drag it to the right side
 // so we need to shrink the window each inner loop
+
+// solution: 
+// 2 for loops.. push highest number to right by swapping if j is > than j+1 
+
+
+
+// bubble sort
 function bubbleSort(arr) {
 // 2 nested for loops, n^2 complexity 
     for (let i = 0; i < arr.length; i++) {
@@ -24,6 +31,10 @@ function bubbleSort(arr) {
 
 
 
+
+
+
+
 // selection sort 
 // prove me wrong sort
 
@@ -35,6 +46,7 @@ function bubbleSort(arr) {
     // if the index of current element and the index of the lowest
     // element is not the same swap em
 
+    // [3,4,1,6,2]
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++){
         let indexMin = i;
@@ -55,12 +67,6 @@ function selectionSort(arr) {
     return arr;
 
 }
-
-
-
-
-
-
 
 
 
