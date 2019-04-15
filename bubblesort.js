@@ -96,6 +96,17 @@ function merge(left, right) {
 
 }
 
+// [-30,22] [0,97]
+
+// create 1 array- results-  that is sorted
+
+//  while there are numbers in left and right
+//      if left[0] < right[0]
+            // push into results left.shift()
+        //else push into results right.shift()
+
+// return [ ...results, ...left, ...right]
+
 
 
 module.exports = { bubbleSort, selectionSort, mergeSort };
