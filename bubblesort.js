@@ -68,6 +68,9 @@ function selectionSort(arr) {
 
 
 // recursion solution with 2 functions 
+// split the array into 2, then split those in half
+// array is size 1. cant split anymore .  then join those together
+
 
 function mergeSort(arr) {
 
