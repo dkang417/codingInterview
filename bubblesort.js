@@ -73,10 +73,20 @@ function selectionSort(arr) {
 // essentially split up array into an array of 1. recursively join back together. 
 
 function mergeSort(arr) {
+    // recursive subdivide array and pass back into mergeSort
+    // base case: 
+    if (arr.length === 1) {
+        return arr;
+    }
+    // divide array- find the center point  
+    const center = Math.floor(arr.length / 2); 
+    // slice-  take everything from 0 up to but not including center
+    const left = arr.slice(0, center); 
+    const right = arr.slice(center);
 
-
+    // recursively call mergeSort on both 
+    return merge(mergeSort(left), mergeSort(right));
 }
-
 // [-30,22] [0,97]
 // create results array
 // while there are still elements in both arrays
