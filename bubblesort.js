@@ -10,8 +10,6 @@
 // solution: 
 // 2 for loops.. push highest number to right by swapping if j is > than j+1 
 
-
-
 // bubble sort
 function bubbleSort(arr) {
 // 2 nested for loops, n^2 complexity 
@@ -64,8 +62,9 @@ function selectionSort(arr) {
 }
 
 
+// MERGE SORT 
 
-
+// [ 4,-2, 8, 1, 3, 15] => recursively split in half until array of length 1
 
 // recursion solution with 2 functions 
 // split the array into 2, then split those in half
@@ -85,7 +84,7 @@ function mergeSort(arr) {
     const right = arr.slice(center);
 
     // recursively call mergeSort on both 
-    return merge(mergeSort(left), mergeSort(right));
+    return merge(mergeSort(left),  mergeSort(right));
 }
 // [-30,22] [0,97]
 // create results array
