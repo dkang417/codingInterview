@@ -10,6 +10,9 @@
 // solution: 
 // 2 for loops.. push highest number to right by swapping if j is > than j+1 
 
+//bubble sort - 
+
+
 // bubble sort
 function bubbleSort(arr) {
 // 2 nested for loops, n^2 complexity 
@@ -60,6 +63,13 @@ function selectionSort(arr) {
     return arr;
 
 }
+
+
+// merge and mergesort  
+// split array in half recursively while length === 1 base case 
+// split array into left and right 
+
+
 
 
 // MERGE SORT 
