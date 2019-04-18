@@ -31,6 +31,8 @@ function bubbleSort(arr) {
 }
 
 
+
+
 // selection sort 
 // prove me wrong sort - index i is lowest number. if not swap.
 
