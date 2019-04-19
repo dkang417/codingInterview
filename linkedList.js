@@ -9,34 +9,71 @@ class Node {
     }
 }
 
-class Node {
-    constructor(data, next = null) {
-        this.data = data;
-        this.next = next; 
-    }
-}
 
+    
 class LinkedList {
     constructor() {
         this.head = null;
     }
-    insert(data) {
-        this.head = new Node(data, this.head);
+    add(data) {
+        this.head = new Node(data,this.head);
     }
+  
     size() {
         let counter = 0;
         let node = this.head;
+
         while (node) {
             counter++;
             node = node.next;
         }
         return counter;
     }
-    getlast() {
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        let prev = this.head
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
         
+        prev.next = null;
     }
 
+    removeLasT() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        let prev= this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+
+
 }
+
+
+
+
+
+
+
+
 
 class LinkedList {
     constructor() {
@@ -85,6 +122,9 @@ class LinkedList {
         }
     }
 
+   
+    
+
 
 
 
@@ -105,7 +145,8 @@ class LinkedList {
 
     // remove the last node 
     // edge cases - empty , if only 1 node in linked list. 
-    removeLast() {
+   
+    removeLasT() {
         if (!this.head) {
             return;
         }
@@ -113,14 +154,16 @@ class LinkedList {
             this.head = null;
             return;
         }
-        let previous = this.head;
+        let prev= this.head;
         let node = this.head.next;
         while (node.next) {
-            previous = node;
+            prev = node;
             node = node.next;
         }
-        previous.next = null;
+        prev.next = null;
     }
+
+
    
 
     // insert data as a new node into last 
