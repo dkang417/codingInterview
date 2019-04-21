@@ -13,6 +13,8 @@
 // first in last out FILO
 
 // array 
+
+
 class Stack {
     constructor() {
         this.data = [];
@@ -77,3 +79,5 @@ myStack.pop();
 myStack.push('twelve')
 console.log(myStack.peek());
 console.log(myStack);
+
+

@@ -9,72 +9,6 @@ class Node {
     }
 }
 
-
-    
-class LinkedList {
-    constructor() {
-        this.head = null;
-    }
-    add(data) {
-        this.head = new Node(data,this.head);
-    }
-  
-    size() {
-        let counter = 0;
-        let node = this.head;
-
-        while (node) {
-            counter++;
-            node = node.next;
-        }
-        return counter;
-    }
-    removeLast() {
-        if (!this.head) {
-            return;
-        }
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-        let prev = this.head
-        let node = this.head.next;
-        while (node.next) {
-            prev = node;
-            node = node.next;
-        }
-        
-        prev.next = null;
-    }
-
-    removeLasT() {
-        if (!this.head) {
-            return;
-        }
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-        let prev= this.head;
-        let node = this.head.next;
-        while (node.next) {
-            prev = node;
-            node = node.next;
-        }
-        prev.next = null;
-    }
-
-
-}
-
-
-
-
-
-
-
-
-
 class LinkedList {
     constructor() {
         this.head = null;
@@ -122,12 +56,6 @@ class LinkedList {
         }
     }
 
-   
-    
-
-
-
-
 
 
     // clear all nodes 
@@ -162,8 +90,6 @@ class LinkedList {
         }
         prev.next = null;
     }
-
-
    
 
     // insert data as a new node into last 
@@ -241,5 +167,29 @@ class LinkedList {
 }
 
 
-
 module.exports = { Node, LinkedList };
+
+
+
+// linked list FrontendMasters 
+
+
+class LinkedList {
+    constructor() {
+        this.head = { value, next: null };
+        this.tail = this.head;
+    }
+    
+    insert(value) {
+        const node = { value, next: null };
+        this.tail.next = node;
+        this.tail = node;
+    }
+    remove() {
+        
+    }
+    contains() {
+        
+    }
+}
+
