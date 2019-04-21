@@ -52,6 +52,7 @@ class Queue {
             delete this.storage[this.head];
             this.length--;
             this.head++;
+            return firstVal;
         }
         
     }
@@ -64,4 +65,5 @@ myQ.enqueue('one');
 myQ.dequeue();
 myQ.enqueue('thirty')
 console.log(myQ);
+
 
