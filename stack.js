@@ -12,6 +12,7 @@
 
 // first in last out FILO
 
+// array 
 class Stack {
     constructor() {
         this.data = [];
@@ -33,3 +34,46 @@ class Stack {
 }
 
 module.exports = Stack;
+
+
+
+// [0:'zero', 1:'two', 2:'nine'];
+    // length: 3
+
+ // object 
+
+ class Stack {
+    constructor() {
+        this.storage = {};
+        this.length = 0;
+    }
+
+    push(value) {
+        this.storage[this.length] = value;
+        this.length++;
+    }
+
+    pop() {
+        if (this.length) {
+            const last = this.storage[this.length-1];
+            this.storage[this.length - 1] = null;
+            this.length--;
+            return last;
+        }
+        
+    }
+     peek() {
+        if (this.length) {
+            const last = this.storage[this.length-1];            
+            return last;
+        }
+    } 
+}
+
+const myStack = new Stack(); 
+myStack.push('zero');
+myStack.push('one');
+myStack.pop();
+myStack.push('twelve')
+console.log(myStack.peek());
+console.log(myStack);
