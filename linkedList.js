@@ -198,10 +198,25 @@ class LinkedList {
         }
         currentNode.next = null;
         this.tail = currentNode;
-        return currentNode;
+    }
+
+    isHead(node) {
+        return node === this.head;
+    }
+
+    isTail(node) {
+        return node === this.tail;
+    }
+    contains(value) {
+        let currentNode = this.head;
+        while (currentNode.value !== value) {
+            currentNode = currentNode.next;
+        }
+        return currentNode.value === value;
     }
 
 }
+
 
 
 
