@@ -81,3 +81,57 @@ console.log(myStack.peek());
 console.log(myStack);
 
 
+//object
+class Stack {
+    constructor() {
+        this.data = {};
+        this.length = 0;
+    }
+    add(record) {
+        this.data[this.length] = record;
+        this.length++;
+    }
+    remove() {
+        if (this.length) {
+            const temp = this.data[this.length - 1];
+            this.data[this.length - 1] = null;
+            this.length--;
+            return temp;
+        }
+        
+    }
+    peek() {
+        if (this.length) {
+            const temp = this.data[this.length - 1];
+            return temp;
+        }
+        
+    }
+}
+// object
+class Queue {
+    constructor() {
+        this.storage = {};
+        this.length = 0;
+        this.head = 0;
+    }
+    enqueue(record) {
+        this.storage[this.length + this.head] = record;
+        this.length++;
+
+    } 
+    [1,2,3,5]
+    dequeue() {
+        if (this.length) {
+            const remove = this.storage[this.head];
+            this.length--;
+            this.storage[this.head] = null;
+            this.head++;
+            return remove;
+        }
+       
+    
+    }
+
+}
+
