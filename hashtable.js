@@ -6,9 +6,16 @@ class HashTable {
     constructor(val) {
         this._storage = [];
         this._tableSize = val;
+        this._inputSize = 0;
        
     }
-
+    
+    /*
+  * Inserts a new key-value pair
+  * @param {string} key - the key associated with the value
+  * @param {*} value - the value to insert
+  */
+    
     insert(key, value){
         const index = this._hash(key, this._tableSize);
         
@@ -16,6 +23,7 @@ class HashTable {
             this._storage[index] = [];
         }
         // [0,0,0,[]]  
+        // todo: loop through array and find if key was already inserted
         this._storage[index].push([key, value]);
         // [0,0,0,['a',1], ['b',2]] 
     }
