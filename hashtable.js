@@ -9,7 +9,7 @@ class HashTable {
         this._inputSize = 0;
        
     }
-    
+
     /*
   * Inserts a new key-value pair
   * @param {string} key - the key associated with the value
@@ -62,4 +62,6 @@ myHT.insert('b', 2);
 // hashTable { _storage: [0,0,0,['a',1],['b',2] 0,0,0]}
 console.log(myHT);
 
+
+// count the number of occurences of all characters or words in a body 
 

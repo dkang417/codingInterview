@@ -10,7 +10,6 @@
 // solution: 
 // 2 for loops.. push highest number to right by swapping if j is > than j+1 
 
-//bubble sort - 
 
 
 // bubble sort
@@ -65,6 +64,8 @@ function selectionSort(arr) {
     return arr;
 
 }
+
+
 
 
 // merge and mergesort  
@@ -165,15 +166,6 @@ function merge(left, right) {
 // bubble sort - push biggest num to right and close window 
 [5, 7, 1, 2, 3]
 function bubbleSort(arr) {
-    for (let i = 0; i < arr.length; i++){
-        for (let j = 0; j < (arr.length - i - 1); j++){
-            if (arr[j] > arr[j + 1]) {
-                const temp = arr[j + 1];
-                arr[j + 1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    return arr;
+    
 }
 
