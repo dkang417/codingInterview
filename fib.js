@@ -30,7 +30,6 @@ function fib(n) {
 
 
 
-
 // MEMOIZE
 //solution for memoize 
 // takes a function that returns a function
