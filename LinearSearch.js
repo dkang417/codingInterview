@@ -17,14 +17,14 @@ function linearSearch(list, item) {
 
 // forEach(listitem, i) 
 // index = -1;
-function linearSearch(list, item) {
-    let index = -1;
-    list.forEach((listItem, i) => {
-        if (listItem === item) {
+function linearSearch(arr, num) {
+    index = -1;
+    arr.forEach((listitem, i) => {
+        if (listitem === num) {
             index = i;
         }
     });
-    return index; 
+    return index;
 }
 
 

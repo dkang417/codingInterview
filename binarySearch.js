@@ -13,9 +13,11 @@ function binarySearch(list, item) {
         }
         else {
             if (list[guess] < item) {
+                // move to right
                 min = guess + 1;
             } 
             else {
+                // move to left 
                 max = guess - 1;
             }
         }
@@ -25,3 +27,21 @@ function binarySearch(list, item) {
 }
 
 binarySearch([2, 3, 6, 90, 103], 90);
+function binarySearch(arr, num) {
+    let max = arr.length - 1;
+    let min = 0;
+    let guess;
+    while (min <= max) {
+        guess = Math.floor(max + min) / 2;
+        if (arr[guess] === num) {
+            return guess;
+        }
+        else {
+            if (arr[guess] < num) {
+                min = guess + 1;
+            } else {
+                max = guess - 1;
+            }
+        }
+    }
+}
