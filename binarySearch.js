@@ -1,5 +1,6 @@
 
 // [2,3,6,90,103], 90
+//check the middle, then move to right or left , if not there return -1
 function binarySearch(list, item) {
     var min = 0;
     var max = list.length - 1;
@@ -28,15 +29,14 @@ function binarySearch(list, item) {
 
 binarySearch([2, 3, 6, 90, 103], 90);
 function binarySearch(arr, num) {
-    let max = arr.length - 1;
     let min = 0;
+    let max = arr.length - 1;
     let guess;
     while (min <= max) {
-        guess = Math.floor(max + min) / 2;
+        guess = math.floor((min + max) / 2);
         if (arr[guess] === num) {
             return guess;
-        }
-        else {
+        } else {
             if (arr[guess] < num) {
                 min = guess + 1;
             } else {
@@ -44,4 +44,5 @@ function binarySearch(arr, num) {
             }
         }
     }
+    return -1;
 }
