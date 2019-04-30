@@ -26,3 +26,4 @@ function linearsearch(arr, num) {
         return -1;
     }
 }
+

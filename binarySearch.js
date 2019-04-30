@@ -33,7 +33,7 @@ function binarySearch(arr, num) {
     let max = arr.length - 1;
     let guess;
     while (min <= max) {
-        guess = math.floor((min + max) / 2);
+        guess = Math.floor((min + max) / 2);
         if (arr[guess] === num) {
             return guess;
         } else {

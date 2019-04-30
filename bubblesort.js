@@ -163,9 +163,37 @@ function merge(left, right) {
     }
     return [...arr, ...left, ...right];
 }
-// bubble sort - push biggest num to right and close window 
-[5, 7, 1, 2, 3]
-function bubbleSort(arr) {
-    
-}
 
+
+// front end master sorts - 
+
+// naive sorts - keep looping until comparing values - bubble selection insertion sort
+// divide and conquer - mergesort, quicksort 
+
+//bubble sort- bubbles up the large number to right
+
+// merge sort
+
+function merge(left, right) {
+    const temp = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            temp.push(left.shift());
+        } else {
+            temp.push(right.shift());
+        }
+    }
+    return [...temp, ...left, ...right];
+}
+// recursive
+function mergeSort(arr) {
+    // base case 
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+
+    return merge(mergeSort(left), mergeSort(right)); 
+}
