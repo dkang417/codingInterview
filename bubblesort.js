@@ -203,6 +203,7 @@ function mergeSort(arr) {
 
 
 // greedy algorithms 
+// greedy approach but hard to prove 
 
 const makeChange = (coins, amount) => {
     coins.sort((a, b) => b - a);
@@ -222,6 +223,7 @@ const makeChange = (coins, amount) => {
 makeChange([5, 10, 25], 50);
 
 // brute force algorithm - calculate every single combination possible and keep track of min
+// better solution vs greedy 
 
 const coins = [10,6,1]
 const makeChange = (value) => { //12 
@@ -237,3 +239,31 @@ const makeChange = (value) => { //12
     });
     return minCoins + 1;
 };
+
+
+// dynamic programming 
+// cache values to avoid repeated calculations
+
+const cache = {};
+const coins = [10, 6, 1];
+
+const makeChange = (c) => {
+    // return the value if its in the cache
+    if (cache[c]) return cache[c];
+    let minCoins = -1;
+
+    // find the best coin 
+    coins.forEach(coin => {
+        if (c - coin >= 0) {
+            let currMinCoins = makeChange(c - coin);
+            if (minCoins === -1 || currMinCoins < minCoins) {
+                minCoins = currMinCoins
+            }
+        }
+    })
+
+    // save the value into the cache
+    cache[c] = minCoins + 1;
+    return cache[c];
+}
+
