@@ -60,10 +60,10 @@ function selectionSort(arr) {
             arr[i] = lesser;
         }
     }
-
     return arr;
 
 }
+
 
 
 
@@ -197,3 +197,43 @@ function mergeSort(arr) {
 
     return merge(mergeSort(left), mergeSort(right)); 
 }
+
+
+
+
+
+// greedy algorithms 
+
+const makeChange = (coins, amount) => {
+    coins.sort((a, b) => b - a);
+    let coinTotal = 0;
+    let i = 0;
+    while (amount > 0) {
+        if (coins[i] <= amount) {
+            amount -= coins[i];
+            coinTotal++;
+        } else {
+            i++;
+        }
+    }
+    return coinTotal;
+};
+
+makeChange([5, 10, 25], 50);
+
+// brute force algorithm - calculate every single combination possible and keep track of min
+
+const coins = [10,6,1]
+const makeChange = (value) => { //12 
+    if (value === 0) return 0;
+    let minCoins;
+    coins.forEach((coin) => { //10
+        if (value - coin >= 0) { //12
+            let currMinCoins = makeChange(value - coin);
+            if (minCoins === undefined || currMinCoins < minCoins) {
+                minCoins = currMinCoins;
+            }
+        }
+    });
+    return minCoins + 1;
+};
