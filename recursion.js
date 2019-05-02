@@ -10,7 +10,6 @@ let callMe = function () {
 }
 
 // recursion steps -  
-
 // identify base case
 // identify recursive case
 // return where appropriate
@@ -46,6 +45,13 @@ function computeFactorial(num) {
     }
     return result;
 }
+
+computeFactorial(5); 
+// 1 * 2 (2)
+// 2 * 3 (6)
+// 6 * 4 (24)
+// 24 * 5 (120)
+
 // recursion factorial 
 function computeFactorial(num) {
     // base case 
@@ -56,3 +62,4 @@ function computeFactorial(num) {
     }
 }
 computerFactorial(5);
+
