@@ -2,6 +2,39 @@
 // Implement classes Node and Linked Lists
 // See 'directions' document
 
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        let count = 0;
+        const node = this.head;
+        while (node) {
+            node = node.next;
+            count++;
+        }
+        return count;        
+    }
+    
+    getLast() {
+        const node = this.head;
+        if (!node.next) {
+            return null;
+        }
+        while (node.next) {
+            if (!node.next) {
+                return node;
+            } else {
+                node = node.next;
+            }
+        }
+    }
+}
+
 class Node {
     constructor(data, next = null) {
         this.data = data;
@@ -170,10 +203,6 @@ class LinkedList {
 module.exports = { Node, LinkedList };
 
 
-
-
-
-
 // linked list FrontendMasters 
 class LinkedList {
     constructor() {
@@ -215,6 +244,13 @@ class LinkedList {
         return currentNode.value === value;
     }
 
+    contains(value) {
+        let node = this.head;
+        while (node.value !== value) {
+            node = node.next;
+        }
+        return node.value === value;
+    }
 }
 
 

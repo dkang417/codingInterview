@@ -15,6 +15,7 @@
 // array 
 
 
+
 class Stack {
     constructor() {
         this.data = [];
@@ -42,7 +43,8 @@ module.exports = Stack;
 // [0:'zero', 1:'two', 2:'nine'];
     // length: 3
 
- // object 
+  //  {0:'one', 2:'two', 3:'three'}
+
 
  class Stack {
     constructor() {
@@ -134,4 +136,12 @@ class Queue {
     }
 
 }
+
+// [0:'zero', 1:'two', 2:'nine'];
+    // length: 3
+
+  //  {0:'one', 2:'two', 3:'three'}
+
+
+
 
