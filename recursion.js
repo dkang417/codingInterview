@@ -35,6 +35,9 @@ const loopNTimes = (n) => {
 };
 loopNTimes(3);
 
+
+
+// factorial solutions - loop vs recursion 
 function computeFactorial(num) {
     let result = 1;
 
@@ -43,3 +46,13 @@ function computeFactorial(num) {
     }
     return result;
 }
+// recursion factorial 
+function computeFactorial(num) {
+    // base case 
+    if (num === 1) {
+        return 1;
+    } else {
+        return num * computeFactorial(num - 1);
+    }
+}
+computerFactorial(5);
