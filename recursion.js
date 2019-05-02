@@ -26,3 +26,20 @@ var callMyself = function () {
     }
     return;
 }; 
+
+const loopNTimes = (n) => {
+    if (n <= 1) {
+        return 'complete';
+    }
+    return loopNTimes(n - 1);
+};
+loopNTimes(3);
+
+function computeFactorial(num) {
+    let result = 1;
+
+    for (let i = 2; i <= num; i++){
+        result *= i;
+    }
+    return result;
+}
