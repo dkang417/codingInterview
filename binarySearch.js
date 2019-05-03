@@ -46,3 +46,16 @@ function binarySearch(arr, num) {
     }
     return -1;
 }
+
+binarySearch([2, 3, 6, 90, 103], 90);
+
+// check the middle of the array
+// while min is less than or equal to max
+    // if guess is num return guess
+    // else check if guess is less than num then min is guess + 1
+        // else max is guess - 1
+// return - 1 
+
+
+
+
