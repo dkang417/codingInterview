@@ -54,6 +54,10 @@ module.exports = Queue;
 // object 
 
 // {0:'one'. 1:'two', 2:'three'}
+
+
+
+
 class Queue {
     constructor() {
         this.storage = {};
@@ -84,5 +88,4 @@ myQ.enqueue('one');
 myQ.dequeue();
 myQ.enqueue('thirty')
 console.log(myQ);
-
 
