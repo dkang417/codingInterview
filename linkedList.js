@@ -4,65 +4,87 @@
 
 
 class Node {
-    constructor(data,next=null) {
+    constructor(data, next = null) {
         this.data = data;
         this.next = next;
     }
 }
-class LinkedList {
-    constructor() {
-        this.head = null;
-    }
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 class LinkedList {
     constructor() {
         this.head = null;
     }
-    insertFirst(data) {
-        this.head = new Node(data, this.head);
+    addFirst(record) {
+        this.head = new Node(record, this.head);
     }
-    size() {
-        let count = 0;
+    // 1
+    // 1 2 
+    count() {
         const node = this.head;
+        const counter = 0;
         while (node) {
             node = node.next;
-            count++;
+            counter++;
         }
-        return count;        
+        return counter;
     }
-    
+    // get the last node 
     getLast() {
-        const node = this.head;
-        if (!node.next) {
+        if (!this.head) {
             return null;
         }
-        while (node.next) {
+    
+        let node = this.head;
+        while (node) {
             if (!node.next) {
                 return node;
-            } else {
-                node = node.next;
             }
+            node = node.next;
         }
     }
+    
+    removeLasT() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+
+    clear() {
+        this.head = null;
+    }
+
+    removeFirst() {
+        if (!this.head) {
+            return;
+        }
+        this.head = this.head.next;
+    }
+   
+   
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 class Node {
     constructor(data, next = null) {
