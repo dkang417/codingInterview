@@ -71,7 +71,34 @@ class LinkedList {
         this.head = this.head.next;
     }
    
+    insertLast(data) {
+        const last = this.getLast();
+        if (last) {
+           last.next = new Node(data);
+        } else {
+           this.head = new Node(data);
+        }
+    }
+
+    getAt(index) {
+       
+        let node = this.head;
+        let count = 0;
+
+        while (node) {
+            if (counter === index) {
+                return node;
+            } else {
+                counter++;
+                node = node.next;
+            }
+        }
+        return null;
+    }
+
+    
    
+
 
 
 }
