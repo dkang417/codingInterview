@@ -86,17 +86,34 @@ class LinkedList {
         let count = 0;
 
         while (node) {
-            if (counter === index) {
+            if (count === index) {
                 return node;
             } else {
-                counter++;
+                count++;
                 node = node.next;
             }
         }
         return null;
     }
 
-    
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        // removes first element 
+        if (index === 0) {
+            this.head = this.head.next;
+        }
+        // leap frogs the index node 
+        const previous = this.getAt(index - 1);
+        if (!previous || !previous.next) {
+            return;
+        }
+        previous.next = previous.next.next;
+
+    }
+
+
    
 
 
