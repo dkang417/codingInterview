@@ -59,4 +59,3 @@ function binarySearch(arr, num) {
     return -1;
 }
 
-
