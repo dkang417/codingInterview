@@ -29,6 +29,25 @@ function binarySearch(list, item) {
 
 binarySearch([2, 3, 6, 90, 103], 90);
 
+function binarySearch(arr, num) {
+    let min = 0;
+    let max = arr.length - 1;
+    let guess;
+    while (min <= max) {
+        guess = Math.floor(min + max / 2);
+    
+        if (arr[guess] === num) {
+            return guess;
+        } else {
+            if (arr[guess] < num) {
+                min = guess + 1;
+            } else {
+                max = guess - 1;
+            }
+        }
+    }
+    return -1;
+}
 
 binarySearch([2, 3, 6, 90, 103], 90);
 
