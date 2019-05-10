@@ -41,6 +41,8 @@ class Tree {
         }            
     }
 
+    // Depth - First Traversal - goes all the way down as quickly as possible
+    // goes down to the depth 
     traverseDF(fn) {
         const arr = [this.root];
         while (arr.length) {
@@ -60,3 +62,20 @@ class Tree {
 
 module.exports = { Tree, Node };
 
+
+
+
+
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.children = [];
+    }
+    add(data) {
+        this.children.push(new Node(data));
+    }
+}
+class Tree {
+
+}
