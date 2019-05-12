@@ -67,6 +67,8 @@ module.exports = { Tree, Node };
 
 
 
+
+
 class Node {
     constructor(data) {
         this.data = data;
@@ -75,7 +77,7 @@ class Node {
     add(data) {
         this.children.push(new Node(data));
     }
-    
+
     // call remove - given some data, look at each child of the current node
     // and remove any node with data === data 
 
@@ -101,10 +103,22 @@ class Node {
     add(data) {
         this.children = new Node(data);
     }
-
+    // this.children = [2,4,1]
+    // remove(2)
     remove(data) {
-        this.children.filter(node => {
+        this.children =  this.children.filter(node => {
             return node.data !== data;
-        });
+        })
+    }
+}
+
+class Tree {
+
+    constructor() {
+        this.root = null;
+    }
+    // takes a function
+    traverseBF(fn) {
+        
     }
 }
