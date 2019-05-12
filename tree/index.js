@@ -75,7 +75,36 @@ class Node {
     add(data) {
         this.children.push(new Node(data));
     }
-}
-class Tree {
+    
+    // call remove - given some data, look at each child of the current node
+    // and remove any node with data === data 
 
+    remove(data) {
+        // filter -array method
+        this.children = this.children.filter(node => {
+            return node.data !== data;
+        });
+    }
+
+}
+
+const n = new Node('a');
+n.add('b');
+// this creates a new node a with children node b
+
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.children = [];
+    }
+    add(data) {
+        this.children = new Node(data);
+    }
+
+    remove(data) {
+        this.children.filter(node => {
+            return node.data !== data;
+        });
+    }
 }
