@@ -122,3 +122,17 @@ class Tree {
         
     }
 }
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.children = [];
+    }
+    add(data) {
+        this.children = new Node(data);
+    }
+    remove(data) {
+        this.children = this.children.filter(node => {
+            return node.data !== data;
+        });
+    }
+}
