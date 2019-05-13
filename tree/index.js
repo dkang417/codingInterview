@@ -133,18 +133,6 @@ class Tree {
         // fn(node)
     
     traverseBF(fn) {
-        const arr = [this.root];
-        while (arr.length) {
-            const node = arr.shift();
-            arr.push(...node.children);
-            fn(node);
-        }
-       
-
-    }
-
-
-    traverseBF(fn) {
         // root node into a new array
         const arr = [this.root];
         while (arr.length) {
@@ -153,6 +141,17 @@ class Tree {
             // push all the children of the first item taken out of array
             arr.push(...node.children);
             // call the function on this node 
+            fn(node);
+        }
+    }
+
+    // simliar to bf
+    // instead of adding children to the end of the array. add to the front 
+    traverseDF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.unshift(...node.children);
             fn(node);
         }
     }
