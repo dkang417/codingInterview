@@ -117,8 +117,33 @@ class Tree {
     constructor() {
         this.root = null;
     }
-    // takes a function
-    // create an array and add root node . and all children into the array
+    // takes a function and passes the function on every node within the tree  
+    // Breath first - start at top, iterate undernearth, then next level. left to right
+    // create an empty array and add root node 
+    // while arr.length 
+        // take out the FIRST element(shift) - 
+        //take all of its children and stick it into the end of array(push)
+        // call the function on this first node 
+    
+
+    // create an array with root node
+    //while there is something inside the array
+        // take out the first item in the array - shift
+        // push to the end of the array all of its children 
+        // fn(node)
+    
+    traverseBF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.push(...node.children);
+            fn(node);
+        }
+       
+
+    }
+
+
     traverseBF(fn) {
         // root node into a new array
         const arr = [this.root];
