@@ -118,21 +118,17 @@ class Tree {
         this.root = null;
     }
     // takes a function
+    // create an array and add root node . and all children into the array
     traverseBF(fn) {
-        
-    }
-}
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.children = [];
-    }
-    add(data) {
-        this.children = new Node(data);
-    }
-    remove(data) {
-        this.children = this.children.filter(node => {
-            return node.data !== data;
-        });
+        // root node into a new array
+        const arr = [this.root];
+        while (arr.length) {
+            // take out first item in array
+            const node = arr.shift();
+            // push all the children of the first item taken out of array
+            arr.push(...node.children);
+            // call the function on this node 
+            fn(node);
+        }
     }
 }
