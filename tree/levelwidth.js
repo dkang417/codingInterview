@@ -51,26 +51,23 @@ module.exports = levelwidth;
 // arr  - the queue we use to iterate through our tree
 
 
-function levelWidth(root) {
-    const arr = [root, 's'];
-    const counters = [0];
 
-    while (arr.length > 1) {
+
+
+
+function traverseBF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
         const node = arr.shift();
-
-        // if we pull out s - add new element of 0 for new row 
-        // into counter, push 's' back into the end
-
-        if (node === 's') {
-            counters.push(0);
-            arr.push('s');
-        } else {
-            // push all of the children
-            // incremnt last number in counters array
-            arr.push(...node.children);
-            counters[counters.length - 1]++;
-        }
+        arr.push(...node.children);
+        fn(node);
     }
-    return counters;
-
+}
+function traverseDF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.unshift(...node.children);
+        fn(node);
+    }
 }
