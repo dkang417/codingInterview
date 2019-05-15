@@ -67,13 +67,36 @@ function levelwidth(root) {
     }
     return counters;
 }
+// create 2 arrays 
+// one array for the answers 
+// one array to keep track of all nodes plus 's'
+// while arr.length > 1  
+    // take out first node in arr
+    // if the node === 's'
+        //push another 0 into counters
+        //push s back into the end of the array
+    // else   push all of the nodes children into array
+             // increment counters at the counter.length-1
 
-
-
-
-
-
-
+//       20 
+//   3   4    18
+// 1,4, 6      6
+// [1. 3. 4]
+function levelWidth(root) {
+    const arr = [root, 's'];
+    const counter = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            counter.push(0);
+            arr.push('s');
+        } else {
+            counter[counter.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return counter;
+}
 
 
 
@@ -94,4 +117,20 @@ function traverseDF(fn) {
         arr.unshift(...node.children);
         fn(node);
     }
+}
+
+function levelWidth(root) {
+    const arr = [root, 's'];
+    const counter = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node==='s') {
+            counter.push(0);
+            arr.push('s');
+        } else {
+            counter[counter.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return counter;
 }
