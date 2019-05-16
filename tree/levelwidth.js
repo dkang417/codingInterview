@@ -136,7 +136,7 @@ function levelWidth(root) {
 }
 
 
-// binary Search Tree 
+// binary Search Tree - inserting nodes into a BST  
 
 class Node {
     constructor(data) {
@@ -154,5 +154,39 @@ class Node {
         } else if (data > this.data) {
             this.right = new Node(data);
         }
+    }
+}
+
+//         10               insert -20 
+//     0        12
+//   -1  4    11   20
+//               17  99 
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+    insert(data) {
+        // recursion solution 
+        // if data is less than this.data and there is a this.left   
+            // recurse on this.left
+        // else if data is less than this.data  (but no this.left)
+            // create a new node with data on this.left
+        // else if data is greater than this.data and there is a this.right
+            // recurse on this.right
+        // else if data is greater than this.data (but no this.right)
+            // create a new node on this.right
+        if (data < this.data && this.left) {
+            this.left.insert(data);
+        } else if (data < this.data) {
+            this.left = new Node(data);
+        } else if (data > this.data && this.right) {
+            this.right.insert(data);
+        } else if (data > this.data) {
+            this.right = new Node(data);
+        }
+        
     }
 }
