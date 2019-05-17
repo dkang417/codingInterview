@@ -110,6 +110,26 @@ class Node {
             this.right = new Node(data);
         }
     }
-    
+    // search through tree. find node with same value and return node.
+    // if node doesnt exist return null
+    contains(data) {
+        if (this.data === data) {
+            return this;
+        }
+
+        if (this.data < data && this.right) {
+            return this.right.contains(data);
+        } else if (this.data > data && this.left) {
+            return this.left.contains(data);
+        } 
+
+        return null;
+    }
+
+    // recurse through tree
+    // is value less than or greater than current node
+        // recurse to left or right 
+    // return null 
 }
+
 
