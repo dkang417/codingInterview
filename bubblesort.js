@@ -31,6 +31,7 @@ function bubbleSort(arr) {
 
 
 
+
 // selection sort 
 // prove me wrong sort - index i is lowest number. if not swap.
 
@@ -226,28 +227,6 @@ function mergeSort(arr) {
 
 [3, 1, 6, 8, 2, 4]
 
-function merge(left, right) {
-    const temp = [];
-    while (left.length && right.length) {
-        if (left[0] < right[0]) {
-            temp.push(left.shift());
-        } else {
-            temp.push(right.shift());
-        }
-    }
-    return [...temp, ...left, ...right];
-}
-
-function mergeSort(arr) {
-    if (arr.length === 1) {
-        return arr;
-    }
-    const mid = Math.floor((arr.length) / 2);
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
-
-    return merge(mergeSort(left), mergeSort(right));
-}
 
 
 // greedy algorithms 
@@ -315,3 +294,84 @@ const makeChange = (c) => {
     return cache[c];
 }
 
+
+function merge(left, right) {
+    const temp = [];
+    while (left.length && right.length) {
+ 
+        if (left[0] < right[0]) {
+            temp.push(left.shift());
+        } else {
+            temp.push(right.shift());
+        }
+    }
+    return [...temp, ...left, ...right];
+}
+
+function mergeSort(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+}
+
+
+
+function merge(left, right) {
+    const temp = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            temp.push(left.shift());
+        } else {
+            temp.push(right.shift());
+        }
+    }
+    return [...temp, ...left, ...right];
+}
+
+function mergeSort(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSorty(right));
+}
+
+
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++){
+        for (let j = 0; j < arr.length - i - 1; j++){
+            if (arr[j] > arr[j + 1]) {
+                const temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++){
+        let indexMin = i;
+
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[i]) {
+                indexMin = j;
+            }
+        }
+
+        if (indexMin !== i) {
+            let lesser = arr[indexMin];
+            arr[indexMin] = arr[i];
+            arr[i] = lesser;
+        }
+    }
+    return arr;
+
+}
