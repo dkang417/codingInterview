@@ -88,26 +88,12 @@ function validate(node, min = null, nax = null) {
 
 
 
-function validate(node, min = null, max = null) {
-
-    if (max !== null && node.data > max) {
-        return false;
-    }
-    if (min !== null && node.data < min) {
-        return false;
-    }
-
-    if (node.left && !validate(node.left, min, node.data)) {
-        return false;
-    }
-    if (node.right && !validate(node.right, node.data, max)) {
-        return false;
-    }
-
-    return true;
-
-}
-
+// we need to have min and max values when we recurse through the node- starts with null
+// if there is a min value  and node.data is less than min return false
+// if there is a max value and node.data is greater than max reuturn false
+// recurse through node.left && !validate passing values
+// recurse through node.right && !validate passing values  
+// if it passes through all checks return true
 
 
 
