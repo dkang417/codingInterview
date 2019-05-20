@@ -142,6 +142,124 @@ class Node {
     
 }
 
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+    insert(data) {
+        if (data < this.data && this.left) {
+            this.left.insert(data);
+        }
+        else if (data < this.data) {
+            this.left = new Node(data);
+        }
+        else if (data > this.data && this.right) {
+             this.right.insert(data);
+        }
+        else if (data > this.data) {
+            this.right = new Node(data);
+        }
+    }
+    contains(data) {
+        if (this.data === data) {
+            return this;
+        }
+        
+        if (this.data < data && this.right) {
+            return this.right.contains(data);
+        } else if (this.data > data && this.left) {
+            return this.left.contains(data);
+        }
+        return null;
+   }
+}
 
 
 
+
+function validate(node, min=null,max=null) {
+     //  20     
+    // 10  30 
+
+    // takes in a node, min=null,max=null
+    // if min is not null and node.data < min  then return false 
+    // if max is not null  and node.data > max then return false 
+    // if node.right && !validate(node.right ,node.data, max )
+    // if node.left && !validate(node.left, min, node.data)
+    // return true
+
+    if (min !== null && node.data < min) {
+        return false;
+    }
+    if (max !== null && node.data > max) {
+        return false;
+    }
+    if (node.right && !validate(node.right, node.data, max)) {
+        return false;
+    }
+    if (node.left && !validate(node.left, min, node.data)) {
+        return false; 
+    }
+    return true;
+}
+
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+
+    insert(data) {
+        if (this.data > data && this.left) {
+            this.left.insert(data);
+        }
+        if (this.data > data) {
+            this.left = new Node(data);
+        }
+        if (this.data < data && this.right) {
+            this.right.insert(data);
+        }
+        if (this.data < data) {
+            this.right = new Node(data);
+        }
+    }
+
+
+
+    contains(data) {
+        if (this.data === data) {
+            return this;
+        }
+
+        if (this.data > data && this.left) {
+            return this.left.contains(data);
+        } else if (this.data < data && this.right) {
+            return this.right.contains(data);
+        }
+        return null;
+    }  
+}
+//         10              5  25
+//    0           12  
+// -1   4      11     20
+//                 17    99
+
+function validation(node,min=null,max=null) {
+    if (min !== null && node.data < min) {
+        return false;
+    }
+    if (max !== null && node.data > max) {
+        return false;
+    }
+    if (node.left && !validation(node.left, min, node.data)) {
+        return false;
+    }
+    if (node.right && !validation(node.right, node.data, max)) {
+        return false;
+    }
+    return true;
+}
