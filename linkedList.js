@@ -63,12 +63,34 @@ class LinkedList {
 
         let prev = this.head;
         let node = this.head.next;
-
+        // while there is a node.next
+            // move prev and node 
         while (node.next) {
             prev = node;
             node = node.next;
         }
+        // previours. next becomes null 
         prev.next = null;
+    }
+    
+
+    getAt(index) {
+        // traverse through linked list using a counter
+        // while there is a head 
+            // if counter === index return node
+            // else traverse node and increment counter 
+        
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            } else {
+                node = node.next;
+                count++;
+            }
+        }
+        return null;
     }
 
 }
@@ -155,6 +177,7 @@ class LinkedList {
            this.head = new Node(data);
         }
     }
+
 
     getAt(index) {
        
