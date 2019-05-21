@@ -3,6 +3,81 @@
 // See 'directions' document
 
 
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    add(data) {
+        this.head = new Node(data, this.head);
+    }
+    count() {
+        let node = this.head;
+        let counter = 0;
+        while (node) {
+            counter++;
+            node = node.next;
+        }
+        return counter;
+    }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+    // 2 1 5
+
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head; 
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+    removeLast() {
+        // check if head is empty  - (no nodes)
+        if (!this.head) {
+            return; 
+        }
+        // check if head.next is empty  - (only 1 node)
+        if (!this.head.next) {
+            this.head = null;
+        }
+
+        let prev = this.head;
+        let node = this.head.next;
+
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+
+}
+
+
+
+
+
+
 
 class Node {
     constructor(data, next = null) {
