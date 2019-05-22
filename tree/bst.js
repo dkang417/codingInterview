@@ -11,6 +11,8 @@
 // class.  Contains should accept a 'data' argument
 // and return the Node in the tree with the same value.
 
+
+
 class Node {
 
     constructor(data) {
@@ -85,6 +87,8 @@ function validate(node, min = null, nax = null) {
     }
     return true;
 }
+
+
 
 
 

@@ -39,18 +39,8 @@ class LinkedList {
     }
     // 2 1 5
 
-    getLast() {
-        if (!this.head) {
-            return null;
-        }
-        let node = this.head; 
-        while (node) {
-            if (!node.next) {
-                return node;
-            }
-            node = node.next;
-        }
-    }
+    
+   
     removeLast() {
         // check if head is empty  - (no nodes)
         if (!this.head) {
@@ -91,9 +81,44 @@ class LinkedList {
             }
         }
         return null;
+    
+    
     }
 
-}
+    removeAt(index) {
+        if (!this.head) {
+            return; 
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+        }
+        const prev = this.getAt(index - 1);
+        if (!previous || !previous.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+        
+    }
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        // removes first element 
+        if (index === 0) {
+            this.head = this.head.next;
+        }
+        // leap frogs the index node 
+        const previous = this.getAt(index - 1);
+        if (!previous || !previous.next) {
+            return;
+        }
+        previous.next = previous.next.next;
+
+    }
+
+
+
+
 
 
 
@@ -195,21 +220,24 @@ class LinkedList {
         return null;
     }
 
+   
     removeAt(index) {
+        // check if linkedlist is empty
         if (!this.head) {
             return;
         }
-        // removes first element 
+        // check if index is 0 
         if (index === 0) {
             this.head = this.head.next;
         }
-        // leap frogs the index node 
-        const previous = this.getAt(index - 1);
-        if (!previous || !previous.next) {
+        // leap frog method and remove index 
+        const prev = this.getAt(index - 1);
+        // check edge cases - if no previous or no prev.next
+        // edge case if prev is the last node and there are no nodes after 
+        if (!prev || !prev.next) {
             return;
         }
-        previous.next = previous.next.next;
-
+        prev.next = prev.next.next;
     }
     insertAt(data, index) {
         if (!this.head) {
@@ -225,7 +253,18 @@ class LinkedList {
         const node = new Node(data, prev.next);
         previous.next = node;
     }
-
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, prev.next);
+        prev.next = node; 
+    }
+   
 
    
 
