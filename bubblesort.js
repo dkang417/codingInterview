@@ -68,7 +68,6 @@ function selectionSort(arr) {
 
 
 
-
 // merge and mergesort  
 // split array in half recursively while length === 1 base case 
 // split array into left and right 

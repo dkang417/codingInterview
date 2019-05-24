@@ -239,12 +239,6 @@ class LinkedList {
         // if theres no prev or no prev.next just return 
     }
 
-
-
-
-
-
-
     removeAt(index) {
         // check if linkedlist is empty
         if (!this.head) {
@@ -263,23 +257,43 @@ class LinkedList {
         }
         prev.next = prev.next.next;
     }
+
+   
+   
     insertAt(data, index) {
+        // check if no head and return
         if (!this.head) {
             this.head = new Node(data);
             return;
         }
+        // if index is 0 and return - because get at looks before 0
         if (index === 0) {
             this.head = new Node(data, this.head);
             return;
         }
-
-        const previous = this.getAt(index - 1) || this.getLast();
+        // get at looks at index -1 
+        // or the last item on the chain using getlast()
+        // or getlast() because we are looking at last node if the index is out of bounds
+        const prev = this.getAt(index - 1) || this.getLast();
+        // new node and the next node on this is the prev node.next . switches connection 
         const node = new Node(data, prev.next);
-        previous.next = node;
     }
-   
-   
-
+    insertAt(data, index) {
+        // if no head  and return
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        // if index is 0 and return
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        // getat index-1 || getlast()
+            // create the node and link 
+        const prev = this.getAt(index - 1) || this.getlast();
+        const node = new Node(data, prev.next);
+    }
    
 
 
