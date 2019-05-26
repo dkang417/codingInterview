@@ -273,6 +273,7 @@ class LinkedList {
         }
         // get at looks at index -1 
         // or the last item on the chain using getlast()
+        // leap frog method  - create a prev use get at or getLAST    AND create a node 
         // or getlast() because we are looking at last node if the index is out of bounds
         const prev = this.getAt(index - 1) || this.getLast();
         // new node and the next node on this is the prev node.next . switches connection 
@@ -344,7 +345,7 @@ class LinkedList {
 
     // return the first node 
     getFirst() {
-        return this.head; 
+        return this.head;
     }
 
     
@@ -390,7 +391,7 @@ class LinkedList {
             this.head = null;
             return;
         }
-        let prev= this.head;
+        let prev = this.head;
         let node = this.head.next;
         while (node.next) {
             prev = node;
@@ -420,7 +421,7 @@ class LinkedList {
         let counter = 0;
         let node = this.head;
         while (node) {
-            if (counter === index) { 
+            if (counter === index) {
                 return node;
             }
             counter++;
@@ -447,7 +448,7 @@ class LinkedList {
             return;
         }
 
-        previous.next = previous.next.next; 
+        previous.next = previous.next.next;
 
     }
 
@@ -463,16 +464,21 @@ class LinkedList {
             return;
         }
         // if index is non existant just use the last node and add new node to the end of the linkedlist 
+        // leap frog method  - create a prev use get at or getLAST    AND create a node 
         const prev = this.getAt(index - 1) || this.getLast();
-        const node = new Node(data,this.prev.next);
+        const node = new Node(data, this.prev.next);
         previous.next = node;
+
+    }
+
+
+ 
 
     }
 
 
 
 
-}
 
 
 module.exports = { Node, LinkedList };
