@@ -9,6 +9,7 @@ class Node {
         this.next = next;
     }
 }
+
 class LinkedList {
     constructor() {
         this.head = null;
@@ -16,6 +17,7 @@ class LinkedList {
     add(data) {
         this.head = new Node(data, this.head);
     }
+
     count() {
         let node = this.head;
         let counter = 0;
@@ -25,6 +27,23 @@ class LinkedList {
         }
         return counter;
     }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+
+
+
+
+
     getLast() {
         if (!this.head) {
             return null;
