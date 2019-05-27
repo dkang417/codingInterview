@@ -115,6 +115,25 @@ class LinkedList {
         previous.next = previous.next.next;
 
     }
+    insertAt(data, index) {
+        // check head
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        // check if index is 0
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        // leap frog - create 2 nodes- prev,node- getAt(index-1) or getLast  - newnode data,prev.next
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        prev.next = node;
+      
+
+    }
 
 
 
@@ -279,22 +298,7 @@ class LinkedList {
         // new node and the next node on this is the prev node.next . switches connection 
         const node = new Node(data, prev.next);
     }
-    insertAt(data, index) {
-        // if no head  and return
-        if (!this.head) {
-            this.head = new Node(data);
-            return;
-        }
-        // if index is 0 and return
-        if (index === 0) {
-            this.head = new Node(data, this.head);
-            return;
-        }
-        // getat index-1 || getlast()
-            // create the node and link 
-        const prev = this.getAt(index - 1) || this.getlast();
-        const node = new Node(data, prev.next);
-    }
+    
    
 
 
