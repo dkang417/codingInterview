@@ -27,19 +27,26 @@ class LinkedList {
         }
         return counter;
     }
-    getLast() {
+    // 1 2 3
+    removeLast() {
         if (!this.head) {
-            return null;
+            return;
         }
-        let node = this.head;
-        while (node) {
-            if (!node.next) {
-                return node;
-            }
+        if (!this.head.next) {
+            this.head = null;
+        }
+        // create 2 notes prev and node 
+        // get to the end of the chain  by - while(node.next)
+        // when we get out of while loop we know we are the end  - prev.next = null 
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
             node = node.next;
         }
+        prev.next = null;  
     }
-
+ 
 
 
 
@@ -83,6 +90,7 @@ class LinkedList {
     }
     
 
+
     getAt(index) {
         // traverse through linked list using a counter
         // while there is a head 
@@ -103,20 +111,24 @@ class LinkedList {
     
     
     }
-
-    removeAt(index) {
+    insertAt(data, index) {
+        // check head
         if (!this.head) {
-            return; 
-        }
-        if (index === 0) {
-            this.head = this.head.next;
-        }
-        const prev = this.getAt(index - 1);
-        if (!previous || !previous.next) {
             return;
         }
-        prev.next = prev.next.next;
-        
+        // check index 0 
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        // 1 2 3   6
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        prev.next = node;
+
+       
+
+        // leap frog  
     }
     removeAt(index) {
         if (!this.head) {
