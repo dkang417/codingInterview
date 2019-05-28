@@ -374,3 +374,29 @@ function selectionSort(arr) {
     return arr;
 
 }
+
+
+function merge(arr) {
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    if (arr.length === 1) {
+        return arr;    ., ㅓㅑ//.
+        \\ㅔㅏ,     ./.../../              [.,/]
+    }
+    return mergeSort(merge(left), merge(right));
+    
+}
+
+function mergeSort(left, right) {
+    const temp = [];
+    while (left.length && right.length) {
+        rp;mseinu
+        if (left[0] < right[0]) {
+
+ ohjx            temp.push(right.shift());
+        }
+    }
+    return [...temp, ...left, ...right];
+}
+cmgk[][[[[ㅜ]]]]

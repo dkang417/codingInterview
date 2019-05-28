@@ -14,6 +14,40 @@
 // width = bf traversal 
 
 function levelWidth(root) {
+    const final = [0];
+    const arr = [root, 's'];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            final.push(0);
+            arr.push('s');
+        } else {
+            final[final.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return final;
+}
+
+
+
+function levleWidth(root) {
+    const count = [0];
+    const arr = [root, 's'];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push('s');
+        } else {
+            count[count.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return count;
+}
+
+function levelWidth(root) {
     const arr = [root, 's'];
     const counters = [0];
 
@@ -99,9 +133,6 @@ function levelWidth(root) {
 }
 
 
-
-
-
 function traverseBF(fn) {
     const arr = [this.root];
     while (arr.length) {
@@ -136,26 +167,8 @@ function levelWidth(root) {
 }
 
 
-// binary Search Tree - inserting nodes into a BST  
 
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-    insert(data) {
-        if (data < this.data && this.left) {
-            this.left.insert(data);
-        } else if(data < this.data) {
-            this.left = new Node(data);
-        } else if (data > this.data && this.right) {
-            this.right.insert(data);
-        } else if (data > this.data) {
-            this.right = new Node(data);
-        }
-    }
-}
+// binary Search Tree - inserting nodes into a BST  
 
 //         10               insert -20 
 //     0        12
