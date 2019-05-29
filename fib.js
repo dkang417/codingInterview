@@ -8,14 +8,17 @@
 // Example:
 //   fib(4) === 3
 
+// iterative solution 
 function fib(n) { 
+    // first 2 numbers in fib array has to be 0 and 1
     const result = [0, 1];
+    
     for (let i = 2; i <= n; i++) {
-        const a = result[i - 1];
-        const b = result[i - 2];
+        const a = result[result.length - 1];
+        const b = result[result.length - 2];
         result.push(a + b);
     }
-    return result[n];
+    return result[result.length-1];
 }
 
 // recursion solution
