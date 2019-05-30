@@ -8,18 +8,42 @@
 // Example:
 //   fib(4) === 3
 
-// iterative solution 
+// iterative solution - linear run time-  O(n)
 function fib(n) { 
     // first 2 numbers in fib array has to be 0 and 1
     const result = [0, 1];
     
     for (let i = 2; i <= n; i++) {
-        const a = result[result.length - 1];
-        const b = result[result.length - 2];
-        result.push(a + b);
+        const a = result[result.length - 1]; // 1 
+        const b = result[result.length - 2]; // 0 
+        result.push(a + b); // 1 
     }
     return result[result.length-1];
 }
+
+// first create an array with 0 and 1 
+// create a for loop starting at 2 less than n 
+    // create 2 variables a and b    last 2 items in array
+    // add to the array a+b 
+
+// return last item in array 
+
+function fib(n) {
+    // create an array with 0,1 
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = arr[arr.length - 1];
+        const b = arr[arr.length - 2];
+        arr.push(a + b);
+    }
+    // return last val in array
+    return arr[arr.length - 1];
+}
+
+
+
+
+
 
 // recursion solution
 function fib(n) {
