@@ -42,6 +42,32 @@ function fib(n) {
 
 
 
+// iterative solution for fibb 
+function fib(n) {
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = arr[arr.length - 1];
+        const b = arr[arr.length - 2];
+        arr.push(a + b);
+    }
+    return arr[arr.length - 1];
+}
+
+// recursion 
+
+function fib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+
+
+
+
+
+
 
 
 
@@ -52,6 +78,7 @@ function fib(n) {
     }
     return fib(n - 1) + fib(n - 2);
 }
+
 
 
 
