@@ -53,22 +53,6 @@ function fib(n) {
     return arr[arr.length - 1];
 }
 
-// recursion 
-
-function fib(n) {
-    if (n < 2) {
-        return n;
-    }
-    return fib(n - 1) + fib(n - 2);
-}
-
-
-
-
-
-
-
-
 
 
 // recursion solution
@@ -93,7 +77,6 @@ function memoize(fn) {
         return result;
     }
 }
-
 
 function slowFib(n) {
     if (n < 2) {
@@ -159,4 +142,49 @@ function slowFib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 const fib = memoize(slowFib);
+
+
+// fib iterative solution 
+function fib(n) {
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = arr[arr.length - 1];
+        const b = arr[arr.length - 2];
+        arr.push(a + b);
+    }
+    return arr[arr.length - 1];
+}
+
+// fib recursive solution 
+function fib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+
+// fib memoize  solution 
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+
+        const value = fn.apply(this, args);
+        cache[args] = value;
+        return value; 
+    }
+}
+
+
+function slowFib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowFib);
+
 
