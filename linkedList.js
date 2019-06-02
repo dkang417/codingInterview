@@ -44,7 +44,7 @@ class LinkedList {
             prev = node;
             node = node.next;
         }
-        prev.next = null;  
+        prev.next = null;
     }
  
 
@@ -70,7 +70,7 @@ class LinkedList {
     removeLast() {
         // check if head is empty  - (no nodes)
         if (!this.head) {
-            return; 
+            return;
         }
         // check if head.next is empty  - (only 1 node)
         if (!this.head.next) {
@@ -80,7 +80,7 @@ class LinkedList {
         let prev = this.head;
         let node = this.head.next;
         // while there is a node.next
-            // move prev and node 
+        // move prev and node 
         while (node.next) {
             prev = node;
             node = node.next;
@@ -94,8 +94,8 @@ class LinkedList {
     getAt(index) {
         // traverse through linked list using a counter
         // while there is a head 
-            // if counter === index return node
-            // else traverse node and increment counter 
+        // if counter === index return node
+        // else traverse node and increment counter 
         
         let node = this.head;
         let count = 0;
@@ -130,6 +130,7 @@ class LinkedList {
 
         // leap frog  
     }
+
     removeAt(index) {
         if (!this.head) {
             return;
@@ -174,7 +175,7 @@ class LinkedList {
 
 
 
-
+}
 
 class Node {
     constructor(data, next = null) {
