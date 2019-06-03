@@ -1,6 +1,5 @@
 // colt steele sorting
 
-// bubble sort
 // shrink window from the right 
 function bubbleSort(arr) {
     let noSwaps;
@@ -18,7 +17,7 @@ function bubbleSort(arr) {
     }
     return arr;
 }
-// Selection Sort 
+
 // select smallest number and put it at begining  - prove me wrong method -
 // shrink the window
 function selectionSort(arr) {
@@ -39,7 +38,7 @@ function selectionSort(arr) {
 }
 
 
-// Insertion Sort 
+
 // [1,2,9,76,4]
 
 
@@ -54,7 +53,7 @@ function selectionSort(arr) {
 
 function insertionSort(arr) {
     for (let i = 1; i < arr.length; i++){
-        // create currentval
+        
         let currentVal = arr[i];
         // work  backwards 
         for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--){
