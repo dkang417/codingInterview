@@ -42,36 +42,27 @@ function selectionSort(arr) {
 // Insertion Sort 
 // [1,2,9,76,4]
 
-function insertionSort(arr) {
-    for (let i = 1; i < arr.length; i++){
-        let currentVal = arr[i];
-        // go backwards 
-        for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--){
-            arr[j + 1] = arr[j];
-        }
-        arr[j + 1] = currentVal;
-    }
-    return arr;
-}
-function insertionSort(arr) {
-    for (let i = 1; i < arr.length; i++){
-        let currentVal = arr[i];
-        // go backwards
-        for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--){
-            arr[j + 1] = arr[j];
-        }
-        arr[j + 1] = currentVal;
-    }
-    return arr;
-}
+
+// psudocode
+// start by picking the 2nd element in the array
+// compare the 2nd element with the one before it and swap if necessary
+// continue to the next element and if it is in the incorrect order, iterate through
+// the sorted portion (to the left side) to place the element in correct place
+// repeat until array is sorted
+
+
 
 function insertionSort(arr) {
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 1; i < arr.length; i++){
+        // create currentval
         let currentVal = arr[i];
-        // go backwards
-        for (let j = i - 1; j >= 0 && arr[j]>currentVal; j--){
+        // work  backwards 
+        for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--){
+            // swap 
             arr[j + 1] = arr[j];
         }
+        // we found where to put currentVal 
         arr[j + 1] = currentVal;
     }
+    return arr;
 }
