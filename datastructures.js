@@ -37,6 +37,7 @@ class SinglyLinkedList {
         return this;
     }
    
+   
     // if there are no nodes return undefined
     // loop through list until you reach tail
     // see the next property of the 2nd to last node to be null
@@ -62,6 +63,20 @@ class SinglyLinkedList {
         }
         return current;
     }
+    pop() {
+        if (!this.head) {
+            return undefined;
+        }
+        const current = this.head;
+        const newTail = current;
+        while (current.next) {
+            current = current.next;
+            newTail = current;
+        }
+        this.tail = newTail;
+        length--;
+        this.tail.next = null;
+    }
     
 
 
@@ -76,7 +91,15 @@ class SinglyLinkedList {
         return currentHead;
     }
 
-   
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+        const currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+        return currentHead;
+    }
    
    
 
