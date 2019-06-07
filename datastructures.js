@@ -108,9 +108,10 @@ class SinglyLinkedList {
         } else {
             newNode.next = this.head;
             this.head = newNode;
-            this.length++;
-            return this;
         }
+        this.length++;
+        return this;
+        
     }
    
    
