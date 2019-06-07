@@ -74,7 +74,7 @@ class SinglyLinkedList {
             newTail = current;
         }
         this.tail = newTail;
-        length--;
+        this.length--;
         this.tail.next = null;
     }
     
@@ -99,6 +99,18 @@ class SinglyLinkedList {
         this.head = currentHead.next;
         this.length--;
         return currentHead;
+    }
+    unshift(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+            this.length++;
+            return this;
+        }
     }
    
    
