@@ -14,7 +14,7 @@ class Node {
 }
 
 // need length, head, tail 
-class SinglyLinkedList{
+class SinglyLinkedList {
     constructor() {
         this.length = 0;
         this.tail = null;
@@ -48,25 +48,6 @@ class SinglyLinkedList{
             return undefined;
         }
         const current = this.head;
-        const newTail = current; 
-        while (current.next) {
-            newTail = current;
-            current = current.next;
-        }
-        this.tail = newTail;
-        this.tail.next = null;
-        this.length--;
-        if (this.length === 0) {
-            this.head = null;
-            this.tail = null;
-        }
-        return current;
-    }
-    pop() {
-        if (!this.head) {
-            return undefined;
-        }
-        const current = this.head;
         const newTail = current;
         while (current.next) {
             newTail = current;
@@ -81,6 +62,23 @@ class SinglyLinkedList{
         }
         return current;
     }
+    
+
+
+    // remove the head and head.next becomes the head 
+    shift() {
+        if (!this.head) {
+            return undefined;
+        }
+        const currentHead = this.head;
+        this.head = currentHead.next;
+        this.length--;
+        return currentHead;
+    }
+
+   
+   
+   
 
 }
 
