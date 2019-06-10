@@ -36,11 +36,12 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+ 
    
    
     // if there are no nodes return undefined
     // loop through list until you reach tail
-    // see the next property of the 2nd to last node to be null
+    // set the next property of the 2nd to last node to be null
     // set the tail to be the 2nd to last node 
     // decrement the length by 1
     // return value of removed node 
@@ -63,22 +64,7 @@ class SinglyLinkedList {
         }
         return current;
     }
-    pop() {
-        if (!this.head) {
-            return undefined;
-        }
-        const current = this.head;
-        const newTail = current;
-        while (current.next) {
-            current = current.next;
-            newTail = current;
-        }
-        this.tail = newTail;
-        this.length--;
-        this.tail.next = null;
-    }
     
-
 
     // remove the head and head.next becomes the head 
     shift() {
@@ -91,15 +77,6 @@ class SinglyLinkedList {
         return currentHead;
     }
 
-    shift() {
-        if (!this.head) {
-            return undefined;
-        }
-        const currentHead = this.head;
-        this.head = currentHead.next;
-        this.length--;
-        return currentHead;
-    }
 
     unshift(val) {
         const newNode = new Node(val);
@@ -119,6 +96,7 @@ class SinglyLinkedList {
     // loop through list until you reach index and return the node at that index
     // create a counter variable 
   
+   
     get(index) {
         if (index < 0 || index >= this.length) return undefined;
         const counter = 0;
@@ -141,6 +119,7 @@ class SinglyLinkedList {
         }
         return false;
     }
+
 
     // add a new node into a position 
     insert() {
