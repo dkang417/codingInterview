@@ -95,7 +95,6 @@ class SinglyLinkedList {
     // if less than 0 return null
     // loop through list until you reach index and return the node at that index
     // create a counter variable 
-  
    
     get(index) {
         if (index < 0 || index >= this.length) return undefined;
@@ -106,6 +105,14 @@ class SinglyLinkedList {
             counter++;
         }
         return current;
+    }
+    set(index, val) {
+        const foundNode = this.get(index);
+        if (foundNode) {
+            foundNode.val = val;
+            return true;
+        }
+        return false;
     }
 
     // change the value of a node based on its position in the list
@@ -122,8 +129,18 @@ class SinglyLinkedList {
 
 
     // add a new node into a position 
-    insert() {
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
         
+        const newNode = new Node(val);
+        const prev = this.get(index - 1);
+        const temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
     }
    
    
