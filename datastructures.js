@@ -101,7 +101,7 @@ class SinglyLinkedList {
         const counter = 0;
         const current = this.head;
         while (counter !== index) {
-            current = current.next; 
+            current = current.next;
             counter++;
         }
         return current;
@@ -143,6 +143,8 @@ class SinglyLinkedList {
         return true;
     }
 
+   
+
 
     remove(index) {
         if (index < 0 || index >= this.length) return undefined;
@@ -156,8 +158,32 @@ class SinglyLinkedList {
         return removed;
     }
    
+
+    // reversing a singly linked list 
+
+    reverse() {
+        // swapping head and tail 
+        const node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        const prev = null;
+        const next;
+
+        for (let i = 0; i < this.length; i++){
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }   
+        return this;
+    }
+
    
 
 }
 
 const list = new SinglyLinkedList();
+
+
+
