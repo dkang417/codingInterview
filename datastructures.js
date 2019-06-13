@@ -162,22 +162,52 @@ class SinglyLinkedList {
     // reversing a singly linked list 
 
     reverse() {
+        // need node, next, prev variables 
+
         // swapping head and tail 
         const node = this.head;
         this.head = this.tail;
         this.tail = node;
 
-        const prev = null;
         const next;
+        const prev = null;
+        
+        // 100   201   250  350  999   
+        // prev  node  next 
 
         for (let i = 0; i < this.length; i++){
             next = node.next;
             node.next = prev;
+            // moving 1 over
             prev = node;
             node = next;
         }   
         return this;
     }
+    reverse() {
+        // prev node next 
+        const node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        const next;
+        const prev = null;
+
+        for (let i = 0; i < this.length; i++){
+
+            next = node.next;
+            // first time is null 
+            node.next = prev;
+
+            // shift 1 over
+            prev = node;
+            node = next;
+        }
+        return this;
+    }
+ 
+
+   
 
    
 
