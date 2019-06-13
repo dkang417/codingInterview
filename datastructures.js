@@ -206,6 +206,24 @@ class SinglyLinkedList {
         return this;
     }
  
+    reverse() {
+        // 5 2 1 99 
+        // prev node next 
+        const node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+
+        const next;
+        const prev = null;
+        for (let i = 0; i < this.length; i++){
+            next = node.next;
+            node.next = prev;
+
+            prev = node;
+            node = next; 
+        }
+        return this;
+    }
 
    
 
