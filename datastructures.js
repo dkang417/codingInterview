@@ -36,6 +36,7 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+    
  
    
    
@@ -64,6 +65,7 @@ class SinglyLinkedList {
         }
         return current;
     }
+
     
 
     // remove the head and head.next becomes the head 
@@ -76,6 +78,7 @@ class SinglyLinkedList {
         this.length--;
         return currentHead;
     }
+    
 
 
     unshift(val) {
@@ -91,6 +94,7 @@ class SinglyLinkedList {
         return this;
         
     }
+ 
     // function takes an index
     // if less than 0 return null
     // loop through list until you reach index and return the node at that index
@@ -106,6 +110,7 @@ class SinglyLinkedList {
         }
         return current;
     }
+    
     set(index, val) {
         const foundNode = this.get(index);
         if (foundNode) {
@@ -142,6 +147,7 @@ class SinglyLinkedList {
         this.length++;
         return true;
     }
+    
 
    
 
@@ -157,6 +163,8 @@ class SinglyLinkedList {
         this.length--;
         return removed;
     }
+    
+   
    
 
     // reversing a singly linked list 
@@ -209,18 +217,38 @@ class SinglyLinkedList {
     reverse() {
         // 5 2 1 99 
         // prev node next 
+       
+        // reverse - needs prev node next 
+        // swap head and tail 
+        
         const node = this.head;
         this.head = this.tail;
         this.tail = node;
 
-        const next;
         const prev = null;
+        const next;
         for (let i = 0; i < this.length; i++){
             next = node.next;
             node.next = prev;
 
             prev = node;
-            node = next; 
+            node = next;
+        }
+        return this;
+    }
+    reverse() {
+        // prev node next   
+        const node = this.head;
+        this.head = this.tail;
+        this.tail = node; 
+        const prev = null;
+        const next;
+        for (let i = 0; i < this.length; i++){
+            next = node.next;
+            node.next = prev;
+
+            prev = node;
+            node = next;
         }
         return this;
     }
