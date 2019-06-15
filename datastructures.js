@@ -13,6 +13,8 @@ class Node {
     }
 }
 
+
+
 // need length, head, tail 
 class SinglyLinkedList {
     constructor() {
@@ -20,6 +22,7 @@ class SinglyLinkedList {
         this.tail = null;
         this.head = null;
     }
+    
 
     // create a newnode with val
     // if no head - head becomes newnode amd tail becomes head
@@ -37,8 +40,6 @@ class SinglyLinkedList {
         return this;
     }
     
- 
-   
    
     // if there are no nodes return undefined
     // loop through list until you reach tail
@@ -66,7 +67,7 @@ class SinglyLinkedList {
         return current;
     }
 
-    
+   
 
     // remove the head and head.next becomes the head 
     shift() {
@@ -94,6 +95,8 @@ class SinglyLinkedList {
         return this;
         
     }
+
+   
  
     // function takes an index
     // if less than 0 return null
@@ -110,7 +113,8 @@ class SinglyLinkedList {
         }
         return current;
     }
-    
+   
+
     set(index, val) {
         const foundNode = this.get(index);
         if (foundNode) {
@@ -236,23 +240,21 @@ class SinglyLinkedList {
         }
         return this;
     }
+    // prev node next 
     reverse() {
-        // prev node next   
         const node = this.head;
         this.head = this.tail;
-        this.tail = node; 
+        this.tail = node;
         const prev = null;
         const next;
         for (let i = 0; i < this.length; i++){
             next = node.next;
             node.next = prev;
-
             prev = node;
             node = next;
         }
         return this;
     }
-
    
 
    
