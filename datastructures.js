@@ -213,22 +213,68 @@ class LinkedList {
         this.length--;
         return node;
     }
+    
     unshift(val) {
-        
+        const node = new Node(val);
+        if (!this.head) {
+            this.head = node;
+            this.tail = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
+        }
+        this.length++;
+        return this;
     }
+    
     get(index) {
-        
+        if (index < 0 || index >= this.length) return undefined;
+        const node = this.head;
+        const count = 0;
+        while (count !== index) {
+            node = node.next;
+            count++;
+        }
+        return node;
     }
     set(index, val) {
+        const node = this.get(index);
+        if (node) {
+            node.val = val;
+            return true;
+        } return false;
         
     }
     insert(index, val) {
-        
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        const node = this.get(index - 1);
+        const temp = node.next;
+        const newNode = new Node(val);
+        node.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return this;
     }
     remove(index) {
         
     }
+    
     reverse() {
-        
+        // prev node next 
+        const node = this.head;
+        this.head = this.tail;
+        this.tail = node;
+        const prev = null;
+        const next;
+        for (let i = 0; i < this.length; i++) {
+            next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        return this;
     }
 }
