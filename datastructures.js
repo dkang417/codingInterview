@@ -258,8 +258,16 @@ class LinkedList {
         this.length++;
         return this;
     }
+
     remove(index) {
-        
+        if (index < 0 || index > this.length) return undefined;
+        if (index === 0) return this.shift();
+        if (index === this.length - 1) return this.pop();
+        const prev = this.get(index - 1);
+        const removeme = prev.next;
+        prev.next = removeme.next;
+        this.length--;
+        return removeme;
     }
     
     reverse() {
