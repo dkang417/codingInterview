@@ -234,6 +234,7 @@ function fib(n) {
 }
 
 
+
 // memoize 
 function memoize(fn) {
     const cache = {};
@@ -254,3 +255,4 @@ function slowFib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 const fib = memoize(slowFib);
+
