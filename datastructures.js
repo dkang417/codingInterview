@@ -286,3 +286,45 @@ class LinkedList {
         return this;
     }
 }
+
+
+// queue
+class Node {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
+class Queue {
+    constructor() {
+        this.first = null;
+        this.last = null;
+        this.count = 0;
+    }
+    enqueue(val) {
+        const temp = new Node(val);
+        if (!this.head) {
+            this.head = temp;
+            this.count++; 
+        } else {
+            this.last.next = temp;
+            this.last = temp;
+            this.count++;
+        }
+        return this.count;
+    }
+    dequeue() {
+        if (!this.head) {
+            return null;
+        }
+        const temp = this.head;
+        if (this.head = this.tail) {
+            this.tail = null;
+            this.count--;
+        } else {
+            this.first = this.first.next;
+            this.count--;
+            return temp.val;
+        }
+    }
+}
