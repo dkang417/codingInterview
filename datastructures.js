@@ -338,19 +338,17 @@ class Node {
         this.right = null;
     }
 
+    
     insert(data) {
-        const newNode = new Node(data);
-
         if (data < this.data && this.left) {
             this.left.insert(data);
         } else if (data < this.data) {
-            this.left = newNode;
-        } else if (data > this.data && this.right) {
+            this.left = new Node(data);
+        } else if (data > this.right && this.right) {
             this.right.insert(data);
-        } else if (data > this.data) {
-            this.right = newNode;
+        } else if (data > this.right) {
+            this.right = new Node(data);
         }
     }
-    
 }
 
