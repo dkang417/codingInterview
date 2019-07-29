@@ -338,7 +338,7 @@ class Node {
         this.right = null;
     }
 
-    
+    // recursive solution 
     insert(data) {
         if (data < this.data && this.left) {
             this.left.insert(data);
@@ -349,6 +349,11 @@ class Node {
         } else if (data > this.right) {
             this.right = new Node(data);
         }
+    }
+
+    // contain
+    contain() {
+        
     }
 }
 
