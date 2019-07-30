@@ -352,8 +352,28 @@ class Node {
     }
 
     // contain
-    contain() {
-        
+    contain(data) {
+        if (this.data === data) {
+            return this;
+        } 
+        if (data < this.data && this.right) {
+            return this.right.contain(data);
+        } 
+        else if (data > this.data && this.left) {
+            return this.left.contains(data);
+        }
+        return null;
+    }
+    
+}
+
+// bf traversal 
+function bfTraversal(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.push(...node.children);
+        fn(node);
     }
 }
 
