@@ -387,4 +387,21 @@ function dfTraversal(fn) {
     }
 }
 
-
+// bf 
+function bfTraversal(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.push(...node.children);
+        fn(node);
+    }
+}
+//df 
+function dfTraversal(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.unshift(...node.children);
+        fn(node);
+    }
+}
