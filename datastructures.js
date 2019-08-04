@@ -441,7 +441,7 @@ function bubbleSort(arr) {
 // [ 1, 8 , 9, 3]  [ 9, 3 , 2, 6]  
 
 // Merge takes an array and recursively splits in half until array or length 1  
-function merge(arr) {
+function mergeSort(arr) {
     if (arr.length === 1) {
         return arr;
     }
@@ -452,9 +452,6 @@ function merge(arr) {
     return merge(mergeSort(left), mergeSort(right));
     
 }
-
-
-
 function merge(left, right) {
     const results = [];
     while (left.length && right.length) {
@@ -466,3 +463,4 @@ function merge(left, right) {
     }
     return [...results, ...left, ...right];
 }
+
