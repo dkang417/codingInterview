@@ -337,6 +337,20 @@ class Node {
         this.left = null;
         this.right = null;
     }
+    insert(data) {
+        if (data < this.data && this.left) {
+            this.left.insert(data);
+        }
+        else if (data < this.data) {
+            this.left = new Node(data);
+        } 
+        else if (data > this.right && this.right) {
+            this.right.insert(data);
+        }
+        else if (data > this.right) {
+            this.right = new Node(data);
+        }
+    }
 
     // recursive solution 
     insert(data) {
@@ -364,6 +378,7 @@ class Node {
         }
         return null;
     }
+    
     
 }
 
@@ -404,4 +419,50 @@ function dfTraversal(fn) {
         arr.unshift(...node.children);
         fn(node);
     }
+}
+
+// sorts 
+
+// bubble sort   - restrict window - 1
+// [ 1, 8 , 9, 3]  
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                const temp = arr[j + 1];
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+// merge sort 
+// [ 1, 8 , 9, 3]  [ 9, 3 , 2, 6]  
+
+// Merge takes an array and recursively splits in half until array or length 1  
+function merge(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+    
+}
+
+
+
+function merge(left, right) {
+    const results = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            results.push(left.shift());
+        } else {
+            results.push(right.shift());
+        }
+    }
+    return [...results, ...left, ...right];
 }
