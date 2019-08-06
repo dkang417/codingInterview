@@ -421,6 +421,28 @@ function dfTraversal(fn) {
     }
 }
 
+// level width 
+//    1 
+//   2 4
+// 9 2   5
+// answer [1,2,3] how many nodes in each row
+
+function levleWidth(root) {
+    const count = [0];
+    const arr = [root, 's'];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push('s');
+        } else {
+            count[count.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return count;
+}
+
 // sorts 
 
 // bubble sort   - restrict window - 1
@@ -464,3 +486,39 @@ function merge(left, right) {
     return [...results, ...left, ...right];
 }
 
+// [1,4,5,2]
+
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++){
+        let low = i;
+        for (let j = i + 1; j < arr.length; j++){
+            if (arr[j] < arr[low]) {
+                low = j;
+            }
+        }
+
+        if (low !== i) {
+            const temp = arr[low];
+            arr[low] = arr[i];
+            arr[i]= temp;
+        }
+    }
+    return arr; 
+}
+
+
+// bubble sort 
+function bubbleSorT(arr) {
+    for (let i = 0; i < arr.length; i++){
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j+1]) {
+                const lesser = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = lesser;
+            }
+        }
+    }
+    return arr;
+}
+
+// merge sort 
