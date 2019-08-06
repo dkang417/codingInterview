@@ -521,4 +521,48 @@ function bubbleSorT(arr) {
     return arr;
 }
 
+
 // merge sort 
+function mergeSort(arr) {
+    // recurive solution 
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+}
+function merge(left, right) {
+    const results = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            results.push(left.shift());
+        } else {
+            results.push(right.shift());
+        }
+    }
+    return [...results, ...left, ...right];
+}
+
+//   10 
+// 6     9
+//1 2
+// return [1,2,2];
+function levelWidth(root) {
+    const arr = [root, 's'];
+    const count = [0];
+   
+    while (arr.length > 1) {
+         const node = arr.shift();
+        if (node === 's') {
+            arr.push('s');
+            count.push(0);
+        } else {
+            arr.push(...node.children);
+            count[count.length - 1]++;
+        }
+    }
+    return count;
+    
+}
