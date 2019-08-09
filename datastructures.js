@@ -506,6 +506,25 @@ function selectionSort(arr) {
     return arr; 
 }
 
+// selection
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++){
+        const lesser = i;
+
+        for (let j = i + 1; j < arr.length; j++){
+            if (arr[j] < arr[lesser]) {
+                lesser = j;
+            }
+        }
+        if (lesser !== i) {
+            const temp = arr[lesser];
+            arr[lesser] = arr[i];
+            arr[j] = temp;
+        }
+    }
+    return arr;
+}
+
 
 // bubble sort 
 function bubbleSorT(arr) {
