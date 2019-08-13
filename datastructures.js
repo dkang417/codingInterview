@@ -505,36 +505,22 @@ function selectionSort(arr) {
     }
     return arr; 
 }
-
-// selection
-function selectionSort(arr) {
-    for (let i = 0; i < arr.length; i++){
-        const lesser = i;
-
-        for (let j = i + 1; j < arr.length; j++){
-            if (arr[j] < arr[lesser]) {
-                lesser = j;
-            }
-        }
-        if (lesser !== i) {
-            const temp = arr[lesser];
-            arr[lesser] = arr[i];
-            arr[j] = temp;
-        }
-    }
-    return arr;
-}
-
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         let least = i;
 
         for (let j = i + 1; j < arr.length; j++){
             if (arr[j] < arr[least]) {
-                
+                least = j;
             }
         }
+        if (least !== i) {
+            const temp = arr[i];
+            arr[i] = arr[least];
+            arr[least] = temp;
+        }
     } 
+    return arr;
 }
 
 
@@ -630,4 +616,6 @@ function fib(n) {
     return arr[n];
 }
 
-// memoize 
+// memoize  solution 
+
+
