@@ -525,7 +525,17 @@ function selectionSort(arr) {
     return arr;
 }
 
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let least = i;
 
+        for (let j = i + 1; j < arr.length; j++){
+            if (arr[j] < arr[least]) {
+                
+            }
+        }
+    } 
+}
 
 
 function bubbleSort(arr) {
@@ -541,7 +551,27 @@ function bubbleSort(arr) {
     return arr;
 }
 
-
+function mergeSort(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    
+    return merge(mergeSort(left), mergeSort(right));
+}
+function merge(left, right) {
+    const arr = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+    return [...arr, ...left, ...right];
+}
 
 //   10 
 // 6     9
@@ -564,6 +594,24 @@ function levelWidth(root) {
     return count;
     
 }
+// iterative solution 
+function fib(n) {
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = arr[i - 1];
+        const b = arr[i - 2];
+        arr.push(a + b);
+    }
+    return arr[n];
+}
+// recursion solution
+function fib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+
+
+
 
 // fibbonacci 
 // recursion solution
