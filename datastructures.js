@@ -541,22 +541,6 @@ function bubbleSort(arr) {
     return arr;
 }
 
-function levelWidth(root) {
-    const arr = [root, 's'];
-    const count = [0];
-    while (arr.length > 1 ) {
-        const node = arr.shift();
-        if (node === 's') {
-            arr.push('s');
-            count.push(0);
-        } else {
-            arr.push(...node.children);
-            count[count.length - 1]++;
-        }
-    }
-    return count;
-}
-
 
 
 //   10 
@@ -581,3 +565,21 @@ function levelWidth(root) {
     
 }
 
+// fibbonacci 
+// recursion solution
+function fib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+// fib iterative solution 
+function fib(n) {
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = arr[i - 1];
+        const b = arr[i - 2];
+        arr.push(a + b);
+    }
+    return arr[n];
+}
+
+// memoize 
