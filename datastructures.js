@@ -681,3 +681,54 @@ function slowFib(n) {
     return fib(n - 1) + fib(n - 2);
 }
 const fib = memoize(slowFib);
+
+// fib  iterative solution
+function fib(n) {
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = arr[n - 1];
+        const b = arr[n - 2];
+        arr.push(a + b);
+    }
+    return arr[n];
+}
+// recursive solution
+function fib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+// memoize solution 
+// create generic memoize function that takes in a function 
+// returns a function - takes ...args   defensive code 
+
+
+
+function memoize(fn) {
+    const cache = {};
+
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+        
+        const result = fn.apply(this, args);
+        cache[args] = result;
+        return result;
+    }
+}
+function slowFib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowFib);
+
+//iterative 
+function fib(n) {
+    const result = [0, 1];
+    for (let i = 2; i <= n; i++){
+        const a = result[n - 1];
+        const b = result[n - 2];
+        result.push(a + b);
+    }
+    return result[n];
+}
