@@ -566,9 +566,9 @@ function merge(left, right) {
 function levelWidth(root) {
     const arr = [root, 's'];
     const count = [0];
-   
+    
     while (arr.length > 1) {
-         const node = arr.shift();
+        const node = arr.shift();
         if (node === 's') {
             arr.push('s');
             count.push(0);
@@ -578,8 +578,8 @@ function levelWidth(root) {
         }
     }
     return count;
-    
 }
+
 // iterative solution 
 function fib(n) {
     const arr = [0, 1];
@@ -731,4 +731,27 @@ function fib(n) {
         result.push(a + b);
     }
     return result[n];
+}
+
+// [2, 6, 13, 3, 5]
+function mergeSort(arr){
+    //recursive solution 
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+}
+function merge(left, right) {
+    const arr = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+    return [...arr, ...left, ...right];
 }
