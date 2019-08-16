@@ -785,3 +785,40 @@ function bubbleSort(arr) {
     }
     return arr;
 }
+// binary search tree 
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+    // inserting into a binary search tree 
+
+    insert(data) {
+        if (this.data > data && this.left) {
+            this.left.insert(data);
+        }
+        if (this.data > data) {
+            this.left = new Node(data);
+        }
+        if (this.data < data && this.right) {
+            this.right.insert(data);
+        }
+        if (this.data < data) {
+            this.right = new Node(data);
+        }
+    }
+
+
+
+    // checking if a number is contained in a binarysearchtree 
+       //       10     insert 40
+    //     5    15
+    //    0         20
+    //  -5 3        
+    // does this tree contain '3' ? -   RECURSION SOLUTION 
+    contains(data) {
+        
+    }
+
+}
