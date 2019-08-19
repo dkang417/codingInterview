@@ -830,8 +830,29 @@ class Node {
     //    0         20
     //  -5 3        
     // does this tree contain '3' ? -   RECURSION SOLUTION 
+   
     contains(data) {
-        
+        if (this.data === data) {
+            return this;
+        }
+        else if (data < this.data) {
+            return this.left.contains(data);
+        } else if (data > this.data) {
+            return this.right.contains(data);
+        }
+        return false;
+    }
+
+    contains(data) {
+        if (data === this.data) return this;
+
+        else if (data > this.data) {
+            return this.right.contains(data);
+        }
+        else if (data < this.data) {
+            return this.left.contains(data);
+        }
+        return false;
     }
 
 }
