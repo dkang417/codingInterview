@@ -8,8 +8,25 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
+
+
 // first in first out 
-// unshift is how to add to the front of an array
+// add to the front and remove from the end  
+class Queue {
+    constructor(){
+        this.data = [];
+    }
+   
+    add(record) {
+        this.data.unshift(record);
+    }
+    remove() {
+        return this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
+}
 
 class Queue {
     constructor() {
