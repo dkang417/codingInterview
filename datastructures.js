@@ -822,8 +822,7 @@ class Node {
         }
     }
 
-
-
+ 
     // checking if a number is contained in a binarysearchtree 
        //       10     insert 40
     //     5    15
@@ -843,9 +842,15 @@ class Node {
         return false;
     }
 
+    // checking if a number is contained in a binarysearchtree 
+       //       10     insert 40
+    //     5    15
+    //    0         20
+    //  -5 3        
+    // does this tree contain '3' ? -   RECURSION SOLUTION 
+   
     contains(data) {
         if (data === this.data) return this;
-
         else if (data > this.data) {
             return this.right.contains(data);
         }
