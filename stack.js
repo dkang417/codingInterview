@@ -16,6 +16,7 @@
 
 // first in last out 
 
+
 class Stack {
     constructor() {
         this.data = [];

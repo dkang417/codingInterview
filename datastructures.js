@@ -11,6 +11,39 @@ class Node {
     }
 }
 
+class SingleLinkedList {
+    constructor() {
+        this.length = 0;
+        this.head = null;
+        this.tail = null;
+    }
+}
+
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+class SingleLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    push(data) {
+        const newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+    }
+}
 
 // need length, head, tail 
 class SinglyLinkedList {
@@ -157,6 +190,12 @@ class SinglyLinkedList {
 }
 
 const list = new SinglyLinkedList();
+
+
+
+
+
+
 
 
 
@@ -645,43 +684,6 @@ const fib = memoize(slowFib);
 
 
 
-function memoize(fn) {
-    const cache = {};
-
-    return function (...args) {
-        if (cache[args]) {
-            return cache[args];
-        }
-        const result = fn.apply(this, args);
-        cache[args] = result;
-        return result;
-    }
-}
-
-function slowFib(n) {
-    if (n < 2) return n;
-    return fib(n - 1) + fib(n - 2);
-}
-const fib = memoize(slowFib);
-
-
-function memoize(fn) {
-    const cache = {};
-    return function (...args) {
-        if (cache[args]) {
-            return cache[args];
-        }
-        const result = fn.apply(this, args);
-        cache[args] = result;
-        return result;
-    }
-}
-function slowFib(n) {
-    if (n < 2) return n;
-    return fib(n - 1) + fib(n - 2);
-}
-const fib = memoize(slowFib);
-
 // fib  iterative solution
 function fib(n) {
     const arr = [0, 1];
@@ -807,20 +809,7 @@ class Node {
             this.left = new Node(data);
         }
     }
-    insert(data) {
-        if (this.data > data && this.left) {
-            this.left.insert(data);
-        }
-        if (this.data > data) {
-            this.left = new Node(data);
-        }
-        if (this.data < data && this.right) {
-            this.right.insert(data);
-        }
-        if (this.data < data) {
-            this.right = new Node(data);
-        }
-    }
+
 
  
     // checking if a number is contained in a binarysearchtree 
@@ -848,16 +837,35 @@ class Node {
     //    0         20
     //  -5 3        
     // does this tree contain '3' ? -   RECURSION SOLUTION 
-   
-    contains(data) {
-        if (data === this.data) return this;
-        else if (data > this.data) {
-            return this.right.contains(data);
-        }
-        else if (data < this.data) {
-            return this.left.contains(data);
-        }
-        return false;
-    }
 
+
+}
+
+class Stack {
+    constructor() {
+        this.data = [];
+    }
+    add(record) {
+        this.data.push(record);
+    }
+    remove() {
+        return this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
+}
+class Queue {
+    constructor() {
+        this.data = [];
+    }
+    add(record) {
+        this.data.unshift(record);
+    }
+    remove() {
+        this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
 }
