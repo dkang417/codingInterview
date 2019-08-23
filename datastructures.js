@@ -45,6 +45,8 @@ class SingleLinkedList {
     }
 }
 
+
+
 // need length, head, tail 
 class SinglyLinkedList {
     constructor() {
@@ -787,6 +789,34 @@ function bubbleSort(arr) {
     }
     return arr;
 }
+
+class Node {
+    construcotr(data) {
+        this.data = data;
+        this.right = null;
+        this.left = null;
+    }
+    insert(data) {
+        if (data > this.data && this.right) {
+            this.right.insert(data);
+        }
+        if (data > this.data) {
+            this.right = new Node(data);
+        }
+        if (data < this.data && this.left) {
+            this.left.insert(data);
+        }
+        if (data < this.data) {
+            this.left = new Node(data);
+        }
+    }
+    contains(data) {
+        
+    }
+}
+
+
+
 // binary search tree 
 class Node {
     constructor(data) {
@@ -810,6 +840,8 @@ class Node {
         }
     }
 
+    // binary search tree   
+ 
 
  
     // checking if a number is contained in a binarysearchtree 
