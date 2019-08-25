@@ -54,7 +54,7 @@ class SinglyLinkedList {
         this.tail = null;
         this.head = null;
     }
-    
+
     // create a newnode with val
     // if no head - head becomes newnode amd tail becomes head
     // else - tail.next becomes newnode and tail becomes newnode
@@ -116,13 +116,13 @@ class SinglyLinkedList {
         }
         this.length++;
         return this;
-        
+
     }
     // function takes an index
     // if less than 0 return null
     // loop through list until you reach index and return the node at that index
     // create a counter variable 
-   
+
     get(index) {
         if (index < 0 || index >= this.length) return undefined;
         const counter = 0;
@@ -177,16 +177,16 @@ class SinglyLinkedList {
         this.head = this.tail;
         this.tail = node;
         const next;
-        const prev = null;     
+        const prev = null;
         // 100   201   250  350  999   
         // prev  node  next 
-        for (let i = 0; i < this.length; i++){
+        for (let i = 0; i < this.length; i++) {
             next = node.next;
             node.next = prev;
             // moving 1 over
             prev = node;
             node = next;
-        }   
+        }
         return this;
     }
 }
@@ -227,7 +227,7 @@ class LinkedList {
         return this;
 
     }
-  
+
     pop() {
         if (!this.head) return undefined;
         const node = this.head;
@@ -244,9 +244,9 @@ class LinkedList {
             this.tail = null;
         }
         return node;
-        
+
     }
-    
+
     shift() {
         if (!this.head) return undefined;
         const node = this.head;
@@ -254,7 +254,7 @@ class LinkedList {
         this.length--;
         return node;
     }
-    
+
     unshift(val) {
         const node = new Node(val);
         if (!this.head) {
@@ -267,7 +267,7 @@ class LinkedList {
         this.length++;
         return this;
     }
-    
+
     get(index) {
         if (index < 0 || index >= this.length) return undefined;
         const node = this.head;
@@ -284,7 +284,7 @@ class LinkedList {
             node.val = val;
             return true;
         } return false;
-        
+
     }
     insert(index, val) {
         if (index < 0 || index > this.length) return false;
@@ -310,7 +310,7 @@ class LinkedList {
         this.length--;
         return removeme;
     }
-    
+
     reverse() {
         // prev node next 
         const node = this.head;
@@ -346,7 +346,7 @@ class Queue {
         const temp = new Node(val);
         if (!this.head) {
             this.head = temp;
-            this.count++; 
+            this.count++;
         } else {
             this.last.next = temp;
             this.last = temp;
@@ -384,7 +384,7 @@ class Node {
         }
         else if (data < this.data) {
             this.left = new Node(data);
-        } 
+        }
         else if (data > this.right && this.right) {
             this.right.insert(data);
         }
@@ -410,17 +410,17 @@ class Node {
     contain(data) {
         if (this.data === data) {
             return this;
-        } 
+        }
         if (data < this.data && this.right) {
             return this.right.contain(data);
-        } 
+        }
         else if (data > this.data && this.left) {
             return this.left.contains(data);
         }
         return null;
     }
-    
-    
+
+
 }
 
 // bf traversal 
@@ -490,10 +490,10 @@ function levleWidth(root) {
 // [ 1, 8 , 9, 3]  
 function bubbleSort(arr) {
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length - i-1; j++) {
-            if (arr[j] > arr[j+1]) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
                 const temp = arr[j + 1];
-                arr[j+1] = arr[j];
+                arr[j + 1] = arr[j];
                 arr[j] = temp;
             }
         }
@@ -513,7 +513,7 @@ function mergeSort(arr) {
     const left = arr.slice(0, mid);
     const right = arr.slice(mid);
     return merge(mergeSort(left), mergeSort(right));
-    
+
 }
 function merge(left, right) {
     const results = [];
@@ -530,9 +530,9 @@ function merge(left, right) {
 // [1,4,5,2]
 
 function selectionSort(arr) {
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         let low = i;
-        for (let j = i + 1; j < arr.length; j++){
+        for (let j = i + 1; j < arr.length; j++) {
             if (arr[j] < arr[low]) {
                 low = j;
             }
@@ -541,16 +541,16 @@ function selectionSort(arr) {
         if (low !== i) {
             const temp = arr[low];
             arr[low] = arr[i];
-            arr[i]= temp;
+            arr[i] = temp;
         }
     }
-    return arr; 
+    return arr;
 }
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         let least = i;
 
-        for (let j = i + 1; j < arr.length; j++){
+        for (let j = i + 1; j < arr.length; j++) {
             if (arr[j] < arr[least]) {
                 least = j;
             }
@@ -560,14 +560,14 @@ function selectionSort(arr) {
             arr[i] = arr[least];
             arr[least] = temp;
         }
-    } 
+    }
     return arr;
 }
 
 
 function bubbleSort(arr) {
-    for (let i = 0; i < arr.length; i++){
-        for (let j = 0; j < arr.length - i - 1; j++){
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 const temp = arr[j];
                 arr[j] = arr[j + 1];
@@ -585,7 +585,7 @@ function mergeSort(arr) {
     const mid = Math.floor(arr.length / 2);
     const left = arr.slice(0, mid);
     const right = arr.slice(mid);
-    
+
     return merge(mergeSort(left), mergeSort(right));
 }
 function merge(left, right) {
@@ -607,7 +607,7 @@ function merge(left, right) {
 function levelWidth(root) {
     const arr = [root, 's'];
     const count = [0];
-    
+
     while (arr.length > 1) {
         const node = arr.shift();
         if (node === 's') {
@@ -624,7 +624,7 @@ function levelWidth(root) {
 // iterative solution 
 function fib(n) {
     const arr = [0, 1];
-    for (let i = 2; i <= n; i++){
+    for (let i = 2; i <= n; i++) {
         const a = arr[i - 1];
         const b = arr[i - 2];
         arr.push(a + b);
@@ -649,7 +649,7 @@ function fib(n) {
 // fib iterative solution 
 function fib(n) {
     const arr = [0, 1];
-    for (let i = 2; i <= n; i++){
+    for (let i = 2; i <= n; i++) {
         const a = arr[i - 1];
         const b = arr[i - 2];
         arr.push(a + b);
@@ -689,7 +689,7 @@ const fib = memoize(slowFib);
 // fib  iterative solution
 function fib(n) {
     const arr = [0, 1];
-    for (let i = 2; i <= n; i++){
+    for (let i = 2; i <= n; i++) {
         const a = arr[n - 1];
         const b = arr[n - 2];
         arr.push(a + b);
@@ -714,7 +714,7 @@ function memoize(fn) {
         if (cache[args]) {
             return cache[args];
         }
-        
+
         const result = fn.apply(this, args);
         cache[args] = result;
         return result;
@@ -729,7 +729,7 @@ const fib = memoize(slowFib);
 //iterative 
 function fib(n) {
     const result = [0, 1];
-    for (let i = 2; i <= n; i++){
+    for (let i = 2; i <= n; i++) {
         const a = result[n - 1];
         const b = result[n - 2];
         result.push(a + b);
@@ -738,7 +738,7 @@ function fib(n) {
 }
 
 // [2, 6, 13, 3, 5]
-function mergeSort(arr){
+function mergeSort(arr) {
     //recursive solution 
     if (arr.length === 1) {
         return arr;
@@ -759,11 +759,11 @@ function merge(left, right) {
     }
     return [...arr, ...left, ...right];
 }
-function selectionSort(arr){ 
-    for (let i = 0; i <= arr.length; i++){
+function selectionSort(arr) {
+    for (let i = 0; i <= arr.length; i++) {
         const least = i;
 
-        for (let j = i + 1; j <= arr.length; j++){
+        for (let j = i + 1; j <= arr.length; j++) {
             if (arr[j] < arr[least]) {
                 least = j;
             }
@@ -775,12 +775,12 @@ function selectionSort(arr){
         }
     }
     return arr;
-} 
+}
 function bubbleSort(arr) {
-    for (let i = 0; i <= arr.length; i++){
-        for (let j = 0; j <= arr.length - i - 1; j++){
+    for (let i = 0; i <= arr.length; i++) {
+        for (let j = 0; j <= arr.length - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
-                const temp = arr[j + 1]; 
+                const temp = arr[j + 1];
                 arr[j + 1] = arr[j];
                 arr[j] = temp;
             }
@@ -811,7 +811,25 @@ class Node {
         }
     }
     contains(data) {
-        
+        if (this.data === data) return this;
+        else if (data < this.data) {
+            return this.left.contains(data);
+        } else if (data > this.data) {
+            return this.right.contains(data);
+        }
+        return false;
+    }
+    contains(data) {
+        if (data === this.data) {
+            return this;
+        }
+        else if (data < this.data) {
+            return this.left.contains(data);
+        }
+        else if (data > this.data) {
+            return this.right.contains(data);
+        }
+        return false;
     }
 }
 
@@ -828,7 +846,7 @@ class Node {
     insert(data) {
         if (data > this.data && this.right) {
             this.right.insert(data);
-        } 
+        }
         if (data > this.data) {
             this.right = new Node(data);
         }
@@ -841,16 +859,16 @@ class Node {
     }
 
     // binary search tree   
- 
 
- 
+
+
     // checking if a number is contained in a binarysearchtree 
-       //       10     insert 40
+    //       10     insert 40
     //     5    15
     //    0         20
     //  -5 3        
     // does this tree contain '3' ? -   RECURSION SOLUTION 
-   
+
     contains(data) {
         if (this.data === data) {
             return this;
@@ -864,7 +882,7 @@ class Node {
     }
 
     // checking if a number is contained in a binarysearchtree 
-       //       10     insert 40
+    //       10     insert 40
     //     5    15
     //    0         20
     //  -5 3        
