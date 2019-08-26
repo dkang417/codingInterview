@@ -810,15 +810,7 @@ class Node {
             this.left = new Node(data);
         }
     }
-    contains(data) {
-        if (this.data === data) return this;
-        else if (data < this.data) {
-            return this.left.contains(data);
-        } else if (data > this.data) {
-            return this.right.contains(data);
-        }
-        return false;
-    }
+
     contains(data) {
         if (data === this.data) {
             return this;
@@ -913,9 +905,92 @@ class Queue {
         this.data.unshift(record);
     }
     remove() {
-        this.data.pop();
+        return this.data.pop();
     }
     peek() {
         return this.data[this.data.length - 1];
     }
+}
+function fib(n) {
+    const arr = [0, 1];
+    for (let i = 2; i <= n; i++) {
+        const a = arr[i - 1];
+        const b = arr[i - 2];
+        arr.push(a + b);
+    }
+    return arr[n];
+}
+function fib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+
+
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+        const result = fn.apply(this, args);
+        cache[args] = result;
+        return result;
+    }
+}
+function slowFib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowFib);
+
+function merge(left, right) {
+    const arr = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+    return [...arr, ...left, ...right];
+
+}
+
+function mergeSort(arr) {
+    if (arr.length === 1) return arr;
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+}
+function selectionSort(arr) {
+    for (let i = 0; i <= arr.length; i++) {
+        const least = i;
+
+        for (let j = i + 1; j <= arr.length; j++) {
+            if (arr[j] < arr[least]) {
+                least = j;
+            }
+        }
+        if (least !== i) {
+            const temp = arr[least];
+            arr[least] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    return arr;
+}
+
+function bubbleSort(arr) {
+    for (let i = 0; i <= arr.length; i++) {
+        for (let j = 0; j <= arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                const temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+
 }
