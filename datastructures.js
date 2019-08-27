@@ -994,3 +994,53 @@ function bubbleSort(arr) {
     return arr;
 
 }
+
+function slowfib(n) {
+    if (n < 2) return n;
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowfib);
+
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) return cache[args];
+        const result = fn.apply(this, args);
+        cache[args] = result;
+        return result;
+    }
+}
+
+
+// bst 
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+    insert(data) {
+        if (data < this.data && this.left) {
+            this.left.insert(data);
+        }
+        else if (data < this.data) {
+            this.left = new Node(data);
+        }
+        else if (data > this.data && this.right) {
+            this.right.insert(data);
+        }
+        else if (data > this.data) {
+            this.right = new Node(data);
+        }
+    }
+    contains(data) {
+        if (data === this.data) return this;
+        if (data < this.data && this.left) {
+            return this.left.contains(data);
+        }
+        else if (data > this.data && this.right) {
+            return this.right.contains(data);
+        }
+        return null;
+    }
+}
