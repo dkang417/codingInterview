@@ -1079,7 +1079,31 @@ class SingleLinkedList {
         }
         return current;
     }
-
+    // removing the head
+    shift() {
+        if (!this.head) return undefined;
+        const node = this.head;
+        this.head = node.next;
+        this.length--;
+        // if there was only 1 node in list we need this case
+        if (this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+        }
+        return node;
+    }
+    // adding a new node to begining 
+    unshift(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = this.head;
+        } else {
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
 
 }
-
