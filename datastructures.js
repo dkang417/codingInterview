@@ -1038,6 +1038,54 @@ class Node {
         this.next = null;
     }
 }
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+class SingleLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    push(val) {
+        const newNode = new Node(val);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+    }
+    pop() {
+        if (!this.head) return undefined;
+        const current = this.head;
+        const newTail = this.head;
+        while (current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        this.length--;
+        this.tail = newTail;
+        this.tail.next = null;
+        if (this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
+    }
+    // shift remove from head 
+    shift() {
+
+
+
+    }
+}
 
 class SingleLinkedList {
     constructor() {
