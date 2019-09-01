@@ -1081,8 +1081,18 @@ class SingleLinkedList {
     }
     // shift remove from head 
     shift() {
-
-
+        if (!this.head) return undefined;
+        const node = this.head;
+        this.head = node.next;
+        this.length--;
+        if (this.head === this.tail) {
+            this.head = null;
+            this.tail = null;
+        }
+        return node;
+    }
+    // add to head 
+    unshift() {
 
     }
 }
