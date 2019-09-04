@@ -29,6 +29,31 @@ class SingleLinkedList {
         this.length++;
         return this;
     }
+    // function takes an index
+    // if less than 0 return null
+    // loop through list until you reach index and return the node at that index
+    // create a counter variable 
+    get(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        const current = this.head;
+        const count = 0;
+        while (count !== index) {
+            current = current.next;
+            count++;
+        }
+        return current;
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        const counter = 0;
+        const current = this.head;
+        while (counter !== index) {
+            current = current.next;
+            counter++;
+        }
+        return current;
+    }
 }
 
 
