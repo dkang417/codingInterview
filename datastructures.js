@@ -29,21 +29,33 @@ class SingleLinkedList {
         this.length++;
         return this;
     }
+    get(index) {
+        if (index < 0 || index >= this.length) {
+            return undefined;
+        }
+        const node = this.head;
+        const count = 0;
+        while (index !== count) {
+            node = node.next;
+            count++;
+        }
+        return node;
+    }
+
+    set(val, index) {
+        const node = this.get(index);
+        if (node) {
+            node.val = val;
+            return true;
+        }
+        return false;
+    }
+
+
     // function takes an index
     // if less than 0 return null
     // loop through list until you reach index and return the node at that index
     // create a counter variable 
-    get(index) {
-        if (index < 0 || index >= this.length) return undefined;
-        const current = this.head;
-        const count = 0;
-        while (count !== index) {
-            current = current.next;
-            count++;
-        }
-        return current;
-    }
-
     get(index) {
         if (index < 0 || index >= this.length) return undefined;
         const counter = 0;
@@ -54,6 +66,22 @@ class SingleLinkedList {
         }
         return current;
     }
+    // add a new node into a position 
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        const newNode = new Node(val);
+        const prev = this.get(index - 1);
+        const temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+
+
 }
 
 
@@ -81,6 +109,7 @@ class SinglyLinkedList {
         this.length++;
         return this;
     }
+
     // if there are no nodes return undefined
     // loop through list until you reach tail
     // set the next property of the 2nd to last node to be null
@@ -770,6 +799,7 @@ function merge(left, right) {
     }
     return [...arr, ...left, ...right];
 }
+
 function selectionSort(arr) {
     for (let i = 0; i <= arr.length; i++) {
         const least = i;
