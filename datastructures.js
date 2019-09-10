@@ -51,6 +51,23 @@ class SingleLinkedList {
         return false;
     }
 
+    insert(val, index) {
+        if (index < 0 || index > this.length) return false;
+        if (index === 0) {
+            return !!this.unshift(val);
+        }
+        if (index === this.length) {
+            return !!this.push(val);
+        }
+        const node = new node(val);
+        const prev = this.get(index - 1);
+        const temp = prev.next;
+        prev.next = node;
+        node.next = temp;
+        this.length++;
+        return true;
+    }
+
 
     // function takes an index
     // if less than 0 return null
