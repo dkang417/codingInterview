@@ -4,7 +4,64 @@
 
 //  data structure-head, tail, length property 
 // each node has value and a pointer to another node or null
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+class SingleLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+    push(data) {
+        const newNode = new Node(data);
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else {
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this;
+    }
+    get(index) {
+        if (index < 0 || index >= this.length) return undefined;
+        const node = this.head;
+        const count = 0;
+        while (count !== index) {
+            node = node.next;
+            count++
+        }
+        return node;
+    }
+    set(val, index) {
+        const node = this.get(index);
+        if (node) {
+            node.val = val;
+            return true;
+        }
+        return false;
+    }
 
+    insert(index, val) {
+        if (index < 0 || index > this.length) return false;
+        if (index === this.length) return !!this.push(val);
+        if (index === 0) return !!this.unshift(val);
+
+        const newNode = new Node(val);
+        const prev = this.get(index - 1);
+        const temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
+    }
+}
 class Node {
     constructor(data) {
         this.data = data;

@@ -2,9 +2,24 @@
 // Implement classes Node and Linked Lists
 // See 'directions' document
 
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class SinglyLinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+        this.length = 0;
+    }
+
+}
 
 class Node {
-    constructor(data, next = null) {
+    constructor(data) {
         this.data = data;
         this.next = next;
     }
@@ -46,7 +61,7 @@ class LinkedList {
         }
         prev.next = null;
     }
- 
+
 
 
 
@@ -65,8 +80,8 @@ class LinkedList {
     }
     // 2 1 5
 
-    
-   
+
+
     removeLast() {
         // check if head is empty  - (no nodes)
         if (!this.head) {
@@ -88,7 +103,7 @@ class LinkedList {
         // previours. next becomes null 
         prev.next = null;
     }
-    
+
 
 
     getAt(index) {
@@ -96,7 +111,7 @@ class LinkedList {
         // while there is a head 
         // if counter === index return node
         // else traverse node and increment counter 
-        
+
         let node = this.head;
         let count = 0;
         while (node) {
@@ -108,8 +123,8 @@ class LinkedList {
             }
         }
         return null;
-    
-    
+
+
     }
     insertAt(data, index) {
         // check head
@@ -126,7 +141,7 @@ class LinkedList {
         const node = new Node(data, this.prev.next);
         prev.next = node;
 
-       
+
 
         // leap frog  
     }
@@ -163,7 +178,7 @@ class LinkedList {
         const prev = this.getAt(index - 1) || this.getLast();
         const node = new Node(data, this.prev.next);
         prev.next = node;
-      
+
 
     }
 
@@ -178,7 +193,7 @@ class LinkedList {
 }
 
 class Node {
-    constructor(data, next = null) {
+    constructor(data) {
         this.data = data;
         this.next = next;
     }
@@ -207,7 +222,7 @@ class LinkedList {
         if (!this.head) {
             return null;
         }
-    
+
         let node = this.head;
         while (node) {
             if (!node.next) {
@@ -216,7 +231,7 @@ class LinkedList {
             node = node.next;
         }
     }
-    
+
     removeLasT() {
         if (!this.head) {
             return;
@@ -244,19 +259,19 @@ class LinkedList {
         }
         this.head = this.head.next;
     }
-   
+
     insertLast(data) {
         const last = this.getLast();
         if (last) {
-           last.next = new Node(data);
+            last.next = new Node(data);
         } else {
-           this.head = new Node(data);
+            this.head = new Node(data);
         }
     }
 
 
     getAt(index) {
-       
+
         let node = this.head;
         let count = 0;
 
@@ -270,7 +285,7 @@ class LinkedList {
         }
         return null;
     }
-   
+
 
     removeAt(index) {
         // if this.head is null 
@@ -309,8 +324,8 @@ class LinkedList {
         prev.next = prev.next.next;
     }
 
-   
-   
+
+
     insertAt(data, index) {
         // check if no head and return
         if (!this.head) {
@@ -330,8 +345,8 @@ class LinkedList {
         // new node and the next node on this is the prev node.next . switches connection 
         const node = new Node(data, prev.next);
     }
-    
-   
+
+
 
 
 
@@ -377,15 +392,15 @@ class LinkedList {
         }
         return counter;
     }
-    
+
 
     // return the first node 
     getFirst() {
         return this.head;
     }
 
-    
-   
+
+
     // get the last node 
     getLast() {
         if (!this.head) {
@@ -418,7 +433,7 @@ class LinkedList {
 
     // remove the last node 
     // edge cases - empty , if only 1 node in linked list. 
-   
+
     removeLasT() {
         if (!this.head) {
             return;
@@ -435,7 +450,7 @@ class LinkedList {
         }
         prev.next = null;
     }
-   
+
 
     // insert data as a new node into last 
 
@@ -448,9 +463,9 @@ class LinkedList {
             // chain is empty
             this.head = new Node(data);
         }
-        
+
     }
-   
+
 
     // get at - returns the node at the provided index 
     getAt(index) {
@@ -467,7 +482,7 @@ class LinkedList {
         // if index is invalid then just return null
         return null;
     }
-   
+
     removeAt(index) {
         // 4 edge cases to think about here 
 
@@ -508,9 +523,9 @@ class LinkedList {
     }
 
 
- 
 
-    }
+
+}
 
 
 
@@ -539,7 +554,7 @@ class LinkedList {
         // loop and find the node before the tail
         // node.next === this.tail 
         let currentNode = this.head;
-        while (currentNode.next !== this.tail ) {
+        while (currentNode.next !== this.tail) {
             currentNode = currentNode.next;
         }
         currentNode.next = null;
