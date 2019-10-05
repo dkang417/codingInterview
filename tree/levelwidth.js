@@ -14,6 +14,22 @@
 // width = bf traversal 
 
 function levelWidth(root) {
+    const arr = [root, s];
+    const count = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push('s');
+        } else {
+            count[count.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return count;
+}
+
+function levelWidth(root) {
     const final = [0];
     const arr = [root, 's'];
     while (arr.length > 1) {
@@ -88,7 +104,7 @@ module.exports = levelwidth;
 function levelwidth(root) {
     const counters = [0];
     const arr = [root, 's']
-    
+
     while (arr.length > 1) {
         const node = arr.shift();
         if (node === 's') {
@@ -105,12 +121,12 @@ function levelwidth(root) {
 // one array for the answers 
 // one array to keep track of all nodes plus 's'
 // while arr.length > 1  
-    // take out first node in arr
-    // if the node === 's'
-        //push another 0 into counters
-        //push s back into the end of the array
-    // else   push all of the nodes children into array
-             // increment counters at the counter.length-1
+// take out first node in arr
+// if the node === 's'
+//push another 0 into counters
+//push s back into the end of the array
+// else   push all of the nodes children into array
+// increment counters at the counter.length-1
 
 //       20 
 //   3   4    18
@@ -132,6 +148,14 @@ function levelWidth(root) {
     return counter;
 }
 
+function traverseBF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.push(...node.children);
+        fn(node);
+    }
+}
 
 function traverseBF(fn) {
     const arr = [this.root];
@@ -155,7 +179,7 @@ function levelWidth(root) {
     const counter = [0];
     while (arr.length > 1) {
         const node = arr.shift();
-        if (node==='s') {
+        if (node === 's') {
             counter.push(0);
             arr.push('s');
         } else {
@@ -184,13 +208,13 @@ class Node {
     insert(data) {
         // recursion solution 
         // if data is less than this.data and there is a this.left   
-            // recurse on this.left
+        // recurse on this.left
         // else if data is less than this.data  (but no this.left)
-            // create a new node with data on this.left
+        // create a new node with data on this.left
         // else if data is greater than this.data and there is a this.right
-            // recurse on this.right
+        // recurse on this.right
         // else if data is greater than this.data (but no this.right)
-            // create a new node on this.right
+        // create a new node on this.right
         if (data < this.data && this.left) {
             this.left.insert(data);
         } else if (data < this.data) {
@@ -200,6 +224,7 @@ class Node {
         } else if (data > this.data) {
             this.right = new Node(data);
         }
-        
+
     }
 }
+
