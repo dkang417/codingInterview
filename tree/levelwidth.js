@@ -29,21 +29,7 @@ function levelWidth(root) {
     return count;
 }
 
-function levelWidth(root) {
-    const final = [0];
-    const arr = [root, 's'];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            final.push(0);
-            arr.push('s');
-        } else {
-            final[final.length - 1]++;
-            arr.push(...node.children);
-        }
-    }
-    return final;
-}
+
 
 
 
@@ -100,7 +86,21 @@ module.exports = levelwidth;
 // counters array - the array we want to return 
 // arr  - the queue we use to iterate through our tree
 
-
+function levelWidth(root) {
+    const counter = [0];
+    const arr = [root, 's'];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            counter.push(0);
+            arr.push('s');
+        } else {
+            counter[counter.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return counter;
+}
 function levelwidth(root) {
     const counters = [0];
     const arr = [root, 's']
