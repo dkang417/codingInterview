@@ -44,8 +44,30 @@ class Node {
         }
         return null;
     }
-   
+
 }
+
+function validate(node, min = null, max = null) {
+    if (max !== null && node.data > max) {
+        return false;
+    }
+    if (min !== null && node.data < min) {
+        return false;
+    }
+    if (node.left && !validate(node.left, min, node.data)) {
+        return false;
+    }
+    if (node.right && !validate(node.right, node.data, max)) {
+        return false;
+    }
+
+    return true;
+}
+
+
+
+
+
 function validate(node, min = null, max = null) {
     if (node.data < min && min !== null) {
         return false;
@@ -67,7 +89,7 @@ function validate(node, min = null, max = null) {
 
 
 
-class Node{
+class Node {
     constructor(data) {
         this.data = data;
         this.left = null;
@@ -101,7 +123,7 @@ class Node{
 }
 
 
-class Node{
+class Node {
     constructor(data) {
         this.data = data;
         this.left = null;
@@ -118,7 +140,7 @@ class Node{
             this.right.insert(data);
         }
         else if (data > this.data) {
-            this.right= new Node(data);
+            this.right = new Node(data);
         }
     }
     contains(data) {
@@ -156,9 +178,9 @@ class Node {
             this.right = new Node(data);
         }
     }
-    
 
-    
+
+
 
     //       10     insert 40
     //     5    15
@@ -181,7 +203,7 @@ class Node {
         return null;
     }
 
-   
+
 
 }
 function validate(node, min = null, nax = null) {
@@ -268,7 +290,7 @@ class Node {
     // search through tree. find node with same value and return node.
     // if node doesnt exist return null
 
-    
+
     contains(data) {
         if (this.data === data) {
             return this;
@@ -278,11 +300,11 @@ class Node {
             return this.right.contains(data);
         } else if (this.data > data && this.left) {
             return this.left.contains(data);
-        } 
+        }
 
         return null;
     }
-    
+
 }
 
 class Node {
@@ -299,7 +321,7 @@ class Node {
             this.left = new Node(data);
         }
         else if (data > this.data && this.right) {
-             this.right.insert(data);
+            this.right.insert(data);
         }
         else if (data > this.data) {
             this.right = new Node(data);
@@ -309,21 +331,21 @@ class Node {
         if (this.data === data) {
             return this;
         }
-        
+
         if (this.data < data && this.right) {
             return this.right.contains(data);
         } else if (this.data > data && this.left) {
             return this.left.contains(data);
         }
         return null;
-   }
+    }
 }
 
 
 
 
-function validate(node, min=null,max=null) {
-     //  20     
+function validate(node, min = null, max = null) {
+    //  20     
     // 10  30 
 
     // takes in a node, min=null,max=null
@@ -343,7 +365,7 @@ function validate(node, min=null,max=null) {
         return false;
     }
     if (node.left && !validate(node.left, min, node.data)) {
-        return false; 
+        return false;
     }
     return true;
 }
@@ -384,14 +406,14 @@ class Node {
             return this.right.contains(data);
         }
         return null;
-    }  
+    }
 }
 //         10              5  25
 //    0           12  
 // -1   4      11     20
 //                 17    99
 
-function validation(node,min=null,max=null) {
+function validation(node, min = null, max = null) {
     if (min !== null && node.data < min) {
         return false;
     }
