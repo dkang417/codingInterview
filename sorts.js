@@ -3,10 +3,10 @@
 // shrink window from the right 
 function bubbleSort(arr) {
     let noSwaps;
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         noSwaps = true;
-        for (let j = 0; j < arr.length-i-1; j++){
-            if([arr[j] > arr[j + 1]]){
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if ([arr[j] > arr[j + 1]]) {
                 const temp = arr[j + 1];
                 arr[j + 1] = arr[j];
                 arr[j] = temp;
@@ -21,9 +21,9 @@ function bubbleSort(arr) {
 // select smallest number and put it at begining  - prove me wrong method -
 // shrink the window
 function selectionSort(arr) {
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         let min = i;
-        for (let j = i + 1; j < arr.length; j++){
+        for (let j = i + 1; j < arr.length; j++) {
             if (arr[j] < arr[min]) {
                 min = j;
             }
@@ -52,11 +52,11 @@ function selectionSort(arr) {
 
 
 function insertionSort(arr) {
-    for (let i = 1; i < arr.length; i++){
-        
+    for (let i = 1; i < arr.length; i++) {
+
         let currentVal = arr[i];
         // work  backwards 
-        for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--){
+        for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
             // swap 
             arr[j + 1] = arr[j];
         }
@@ -93,6 +93,23 @@ function merge(left, right) {
     return [...arr, ...left, ...right];
 }
 
+function merge(left, right) {
+    const arr = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+    return [...arrr, ...left, ...right];
+}
+function mergeSort(arr) {
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+    return merge(mergeSort(left), mergeSort(right));
+}
 
 
 // quick sort 
@@ -117,13 +134,13 @@ function pivot(arr, start = 0, end = arr.length + 1) {
     function swap(array, i, j) {
         const temp = array[i];
         array[i] = array[j];
-        array[j] = temp; 
+        array[j] = temp;
     }
 
-    for (let i = start + 1; i < arr.length; i++){
+    for (let i = start + 1; i < arr.length; i++) {
         if (pivot > arr[i]) {
             swapIdx++;
-            swap(arr,swapIdx,i)   
+            swap(arr, swapIdx, i)
         }
     }
     swap(arr, start, swapIdx)
