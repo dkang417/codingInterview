@@ -36,9 +36,37 @@ function weave(sourceOne, sourceTwo) {
         // making sure elements are inside the queue
         if (sourceTwo.peek()) {
             q.add(sourceTwo.remove());
-        }        
+        }
     }
-    return q; 
+    return q;
 }
 
 
+class Queue {
+    constructor() {
+        this.data = [];
+    }
+    add(record) {
+        this.data.unshift(record);
+    }
+    remove() {
+        this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
+}
+
+function weave(listOne, listTwo) {
+    const q = new Queue();
+
+    while (listOne.peek() || listTwo.peek()) {
+        if (listOne.peek()) {
+            q.add(listOne.remove());
+        }
+        if (listTwo.peek()) {
+            q.add(listTwo.remove());
+        }
+    }
+    return q;
+}
