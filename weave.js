@@ -70,3 +70,16 @@ function weave(listOne, listTwo) {
     }
     return q;
 }
+
+function weave(queueone, queuetwo) {
+    const q = new Queue();
+    while (queueone.peek() || queuetwo.peek()) {
+        if (queueone.peek()) {
+            q.add(queueone.remove());
+        }
+        if (queuetwo.peek()) {
+            q.add(queuetwo.remove());
+        }
+    }
+    return q;
+}
