@@ -12,6 +12,32 @@ class LinkedList {
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
+    size() {
+        let count = 0;
+        let node = this.head;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    getFirst() {
+        return this.head;
+    }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+
+    }
+
 
 }
 
