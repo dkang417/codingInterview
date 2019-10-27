@@ -36,6 +36,7 @@ class LinkedList {
             node = node.next;
         }
     }
+
     clear() {
         this.head = null;
     }
@@ -56,6 +57,7 @@ class LinkedList {
         previous.next = null;
 
     }
+
     removeLast() {
         if (!this.head) {
             return null;
@@ -71,8 +73,18 @@ class LinkedList {
         }
         prev.next = null;
     }
-
-
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
 
 }
 
