@@ -12,6 +12,7 @@ class LinkedList {
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
+
     size() {
         let count = 0;
         let node = this.head;
@@ -40,24 +41,20 @@ class LinkedList {
     clear() {
         this.head = null;
     }
-    removeLast() {
-        if (!this.head) {
-            return;
-        }
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-        let previous = this.head;
-        let node = this.head.next;
-        while (node.next) {
-            previous = node;
+    getAt(index) {
+
+        let node = this.head;
+        let count = 0;
+
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
             node = node.next;
         }
-        previous.next = null;
-
+        return null;
     }
-
     removeLast() {
         if (!this.head) {
             return null;
@@ -65,54 +62,16 @@ class LinkedList {
         if (!this.head.next) {
             this.head = null;
         }
-        let prev = this.head;
         let node = this.head.next;
+        let prev = this.head;
         while (node.next) {
             prev = node;
             node = node.next;
         }
         prev.next = null;
-    }
-    getLast() {
-        if (!this.head) {
-            return null;
-        }
-        let node = this.head;
-        while (node) {
-            if (!node.next) {
-                return node;
-            }
-            node = node.next;
-        }
-    }
-    getLast() {
-        if (!this.head) {
-            return null;
-        }
 
-        let node = this.head;
-        while (node) {
-            if (!node.next) {
-                return node;
-            }
-            node = node.next;
-        }
     }
-    removeLast() {
-        if (!this.head) {
-            return null;
-        }
-        if (!this.head.next) {
-            this.head = null;
-        }
-        let prev = this.head;
-        let node = this.head.next;
-        while (node.next) {
-            prev = node;
-            node = node.next;
-        }
-        prev.next = null;
-    }
+
 
 }
 
@@ -228,7 +187,19 @@ class LinkedList {
         prev.next = null;
     }
 
-
+    getAt(index) {
+        let node = this.head;
+        let counter = 0;
+        while (node) {
+            if (counter === index) {
+                return node;
+            } else {
+                counter++;
+                node = node.next;
+            }
+        }
+        return null;
+    }
 
     getAt(index) {
         // traverse through linked list using a counter
@@ -402,10 +373,9 @@ class LinkedList {
         while (node) {
             if (count === index) {
                 return node;
-            } else {
-                count++;
-                node = node.next;
             }
+            count++;
+            node = node.next;
         }
         return null;
     }
