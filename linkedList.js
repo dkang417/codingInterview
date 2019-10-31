@@ -1,4 +1,59 @@
 // udemy linked list  
+
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class linkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    getLast() {
+        // edge cases 
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+
+        while (node) {
+            if (index === count) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+    }
+
+}
+
+
+
+// linked list
 class Node {
     constructor(data, next = null) {
         this.data = data;
