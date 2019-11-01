@@ -4,6 +4,7 @@
 function bubbleSort(arr) {
     let noSwaps;
     for (let i = 0; i < arr.length; i++) {
+
         noSwaps = true;
         for (let j = 0; j < arr.length - i - 1; j++) {
             if ([arr[j] > arr[j + 1]]) {
@@ -17,6 +18,7 @@ function bubbleSort(arr) {
     }
     return arr;
 }
+
 
 // select smallest number and put it at begining  - prove me wrong method -
 // shrink the window

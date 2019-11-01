@@ -48,6 +48,37 @@ class linkedList {
         }
         return null;
     }
+    removeLast() {
+        // edge case no head  no this.head.next
+        if (!this.head) {
+            return null;
+        }
+        if (!this.head.next) {
+            return this.head = null;
+        }
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+
+    insertAt(index, data) {
+        // edge cases no head  
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        let prev = this.getAt(index - 1) || this.getLast();
+        let node = new Node(data, prev.next);
+        prev.next = node;
+    }
 
 }
 

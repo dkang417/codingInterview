@@ -14,21 +14,33 @@
 
 // bubble sort
 function bubbleSort(arr) {
-// 2 nested for loops, n^2 complexity 
+    // 2 nested for loops, n^2 complexity 
     for (let i = 0; i < arr.length; i++) {
         // minus i minus 1 to restrict the window each iteration
-        for (let j = 0; j < (arr.length-i-1); j++) {
+        for (let j = 0; j < (arr.length - i - 1); j++) {
             if (arr[j] > arr[j + 1]) {
                 const lesser = arr[j + 1];
                 arr[j + 1] = arr[j];
                 arr[j] = lesser;
             }
-        }    
+        }
     }
     return arr;
-    
-}
 
+}
+function bubbleSort(arr) {
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < (arr.length - i - 1); j++) {
+            if (arr[j] > arr[j + 1]) {
+                const temp = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
 
 
 
@@ -37,15 +49,15 @@ function bubbleSort(arr) {
 
 // from i = 0 < arr length  . indexMin
 // assume the elemet at index i is the lowest value
-    // for j from i + 1 to end of array
-        // see if there is an element with lower val
-            // if there is record its index
-    // if the index of current element and the index of the lowest
-    // element is not the same swap em
+// for j from i + 1 to end of array
+// see if there is an element with lower val
+// if there is record its index
+// if the index of current element and the index of the lowest
+// element is not the same swap em
 
-    // [3,4,1,6,2]
+// [3,4,1,6,2]
 function selectionSort(arr) {
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         let indexMin = i;
 
         for (let j = i + 1; j < arr.length; j++) {
@@ -91,21 +103,21 @@ function mergeSort(arr) {
         return arr;
     }
     // divide array- find the center point  
-    const center = Math.floor(arr.length / 2); 
+    const center = Math.floor(arr.length / 2);
     // slice-  take everything from 0 up to but not including center
-    const left = arr.slice(0, center); 
+    const left = arr.slice(0, center);
     const right = arr.slice(center);
 
     // recursively call mergeSort on both 
-    return merge(mergeSort(left),  mergeSort(right));
+    return merge(mergeSort(left), mergeSort(right));
 }
 // [-30,22] [0,97]
 // create results array
 // while there are still elements in both arrays
-    // if the first elem the left half is less than first in right half
-        // shift the element from left into a 'result' arr
-    // else 
-        // shift the element from right into a result arr
+// if the first elem the left half is less than first in right half
+// shift the element from left into a 'result' arr
+// else 
+// shift the element from right into a result arr
 // take everything from the arr that still has stuff init and put in results
 
 function merge(left, right) {
@@ -127,8 +139,8 @@ function merge(left, right) {
 
 //  while there are numbers in left and right
 //      if left[0] < right[0]
-            // push into results left.shift()
-        //else push into results right.shift()
+// push into results left.shift()
+//else push into results right.shift()
 
 // return [ ...results, ...left, ...right]
 
@@ -136,7 +148,7 @@ function merge(left, right) {
 
 module.exports = { bubbleSort, selectionSort, mergeSort };
 
-[3,1,6,8,2,4]
+[3, 1, 6, 8, 2, 4]
 function mergeSort(arr) {
     // split it in half recursively until array of 1 
     if (arr.length === 1) {
@@ -195,7 +207,7 @@ function mergeSort(arr) {
     const left = arr.slice(0, mid);
     const right = arr.slice(mid);
 
-    return merge(mergeSort(left), mergeSort(right)); 
+    return merge(mergeSort(left), mergeSort(right));
 }
 
 
@@ -251,7 +263,7 @@ makeChange([5, 10, 25], 50);
 // brute force algorithm - calculate every single combination possible and keep track of min
 // better solution vs greedy 
 
-const coins = [10,6,1]
+const coins = [10, 6, 1]
 const makeChange = (value) => { //12 
     if (value === 0) return 0;
     let minCoins;
@@ -297,7 +309,7 @@ const makeChange = (c) => {
 function merge(left, right) {
     const temp = [];
     while (left.length && right.length) {
- 
+
         if (left[0] < right[0]) {
             temp.push(left.shift());
         } else {
@@ -343,8 +355,8 @@ function mergeSort(arr) {
 
 
 function bubbleSort(arr) {
-    for (let i = 0; i < arr.length; i++){
-        for (let j = 0; j < arr.length - i - 1; j++){
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 const temp = arr[j];
                 arr[j] = arr[j + 1];
@@ -356,7 +368,7 @@ function bubbleSort(arr) {
 }
 
 function selectionSort(arr) {
-    for (let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         let indexMin = i;
 
         for (let j = i + 1; j < arr.length; j++) {
