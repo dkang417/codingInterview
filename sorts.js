@@ -19,6 +19,22 @@ function bubbleSort(arr) {
     return arr;
 }
 
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let least = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[least]) {
+                least = j;
+            }
+        }
+        if (least !== arr[i]) {
+            let temp = arr[i];
+            arr[i] = arr[least];
+            arr[least] = temp;
+        }
+    }
+    return arr;
+}
 
 // select smallest number and put it at begining  - prove me wrong method -
 // shrink the window
