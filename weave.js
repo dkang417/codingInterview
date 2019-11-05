@@ -56,6 +56,18 @@ class Queue {
         return this.data[this.data.length - 1];
     }
 }
+function weave(qone, qtwo) {
+    const q = new Queue();
+    while (qone.peek() || qtwo.peek()) {
+        if (qone.peek()) {
+            q.push(qone.pop());
+        }
+        if (qtwo.peek()) {
+            q.push(qtwo.pop());
+        }
+    }
+    return q;
+}
 
 function weave(listOne, listTwo) {
     const q = new Queue();
