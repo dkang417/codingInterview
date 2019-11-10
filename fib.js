@@ -177,3 +177,13 @@ function memoize(fn) {
         return result;
     }
 }
+function memoize(fn) {
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+        const result = fn.apply(this, args);
+        cache[args] = result;
+        return result;
+    }
+}
