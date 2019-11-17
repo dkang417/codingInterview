@@ -82,10 +82,10 @@ class Node {
         if (this.data === data) {
             return this;
         }
-        if (this.data > data && this.left) {
+        if (data < this.data && this.left) {
             return this.left.contains(data);
         }
-        else if (this.data < data && this.right) {
+        else if (data > this.data && this.right) {
             return this.right.contains(data);
         }
         return null;
