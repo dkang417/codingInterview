@@ -470,9 +470,10 @@ class LinkedList {
         }
     }
 
-    removeLasT() {
+
+    removeLast() {
         if (!this.head) {
-            return;
+            return null;
         }
         if (!this.head.next) {
             this.head = null;
@@ -485,8 +486,8 @@ class LinkedList {
             node = node.next;
         }
         prev.next = null;
-    }
 
+    }
     clear() {
         this.head = null;
     }
