@@ -329,6 +329,20 @@ class LinkedList {
         // previours. next becomes null 
         prev.next = null;
     }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            else {
+                node = node.next;
+                count++;
+            }
+        }
+        return null;
+    }
 
     getAt(index) {
         let node = this.head;
