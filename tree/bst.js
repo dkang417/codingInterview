@@ -17,9 +17,28 @@ class Node {
         this.left = null;
         this.right = null;
     }
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
     insert(data) {
         if (data < this.data && this.left) {
+            this.left.insert(data);
+        }
+        if (data < this.data) {
+            this.left = new Node(data);
+        }
+        if (data > this.data && this.right) {
             this.right.insert(data);
+        }
+        if (data > this.data) {
+            this.right = new Node(data);
+        }
+    }
+    insert(data) {
+        if (data < this.data && this.left) {
+            this.left.insert(data);
         }
         if (data < this.data) {
             this.left = new Node(data);
@@ -78,18 +97,7 @@ class Node {
         }
         return null;
     }
-    contains(data) {
-        if (this.data === data) {
-            return this;
-        }
-        if (data < this.data && this.left) {
-            return this.left.contains(data);
-        }
-        else if (data > this.data && this.right) {
-            return this.right.contains(data);
-        }
-        return null;
-    }
+
 
 
 }
