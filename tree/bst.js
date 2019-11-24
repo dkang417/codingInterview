@@ -10,44 +10,24 @@
 // 3) Implement the 'contains' method for the Node
 // class.  Contains should accept a 'data' argument
 // and return the Node in the tree with the same value.
-
 class Node {
     constructor(data) {
         this.data = data;
         this.left = null;
         this.right = null;
     }
-    constructor(data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
     insert(data) {
-        if (data < this.data && this.left) {
-            this.left.insert(data);
-        }
-        if (data < this.data) {
-            this.left = new Node(data);
-        }
         if (data > this.data && this.right) {
             this.right.insert(data);
         }
         if (data > this.data) {
             this.right = new Node(data);
         }
-    }
-    insert(data) {
         if (data < this.data && this.left) {
             this.left.insert(data);
         }
         if (data < this.data) {
             this.left = new Node(data);
-        }
-        if (data > this.data && this.right) {
-            this.right.insert(data);
-        }
-        if (data > this.data) {
-            this.right = new Node(data);
         }
     }
 }
@@ -57,20 +37,7 @@ class Node {
         this.left = null;
         this.right = null;
     }
-    insert(data) {
-        if (data < this.data && this.left) {
-            this.left.insert(data);
-        }
-        if (data < this.data) {
-            this.left = new Node(data);
-        }
-        if (data > this.data && this.right) {
-            this.right.insert(data);
-        }
-        if (data > this.data) {
-            this.right = new Node(data);
-        }
-    }
+
     insert(data) {
         if (data < this.data && this.left) {
             this.left.insert(data);
@@ -86,7 +53,20 @@ class Node {
         }
     }
     contains(data) {
-        if (this.data === data) {
+        if (data === this.data) {
+            return this;
+        }
+        // return a recursive call 
+        if (this.data < data && this.right) {
+            return this.right.contains(data);
+        }
+        else if (this.data > data && this.left) {
+            return this.left.contains(data);
+        }
+        return null;
+    }
+    contains(data) {
+        if (data === this.data) {
             return this;
         }
         if (this.data > data && this.left) {
