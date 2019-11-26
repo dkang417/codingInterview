@@ -28,6 +28,21 @@ function levelWidth(root) {
     }
     return count;
 }
+function levelWidth(root) {
+    const arr = [root, s];
+    const count = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push(s);
+        } else {
+            count[count.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return count;
+}
 
 
 
@@ -173,15 +188,14 @@ function traverseDF(fn) {
         fn(node);
     }
 }
-
 function levelWidth(root) {
-    const arr = [root, 's'];
+    const arr = [root, s];
     const counter = [0];
     while (arr.length > 1) {
         const node = arr.shift();
-        if (node === 's') {
+        if (node === s) {
+            arr.push(s);
             counter.push(0);
-            arr.push('s');
         } else {
             counter[counter.length - 1]++;
             arr.push(...node.children);
@@ -189,42 +203,3 @@ function levelWidth(root) {
     }
     return counter;
 }
-
-
-
-// binary Search Tree - inserting nodes into a BST  
-
-//         10               insert -20 
-//     0        12
-//   -1  4    11   20
-//               17  99 
-
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.left = null;
-        this.right = null;
-    }
-    insert(data) {
-        // recursion solution 
-        // if data is less than this.data and there is a this.left   
-        // recurse on this.left
-        // else if data is less than this.data  (but no this.left)
-        // create a new node with data on this.left
-        // else if data is greater than this.data and there is a this.right
-        // recurse on this.right
-        // else if data is greater than this.data (but no this.right)
-        // create a new node on this.right
-        if (data < this.data && this.left) {
-            this.left.insert(data);
-        } else if (data < this.data) {
-            this.left = new Node(data);
-        } else if (data > this.data && this.right) {
-            this.right.insert(data);
-        } else if (data > this.data) {
-            this.right = new Node(data);
-        }
-
-    }
-}
-
