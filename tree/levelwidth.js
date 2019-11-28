@@ -44,7 +44,21 @@ function levelWidth(root) {
     return count;
 }
 
-
+function levelwidth(root) {
+    const arr = [root, 's'];
+    const count = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push('s');
+        } else {
+            arr.push(...node.children);
+            count[count.length - 1]++;
+        }
+    }
+    return count;
+}
 
 
 
