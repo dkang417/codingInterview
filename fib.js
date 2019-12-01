@@ -188,6 +188,8 @@ function memoize(fn) {
     }
 }
 
+// recursion solution
+
 function slowFib(n) {
     if (n < 2) {
         return n;
