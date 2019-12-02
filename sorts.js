@@ -165,5 +165,13 @@ function merge(left, right) {
 }
 
 function mergeSort(arr) {
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
 
+    // recursion base case
+    if (arr.length === 1) {
+        return arr;
+    }
+    return merge(mergeSort(left), mergeSort(right));
 }
