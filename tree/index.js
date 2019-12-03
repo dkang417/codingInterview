@@ -20,7 +20,7 @@ class Node {
         // this.children.push(node);
         this.children.push(new Node(data));
     }
-   
+
 }
 
 class Tree {
@@ -43,10 +43,10 @@ class Tree {
             fn(node);
         }
     }
-    
+
 }
 
-class Tree { 
+class Tree {
     constructor() {
         this.root = null;
     }
@@ -61,7 +61,7 @@ class Tree {
             //  take all of its children and push it in the array
             arr.push(...node.children);
             fn(node);
-        }            
+        }
     }
 
     // Depth - First Traversal - goes all the way down as quickly as possible
@@ -129,11 +129,11 @@ class Node {
     // this.children = [2,4,1]
     // remove(2)
     remove(data) {
-        this.children =  this.children.filter(node => {
+        this.children = this.children.filter(node => {
             return node.data !== data;
         })
     }
-  
+
 }
 
 class Tree {
@@ -145,17 +145,17 @@ class Tree {
     // Breath first - start at top, iterate undernearth, then next level. left to right
     // create an empty array and add root node 
     // while arr.length 
-        // take out the FIRST element(shift) - 
-        //take all of its children and stick it into the end of array(push)
-        // call the function on this first node 
-    
+    // take out the FIRST element(shift) - 
+    //take all of its children and stick it into the end of array(push)
+    // call the function on this first node 
+
 
     // create an array with root node
     //while there is something inside the array
-        // take out the first item in the array - shift
-        // push to the end of the array all of its children 
-        // fn(node)
-    
+    // take out the first item in the array - shift
+    // push to the end of the array all of its children 
+    // fn(node)
+
     traverseBF(fn) {
         // root node into a new array
         const arr = [this.root];
@@ -180,7 +180,7 @@ class Tree {
         }
     }
 
- 
+
 }
 
 
@@ -203,7 +203,23 @@ class Tree {
             arr.unshift(...node.children);
             fn(node);
         }
-        
+
+    }
+    traverseBF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.push(...node.children);
+            fn(node);
+        }
+    }
+    traverseDF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.unshift(...node.children);
+            fn(node);
+        }
     }
 
 }
