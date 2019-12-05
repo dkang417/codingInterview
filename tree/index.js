@@ -136,11 +136,44 @@ class Node {
 
 }
 
-class Tree {
 
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.children = [];
+    }
+    add(data) {
+        this.children.push(new Node(data));
+    }
+}
+
+
+
+
+
+
+
+
+
+class Tree {
     constructor() {
         this.root = null;
     }
+    traverseBF(fn) {
+        const arr = [this.root];
+        while (arr.length) {
+            const node = arr.shift();
+            arr.push(...node.children);
+            fn(node);
+        }
+    }
+    traverseDF(fn) {
+        const arr = [this.root];
+
+    }
+
+
+
     // takes a function and passes the function on every node within the tree  
     // Breath first - start at top, iterate undernearth, then next level. left to right
     // create an empty array and add root node 
@@ -182,7 +215,11 @@ class Tree {
 
 
 }
-
+class Tree {
+    constructor() {
+        this.root = null;
+    }
+}
 
 class Tree {
     constructor() {
