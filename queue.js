@@ -28,7 +28,20 @@ class Queue {
         return this.data[this.data.length - 1];
     }
 }
-
+class Queue {
+    constructor() {
+        this.data = [];
+    }
+    add(record) {
+        this.data.unshift(record);
+    }
+    pop() {
+        return this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
+}
 
 
 
@@ -91,7 +104,7 @@ class Queue {
     enqueue(data) {
         this.storage[this.length + this.head] = data;
         this.length++;
-        
+
     }
     dequeue() {
         if (this.length) {
@@ -101,9 +114,9 @@ class Queue {
             this.head++;
             return firstVal;
         }
-        
+
     }
-    
+
 }
 
 const myQ = new Queue();

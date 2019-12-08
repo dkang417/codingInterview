@@ -25,7 +25,7 @@ class Stack {
         this.data.push(record);
     }
     pop() {
-       return this.data.pop();
+        return this.data.pop();
     }
     peek() {
         return this.data[this.data.length - 1];
@@ -65,22 +65,36 @@ class Stack {
         return this.data[this.data.length - 1];
     }
 }
+class Stack {
+    constructor() {
+        this.data = [];
+    }
+    push(record) {
+        this.data.push(record);
+    }
+    pop() {
+        return this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
+}
 
 module.exports = Stack;
 
 
 
 // [0:'zero', 1:'two', 2:'nine'];
-    // length: 3
+// length: 3
 
-  //  {0:'one', 2:'two', 3:'three'}
-
-
+//  {0:'one', 2:'two', 3:'three'}
 
 
 
 
- class Stack {
+
+
+class Stack {
     constructor() {
         this.storage = {};
         this.length = 0;
@@ -93,22 +107,22 @@ module.exports = Stack;
 
     pop() {
         if (this.length) {
-            const last = this.storage[this.length-1];
+            const last = this.storage[this.length - 1];
             this.storage[this.length - 1] = null;
             this.length--;
             return last;
         }
-        
+
     }
-     peek() {
+    peek() {
         if (this.length) {
-            const last = this.storage[this.length-1];            
+            const last = this.storage[this.length - 1];
             return last;
         }
-    } 
+    }
 }
 
-const myStack = new Stack(); 
+const myStack = new Stack();
 myStack.push('zero');
 myStack.push('one');
 myStack.pop();
@@ -134,14 +148,14 @@ class Stack {
             this.length--;
             return temp;
         }
-        
+
     }
     peek() {
         if (this.length) {
             const temp = this.data[this.length - 1];
             return temp;
         }
-        
+
     }
 }
 // object
@@ -155,8 +169,8 @@ class Queue {
         this.storage[this.length + this.head] = record;
         this.length++;
 
-    } 
-    [1,2,3,5]
+    }
+    [1, 2, 3, 5]
     dequeue() {
         if (this.length) {
             const remove = this.storage[this.head];
@@ -165,8 +179,8 @@ class Queue {
             this.head++;
             return remove;
         }
-       
-    
+
+
     }
 
 }
