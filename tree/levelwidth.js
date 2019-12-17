@@ -139,6 +139,21 @@ function levelWidth(root) {
             arr.push('s');
             counter.push(0);
         } else {
+            counter[counter.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return counter;
+}
+function levelWidth(root) {
+    const arr = [root, 's'];
+    const counter = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            arr.push('s');
+            counter.push(0);
+        } else {
             arr.push(...node.children);
             counter[counter.length - 1]++;
         }
