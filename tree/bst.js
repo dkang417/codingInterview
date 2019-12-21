@@ -466,6 +466,20 @@ class Node {
             this.right = new Node(data);
         }
     }
+    insert(data) {
+        if (this.data > data && this.left) {
+            this.left.insert(data);
+        }
+        if (this.data > data) {
+            this.left = new Node(data);
+        }
+        if (this.data < data && this.right) {
+            this.right.insert(data);
+        }
+        if (this.data < data) {
+            this.right = new Node(data);
+        }
+    }
 
 
 
