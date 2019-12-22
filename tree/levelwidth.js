@@ -247,3 +247,17 @@ function levelWidth(root) {
     }
     return counter;
 }
+function levelwidth(root) {
+    const arr = [root, 's'];
+    const count = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            arr.push('s');
+            count.push(0);
+        } else {
+            arr.push(...node.children);
+            count[count.length - 1]++;
+        }
+    }
+}
