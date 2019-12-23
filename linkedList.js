@@ -7,6 +7,7 @@ class Node {
     }
 }
 
+
 class linkedList {
     constructor() {
         this.head = null;
@@ -192,7 +193,44 @@ class LinkedList {
 
 }
 
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class linkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
 
+
+
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+}
 
 
 
