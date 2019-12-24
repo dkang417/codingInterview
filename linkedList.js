@@ -129,6 +129,8 @@ class LinkedList {
     clear() {
         this.head = null;
     }
+
+
     getAt(index) {
 
         let node = this.head;
@@ -229,6 +231,18 @@ class linkedList {
             }
             node = node.next;
         }
+    }
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
     }
 }
 
