@@ -50,6 +50,18 @@ class linkedList {
         }
         return null;
     }
+    getAt(index) {
+        let count = 0;
+        let node = this.head;
+        while (node) {
+            if (index === count) {
+                return node;
+            }
+            count++;
+            node = node.net;
+        }
+        return null;
+    }
     removeLast() {
         // edge case no head  no this.head.next
         if (!this.head) {
@@ -243,7 +255,22 @@ class linkedList {
             node = node.next;
         }
         return null;
+
     }
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+    }
+
+
 }
 
 
@@ -733,6 +760,18 @@ class LinkedList {
             node = node.next;
         }
     }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
 
 
 
@@ -765,6 +804,23 @@ class LinkedList {
         while (node.next) {
             prev = node;
             node = node.next;
+        }
+        prev.next = null;
+    }
+    removeLast() {
+        if (!this.head) {
+            return;
+
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            node = node.next;
+            prev = node;
         }
         prev.next = null;
     }
