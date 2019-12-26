@@ -6,7 +6,12 @@ class Node {
         this.next = next;
     }
 }
-
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
 
 class linkedList {
     constructor() {
@@ -14,6 +19,15 @@ class linkedList {
     }
     insertFirst(data) {
         this.head = new Node(data, this.head);
+    }
+    size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
     }
     size() {
         let node = this.head;
@@ -37,6 +51,7 @@ class linkedList {
             node = node.next;
         }
     }
+
     getAt(index) {
         let node = this.head;
         let count = 0;
@@ -51,14 +66,14 @@ class linkedList {
         return null;
     }
     getAt(index) {
-        let count = 0;
         let node = this.head;
+        let count = 0;
         while (node) {
-            if (index === count) {
+            if (count === index) {
                 return node;
             }
+            node = node.next;
             count++;
-            node = node.net;
         }
         return null;
     }
