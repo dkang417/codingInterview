@@ -104,20 +104,18 @@ class linkedList {
         }
         prev.next = null;
     }
-    removeLast() {
+
+    insertAt(index, data) {
         if (!this.head) {
-            return null;
+            this.head = new Node(data);
         }
-        if (!this.head.next) {
-            return this.head = null;
+        if (index === 0) {
+            this.head = new Node(data, this.head);
         }
-        let prev = this.head;
-        let node = this.head.next;
-        while (node.next) {
-            prev = node;
-            node = node.next;
-        }
-        prev.next = null;
+        let prev = this.getAt(index - 1) || this.getLast();
+        let node = new Node(data, prev.next)
+        prev.next = node;
+
     }
 
     insertAt(index, data) {
@@ -309,6 +307,17 @@ class linkedList {
             node = node.next;
         }
         return null;
+    }
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, prev.next);
+        prev.next = node;
     }
 
 
