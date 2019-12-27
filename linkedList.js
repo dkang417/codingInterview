@@ -51,11 +51,9 @@ class linkedList {
             node = node.next;
         }
     }
-
     getAt(index) {
         let node = this.head;
         let count = 0;
-
         while (node) {
             if (index === count) {
                 return node;
@@ -65,6 +63,7 @@ class linkedList {
         }
         return null;
     }
+
     getAt(index) {
         let node = this.head;
         let count = 0;
@@ -77,8 +76,35 @@ class linkedList {
         }
         return null;
     }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (index === count) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+    }
     removeLast() {
         // edge case no head  no this.head.next
+        if (!this.head) {
+            return null;
+        }
+        if (!this.head.next) {
+            return this.head = null;
+        }
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+    removeLast() {
         if (!this.head) {
             return null;
         }
