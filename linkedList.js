@@ -270,7 +270,19 @@ class linkedList {
     }
 
 
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
 
+    }
     getLast() {
         if (!this.head) {
             return null;
@@ -296,6 +308,7 @@ class linkedList {
         return null;
 
     }
+
     getAt(index) {
         const node = this.head;
         const count = 0;
@@ -315,9 +328,22 @@ class linkedList {
         if (index === 0) {
             this.head = new Node(data, this.head);
         }
+        const prev = this.getAt(index - 1 || this.getLast());
+        const node = new Node(data, prev.next);
+        prev.next = node;
+    }
+
+    insertAt(data, index) {
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+        }
+        if (!this.head) {
+            this.head = new Node(data);
+        }
         const prev = this.getAt(index - 1) || this.getLast();
         const node = new Node(data, prev.next);
         prev.next = node;
+
     }
 
 
