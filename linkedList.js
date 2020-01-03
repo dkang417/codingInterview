@@ -1,11 +1,6 @@
 // udemy linked list  
 
-class Node {
-    constructor(data, next = null) {
-        this.data = data;
-        this.next = next;
-    }
-}
+
 class Node {
     constructor(data, next = null) {
         this.data = data;
@@ -20,6 +15,7 @@ class linkedList {
     insertFirst(data) {
         this.head = new Node(data, this.head);
     }
+
     size() {
         let node = this.head;
         let count = 0;
@@ -268,8 +264,6 @@ class linkedList {
         }
         return count;
     }
-
-
     getLast() {
         if (!this.head) {
             return null;
@@ -281,8 +275,9 @@ class linkedList {
             }
             node = node.next;
         }
-
     }
+
+
     getLast() {
         if (!this.head) {
             return null;
