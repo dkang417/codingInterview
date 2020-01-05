@@ -84,6 +84,18 @@ class linkedList {
         }
         return null;
     }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            node = node.next;
+            count++;
+        }
+        return null;
+    }
     removeLast() {
         // edge case no head  no this.head.next
         if (!this.head) {
