@@ -47,6 +47,18 @@ class linkedList {
             node = node.next;
         }
     }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
     getAt(index) {
         let node = this.head;
         let count = 0;
@@ -95,6 +107,21 @@ class linkedList {
             count++;
         }
         return null;
+    }
+    removeLast() {
+        if (!this.head) {
+            return null;
+        }
+        if (!this.head.next) {
+            return this.head = null;
+        }
+        let node = this.head;
+        let last = this.head.next;
+        while (last.next) {
+            node = last;
+            last = last.next;
+        }
+        node.next = null;
     }
     removeLast() {
         // edge case no head  no this.head.next
