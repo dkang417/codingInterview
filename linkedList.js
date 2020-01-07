@@ -152,6 +152,14 @@ class linkedList {
         prev.next = node;
 
     }
+    insertAt(index, data) {
+        if (!this.head) {
+            this.head = new Node(data);
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+        }
+    }
 
     insertAt(index, data) {
         // edge cases no head  
@@ -171,6 +179,12 @@ class linkedList {
 }
 
 
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
 
 // linked list
 class Node {
@@ -1066,5 +1080,54 @@ class LinkedList {
             node = node.next;
         }
         return node.value === value;
+    }
+}
+
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            count++;
+            this.head = this.head.next;
+        }
+        return count;
+    }
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || !prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
+
+
+    removeLast() {
+
+    }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
     }
 }
