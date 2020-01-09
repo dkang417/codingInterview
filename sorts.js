@@ -99,9 +99,22 @@ function selectionSort(arr) {
     }
     return arr;
 }
-
-
-
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const least = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[least]) {
+                least = j;
+            }
+        }
+        if (least !== i) {
+            const temp = arr[i];
+            arr[i] = arr[least];
+            arr[least] = temp;
+        }
+    }
+    return arr;
+}
 
 
 // exploits fact that arrays of 1 or 0 is already sorted
@@ -173,5 +186,25 @@ function mergeSort(arr) {
     if (arr.length === 1) {
         return arr;
     }
+    return merge(mergeSort(left), mergeSort(right));
+}
+function merge(left, right) {
+    const arr = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            arr.push(left.shift());
+        } else {
+            arr.push(right.shift());
+        }
+    }
+    return [...arr, ...left, ...right];
+}
+function mergeSort(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
     return merge(mergeSort(left), mergeSort(right));
 }
