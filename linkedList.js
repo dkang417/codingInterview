@@ -1,5 +1,3 @@
-// udemy linked list  
-
 
 class Node {
     constructor(data, next = null) {
