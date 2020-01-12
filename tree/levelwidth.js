@@ -114,7 +114,21 @@ module.exports = levelwidth;
 // create 2 arrays 
 // counters array - the array we want to return 
 // arr  - the queue we use to iterate through our tree
-
+function levelWidth(root) {
+    const arr = [root, 's'];
+    const count = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push('s');
+        } else {
+            arr.push(...node.children);
+            count[count.length - 1]++;
+        }
+    }
+    return count;
+}
 function levelWidth(root) {
     const counter = [0];
     const arr = [root, 's'];
