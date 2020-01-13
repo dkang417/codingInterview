@@ -14,6 +14,22 @@
 // width = bf traversal 
 
 function levelWidth(root) {
+    const count = [0];
+    const arr = [root, 's'];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            arr.push('s');
+            count.push(0);
+        } else {
+            arr.push(...node.children);
+            count[count.length - 1]++;
+        }
+    }
+    return count;
+}
+
+function levelWidth(root) {
     const arr = [root, s];
     const count = [0];
     while (arr.length > 1) {
@@ -229,12 +245,27 @@ function traverseBF(fn) {
         fn(node);
     }
 }
-
 function traverseBF(fn) {
     const arr = [this.root];
     while (arr.length) {
         const node = arr.shift();
         arr.push(...node.children);
+        fn(node);
+    }
+}
+function traverseBF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.push(...node.children);
+        fn(node);
+    }
+}
+function traverseDF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.unshift(...node.children);
         fn(node);
     }
 }
