@@ -261,6 +261,22 @@ function traverseBF(fn) {
         fn(node);
     }
 }
+function traverseBF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.push(...node.children);
+        fn(node);
+    }
+}
+functionDF(fn){
+    const arr = [this.root];
+    while (arr.length) {
+        const node = arr.shift();
+        arr.unshift(...node.children);
+        fn(node);
+    }
+}
 function traverseDF(fn) {
     const arr = [this.root];
     while (arr.length) {
