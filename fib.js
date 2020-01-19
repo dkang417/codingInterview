@@ -53,7 +53,24 @@ function fib(n) {
     return arr[arr.length - 1];
 }
 
-
+function slowFib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowFib);
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) {
+            return cache[args];
+        }
+        const result = fn.apply(this, args);
+        cache[args] = result;
+        return result;
+    }
+}
 
 // recursion solution
 function fib(n) {
