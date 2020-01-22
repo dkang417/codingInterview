@@ -22,6 +22,27 @@ class linkedList {
         }
         return count;
     }
+    size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        let node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
     getLast() {
         // edge cases 
         if (!this.head) {
@@ -34,6 +55,23 @@ class linkedList {
             }
             node = node.next;
         }
+    }
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const prev = this.head;
+        const node = this.head.next;
+        while (node.next) {
+            node = node.next;
+            prev = node;
+        }
+        prev.next = null;
+
     }
     removeLast() {
         // check if head is empty  - (no nodes)
@@ -78,6 +116,7 @@ class linkedList {
         }
         return null;
     }
+
 
 
     removeAt(index) {
