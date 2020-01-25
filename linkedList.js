@@ -239,7 +239,18 @@ class LinkedList {
         }
     }
 
-
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (index === count) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+    }
     getAt(index) {
 
         let node = this.head;
@@ -287,6 +298,20 @@ class LinkedList {
         const prev = this.getAt(index - 1);
         // check edge cases - if no previous or no prev.next
         // edge case if prev is the last node and there are no nodes after 
+        if (!prev || !prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
+    removeAt(index) {
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        if (!this.head) {
+            return;
+        }
+        let prev = this.getAt(index - 1);
         if (!prev || !prev.next) {
             return;
         }
