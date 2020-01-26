@@ -317,6 +317,24 @@ class LinkedList {
         }
         prev.next = prev.next.next;
     }
+    removeAt(index) {
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        if (!this.head) {
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        // edge cases no prev or 1 larger than the total size
+        if (!prev || !prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+
+
+
+    }
 
 
 
