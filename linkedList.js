@@ -116,6 +116,19 @@ class linkedList {
         }
         return null;
     }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            } else {
+                count++;
+                node = node.next;
+            }
+        }
+        return null;
+    }
 
 
 
@@ -331,9 +344,6 @@ class LinkedList {
             return;
         }
         prev.next = prev.next.next;
-
-
-
     }
 
 
@@ -664,5 +674,46 @@ class LinkedList {
             node = node.next;
         }
         return null;
+    }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            node = node.next;
+            count++
+        }
+        return null;
+    }
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
+    removeAt(index) {
+        //edge cases 
+
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
     }
 }
