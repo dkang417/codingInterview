@@ -28,6 +28,15 @@ class LinkedList {
         }
         return count;
     }
+    size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
     getLast() {
         if (!this.head) {
             return null;
@@ -83,6 +92,31 @@ class LinkedList {
             last = last.next;
         }
         prev.next = null;
+    }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+    }
+    getAt(index) {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            if (index === count) {
+                return node;
+            } else {
+                count++;
+                node = node.next;
+            }
+        }
+        return null;
     }
 
 }
@@ -159,6 +193,7 @@ class LinkedList {
 
 
 
+
     getAt(index) {
         // traverse through linked list using a counter
         // while there is a head 
@@ -203,7 +238,11 @@ class LinkedList {
         return null;
     }
 
+    removeAt(index) {
 
+
+
+    }
 
     removeAt(index) {
         if (!this.head) {
