@@ -240,8 +240,20 @@ class LinkedList {
 
     removeAt(index) {
 
-
-
+        // edge case no head
+        if (!this.head) {
+            return;
+        }
+        // edge case head     
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        let node = this.getAt(index - 1);
+        if (!node || !node.next) {
+            return;
+        }
+        node.next = node.next.next;
     }
 
     removeAt(index) {
