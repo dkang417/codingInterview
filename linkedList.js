@@ -854,4 +854,11 @@ class LinkedList {
         }
         prev.next = prev.next.next;
     }
+
+    removeAt(index) {
+
+    }
+    getAt(index) {
+
+    }
 }
