@@ -793,13 +793,23 @@ class LinkedList {
 
     removeLast() {
 
-        let node = this.head;
-        let last = this.head.next;
-        while (last.next) {
-
+        if (!this.head) {
+            return;
         }
-
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        let prev = this.head;
+        let node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
     }
+
+
     getAt(index) {
         let node = this.head;
         let count = 0;
@@ -880,5 +890,44 @@ class LinkedList {
             node = node.next;
         }
         return null;
+    }
+
+    removeAt(index) {
+
+    }
+    getAt(index) {
+
+    }
+    removeLast() {
+
+    }
+    insertAt(data, index) {
+        // check head
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        // check if index is 0
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        // leap frog - create 2 nodes- prev,node- getAt(index-1) or getLast  - newnode data,prev.next
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        prev.next = node;
+    }
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        prev.next = node;
     }
 }
