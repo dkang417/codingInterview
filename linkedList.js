@@ -857,6 +857,7 @@ class LinkedList {
         }
         if (index === 0) {
             this.head = this.head.next;
+            return;
         }
         const prev = this.getAt(index - 1);
         if (!prev || prev.next) {
@@ -871,6 +872,7 @@ class LinkedList {
         }
         if (index === 0) {
             this.head = this.head.next;
+            return;
         }
         const prev = this.getAt(index - 1);
         if (!prev || !prev.next) {
@@ -893,6 +895,20 @@ class LinkedList {
     }
 
     removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+
+        const prev = this.getAt(index - 1);
+        if (!prev || prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+
 
     }
     getAt(index) {
@@ -931,12 +947,12 @@ class LinkedList {
         prev.next = node;
     }
     insertAt(data, index) {
-        if (!this.head) {
-            this.head = new Node(data);
-            return;
-        }
         if (index === 0) {
             this.head = new Node(data, this.head);
+            return;
+        }
+        if (!this.head) {
+            this.head = new Node(data);
             return;
         }
         const prev = this.getAt(index - 1) || this.getLast();
