@@ -902,19 +902,42 @@ class LinkedList {
             this.head = this.head.next;
             return;
         }
-
+        const count = 0;
         const prev = this.getAt(index - 1);
-        if (!prev || prev.next) {
+        if (!prev || !prev.next) {
             return;
         }
         prev.next = prev.next.next;
 
 
-    }
-    getAt(index) {
 
     }
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+    }
     removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const prev = this.head;
+        const last = this.head.next;
+        while (last.next) {
+            prev = last;
+            last = last.next;
+        }
+        prev.next = null;
 
     }
     insertAt(data, index) {
