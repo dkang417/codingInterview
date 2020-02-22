@@ -609,9 +609,23 @@ class LinkedList {
         const prev = this.getAt(index - 1) || this.getLast();
         // new node and the next node on this is the prev node.next . switches connection 
         const node = new Node(data, prev.next);
+        prev.next = node;
+
     }
 
-
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        const node = new Node(data, prev.next);
+        prev.next = node;
+    }
 
 
 
