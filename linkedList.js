@@ -582,6 +582,9 @@ class LinkedList {
         }
         const prev = this.getAt(index - 1);
         // edge cases no prev or 1 larger than the total size
+        // edge case index of 12 when list is only 3
+        //corner case index of 3 but only 3 in the list
+        // getat does exist but prev.next is null 
         if (!prev || !prev.next) {
             return;
         }
@@ -622,7 +625,7 @@ class LinkedList {
             this.head = new Node(data, this.head);
             return;
         }
-        const prev = this.getAt(index - 1);
+        const prev = this.getAt(index - 1) || this.getLast();
         const node = new Node(data, prev.next);
         prev.next = node;
     }
