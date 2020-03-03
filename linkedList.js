@@ -933,7 +933,18 @@ class LinkedList {
 
 
 
-
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+    }
     getAt(index) {
         const node = this.head;
         const count = 0;
