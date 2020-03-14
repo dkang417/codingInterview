@@ -221,6 +221,9 @@ class Node {
     }
 }
 function validate(node, min = null, max = null) {
+
+}
+function validate(node, min = null, max = null) {
     if (min !== null && node.data < min) {
         return false;
     }
