@@ -12,7 +12,21 @@
 // Answer: [1, 3, 2]
 
 // width = bf traversal 
-
+function levelWidth(root) {
+    const count = [0];
+    const arr = [root, 's'];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            count.push(0);
+            arr.push('s');
+        } else {
+            count[count.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return count;
+}
 function levelWidth(root) {
     const count = [0];
     const arr = [root, 's'];
