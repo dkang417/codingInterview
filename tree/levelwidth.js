@@ -44,71 +44,6 @@ function levelWidth(root) {
 }
 
 function levelWidth(root) {
-    const arr = [root, s];
-    const count = [0];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            count.push(0);
-            arr.push('s');
-        } else {
-            count[count.length - 1]++;
-            arr.push(...node.children);
-        }
-    }
-    return count;
-}
-function levelWidth(root) {
-    const arr = [root, s];
-    const count = [0];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            count.push(0);
-            arr.push(s);
-        } else {
-            count[count.length - 1]++;
-            arr.push(...node.children);
-        }
-    }
-    return count;
-}
-
-function levelwidth(root) {
-    const arr = [root, 's'];
-    const count = [0];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            count.push(0);
-            arr.push('s');
-        } else {
-            arr.push(...node.children);
-            count[count.length - 1]++;
-        }
-    }
-    return count;
-}
-
-
-
-function levleWidth(root) {
-    const count = [0];
-    const arr = [root, 's'];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            count.push(0);
-            arr.push('s');
-        } else {
-            count[count.length - 1]++;
-            arr.push(...node.children);
-        }
-    }
-    return count;
-}
-
-function levelWidth(root) {
     const arr = [root, 's'];
     const counters = [0];
 
@@ -339,7 +274,7 @@ function levelwidth(root) {
 }
 
 function levelWidth(root) {
-    const arr = [this.root, 's'];
+    const arr = [root, 's'];
     const count = [0];
     while (arr.length > 1) {
         const node = arr.shift();
@@ -355,7 +290,7 @@ function levelWidth(root) {
 }
 
 function levelWidth(root) {
-    const arr = [this.root, 's'];
+    const arr = [root, 's'];
     const count = [0];
     while (arr.length > 1) {
         const node = arr.shift();
@@ -370,13 +305,29 @@ function levelWidth(root) {
     return count;
 }
 function levelWidth(root) {
-    const arr = [this.root, 's'];
+    const arr = [root, 's'];
     const count = [0];
     while (arr.length > 1) {
         const node = arr.shift();
         if (node === 's') {
             count.push(0);
             arr.push('s');
+        } else {
+            count[count.length - 1]++;
+            arr.push(...node.children);
+        }
+    }
+    return count;
+}
+
+function levelWidth(root) {
+    const arr = [root, 's'];
+    const count = [0];
+    while (arr.length > 1) {
+        const node = arr.shift();
+        if (node === 's') {
+            arr.push('s');
+            count.push(0);
         } else {
             count[count.length - 1]++;
             arr.push(...node.children);
