@@ -103,7 +103,24 @@ function selectionSort(arr) {
     }
     return arr;
 }
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let lesser = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lesser]) {
+                lesser = j;
+            }
+        }
+        if (lesser !== i) {
+            let temp = arr[lesser];
+            arr[lesser] = arr[i];
+            arr[i] = temp;
 
+
+        }
+    }
+    return arr;
+}
 
 
 
