@@ -1042,6 +1042,13 @@ class LinkedList {
         this.head = new Node(data, this.head);
     }
     size() {
-
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
     }
+
 }
