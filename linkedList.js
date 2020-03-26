@@ -990,7 +990,22 @@ class LinkedList {
         prev.next = null;
 
     }
-
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const node = this.head;
+        const last = this.head.next;
+        while (last.next) {
+            node = last;
+            last = last.next;
+        }
+        node.next = null;
+    }
     removeLast() {
         if (!this.head) {
             return;
