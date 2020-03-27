@@ -7,6 +7,12 @@ class Node {
     }
 }
 
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
 class LinkedList {
     constructor() {
         this.head = null;
@@ -1022,6 +1028,7 @@ class LinkedList {
         }
         prev.next = null;
     }
+
     insertAt(data, index) {
         if (data === 0) {
             this.head = new Node(data, this.head);
