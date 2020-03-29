@@ -1,5 +1,4 @@
 
-
 class Node {
     constructor(data, next = null) {
         this.data = data;
@@ -19,6 +18,15 @@ class LinkedList {
     }
     insertFirst(data) {
         this.head = new Node(data, this.head);
+    }
+    size() {
+        let node = this.head;
+        let count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
     }
     size() {
         let node = this.head;
@@ -940,6 +948,19 @@ class LinkedList {
         prev.next = prev.next.next;
     }
 
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            } else {
+                count++;
+                node = mode.next;
+            }
+        }
+        return null;
+    }
 
 
     getAt(index) {
