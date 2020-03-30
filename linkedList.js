@@ -46,7 +46,18 @@ class LinkedList {
         }
         return count;
     }
-
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
     getLast() {
         if (!this.head) {
             return null;
@@ -59,18 +70,7 @@ class LinkedList {
             node = node.next;
         }
     }
-    getLast() {
-        if (!this.head) {
-            return;
-        }
-        let node = this.head;
-        while (node) {
-            if (!node.next) {
-                return node;
-            }
-            node = node.next;
-        }
-    }
+
     removeLast() {
         if (!this.head) {
             return null;
@@ -135,6 +135,22 @@ class LinkedList {
         }
         prev.next = null;
     }
+    removeLast() {
+        if (!this.head) {
+            return null;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const prev = this.head;
+        const node = this.head.next;
+        while (node.next) {
+            node = node.next;
+            prev = node;
+        }
+        prev.next = null;
+    }
     getAt(index) {
         let node = this.head;
         let count = 0;
@@ -175,6 +191,19 @@ class LinkedList {
         }
         return null;
     }
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (index === count) {
+                return node;
+            } else {
+                node = node.next;
+                count++;
+            }
+        }
+        return null;
+    }
     removeAt(index) {
         if (!this.head) {
             return;
@@ -203,6 +232,20 @@ class LinkedList {
             return;
         }
         prev.next = prev.next.next;
+    }
+    insertAt(data, index) {
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        if (!this.head) {
+            this.head = new Node(data);
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        prev.next = node;
+
+
     }
     insertAt(data, index) {
         if (!this.head) {
