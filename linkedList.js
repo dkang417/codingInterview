@@ -4,6 +4,34 @@ class Node {
         this.data = data;
         this.next = next;
     }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+    removeLast() {
+
+    }
+
 }
 
 class Node {
@@ -28,24 +56,8 @@ class LinkedList {
         }
         return count;
     }
-    size() {
-        let node = this.head;
-        let count = 0;
-        while (node) {
-            node = node.next;
-            count++;
-        }
-        return count;
-    }
-    size() {
-        const node = this.head;
-        const count = 0;
-        while (node) {
-            count++;
-            node = node.next;
-        }
-        return count;
-    }
+
+
     getLast() {
         if (!this.head) {
             return null;
@@ -58,18 +70,7 @@ class LinkedList {
             node = node.next;
         }
     }
-    getLast() {
-        if (!this.head) {
-            return null;
-        }
-        let node = this.head;
-        while (node) {
-            if (!node.next) {
-                return node;
-            }
-            node = node.next;
-        }
-    }
+
 
     removeLast() {
         if (!this.head) {
