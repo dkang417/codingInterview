@@ -29,6 +29,22 @@ class Node {
         }
     }
     removeLast() {
+        if (!this.head) {
+            return null;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const prev = this.head;
+        const node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+    getAt(index) {
 
     }
 
@@ -72,54 +88,8 @@ class LinkedList {
     }
 
 
-    removeLast() {
-        if (!this.head) {
-            return null;
-        }
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-        const prev = this.head;
-        const node = this.head.next;
-        while (node.next) {
-            prev = node;
-            node = node.next;
-        }
-        prev.next = null;
-    }
-    removeLast() {
-        if (!this.head) {
-            return null;
-        }
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-        const prev = this.head;
-        const node = this.head.next;
-        while (node.next) {
-            node = node.next;
-            prev = node;
-        }
-        prev.next = null;
-    }
-    removeLast() {
-        if (!this.head) {
-            return null;
-        }
-        if (!this.head.next) {
-            this.head = null;
-            return;
-        }
-        let prev = this.head;
-        let last = this.head.next;
-        while (last.next) {
-            prev = last;
-            last = last.next;
-        }
-        prev.next = null;
-    }
+
+
     removeLast() {
         if (!this.head) {
             return;
@@ -164,34 +134,8 @@ class LinkedList {
         }
         return null;
     }
-    getAt(index) {
-        const node = this.head;
-        const count = 0;
-        while (node) {
-            if (index === count) {
-                return node;
-            }
-            else {
-                count++;
-                node = node.next;
-            }
 
-        }
-        return null;
-    }
-    getAt(index) {
-        let node = this.head;
-        let count = 0;
-        while (node) {
-            if (index === count) {
-                return node;
-            } else {
-                count++;
-                node = node.next;
-            }
-        }
-        return null;
-    }
+
     getAt(index) {
         const node = this.head;
         const count = 0;
