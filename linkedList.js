@@ -45,6 +45,33 @@ class Node {
         prev.next = null;
     }
     getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            } else {
+                count++;
+                node = node.next;
+            }
+        }
+        return null;
+    }
+    removeAt(index) {
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        if (!this.head) {
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || !prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
+    removeAt(index) {
 
     }
 
@@ -136,19 +163,7 @@ class LinkedList {
     }
 
 
-    getAt(index) {
-        const node = this.head;
-        const count = 0;
-        while (node) {
-            if (index === count) {
-                return node;
-            } else {
-                node = node.next;
-                count++;
-            }
-        }
-        return null;
-    }
+
     removeAt(index) {
         if (!this.head) {
             return;
