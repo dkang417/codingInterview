@@ -22,7 +22,73 @@ class LinkedList {
         return count;
     }
     getLast() {
+        if (!this.head) {
+            return;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            node = node.next;
+        }
+    }
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const prev = this.head;
+        const node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+    getAt(index) {
 
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (count === index) {
+                return node;
+            }
+            count++;
+            node = node.next;
+        }
+        return null;
+
+    }
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, prev.next);
+        prev.next = node;
     }
 }
 
@@ -84,20 +150,7 @@ class LinkedList {
         }
         return null;
     }
-    removeAt(index) {
-        if (index === 0) {
-            this.head = this.head.next;
-            return;
-        }
-        if (!this.head) {
-            return;
-        }
-        const prev = this.getAt(index - 1);
-        if (!prev || !prev.next) {
-            return;
-        }
-        prev.next = prev.next.next;
-    }
+
     removeAt(index) {
         if (index === 0) {
             this.head = this.head.next;
