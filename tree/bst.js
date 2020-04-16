@@ -46,6 +46,23 @@ class Node {
 }
 
 
+function validate(node, min = null, max = null) {
+    if (max !== null && node.data > max) {
+        return false;
+    }
+    if (min !== null && node.data < min) {
+        return false;
+    }
+    if (node.left && !validate(node.left, min, node.data)) {
+        return false;
+    }
+    if (node.right && !validate(node.right, node.data, max)) {
+        return false;
+    }
+    return true;
+}
+
+
 class Node {
     constructor(data) {
         this.data = data;
@@ -169,7 +186,7 @@ class Node {
 
 function validate(node, min = null, max = null) {
     if (min !== null && node.data < min) {
-        return null;
+        return false;
     }
     if (max !== null && node.data > max) {
         return false;
@@ -183,21 +200,7 @@ function validate(node, min = null, max = null) {
     return true;
 }
 
-function validate(node, min = null, max = null) {
-    if (min !== null && node.data < min) {
-        return false;
-    }
-    if (max !== null && node.data > max) {
-        return false;
-    }
-    if (node.left && !validate(node.left, min, node.data)) {
-        return false;
-    }
-    if (node.right && !validate(node.right, node.data, max)) {
-        return false;
-    }
-    return true;
-}
+
 
 class Node {
     constructor(data) {
@@ -298,48 +301,5 @@ function validate(node, min = null, max = null) {
     }
     return true;
 }
-function validate(node, min = null, max = null) {
-    if (min !== null && node.data < min) {
-        return false;
-    }
-    if (max !== null && node.data > max) {
-        return false;
-    }
-    if (node.left && !validate(node.left, min, node.data)) {
-        return false;
-    }
-    if (node.right && !validate(node.right, node.data, max)) {
-        return false;
-    }
-    return true;
-}
-function validate(node, min = null, max = null) {
-    if (node.data < min && min !== null) {
-        return false;
-    }
-    if (node.data > max && max !== null) {
-        return false;
-    }
-    if (node.left && !valideate(node.left, min, node.data)) {
-        return false;
-    }
-    if (node.right && !validate(node.right, node.data, max)) {
-        return false;
-    }
-    return true;
-}
-function validate(node, min = null, max = null) {
-    if (node.data < min && min !== null) {
-        return false;
-    }
-    if (node.data > max && max !== null) {
-        return false;
-    }
-    if (node.left && !validate(node.left, min, node.data)) {
-        return false;
-    }
-    if (node.right && !validate(node.right, node.data, max)) {
-        return false;
-    }
-    return true;
-}
+
+
