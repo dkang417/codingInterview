@@ -79,67 +79,9 @@ function levelWidth(root) {
     }
     return count;
 }
-function levelWidth(root) {
-    const counter = [0];
-    const arr = [root, 's'];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            counter.push(0);
-            arr.push('s');
-        } else {
-            counter[counter.length - 1]++;
-            arr.push(...node.children);
-        }
-    }
-    return counter;
-}
-function levelWidth(root) {
-    const arr = [root, 's'];
-    const counter = [0];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            arr.push('s');
-            counter.push(0);
-        } else {
-            counter[counter.length - 1]++;
-            arr.push(...node.children);
-        }
-    }
-    return counter;
-}
-function levelWidth(root) {
-    const arr = [root, 's'];
-    const counter = [0];
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            arr.push('s');
-            counter.push(0);
-        } else {
-            arr.push(...node.children);
-            counter[counter.length - 1]++;
-        }
-    }
-    return counter;
-}
-function levelwidth(root) {
-    const counters = [0];
-    const arr = [root, 's']
 
-    while (arr.length > 1) {
-        const node = arr.shift();
-        if (node === 's') {
-            counters.push(0);
-            arr.push('s');
-        } else {
-            arr.push(...node.children);
-            counters[counters.length - 1]++;
-        }
-    }
-    return counters;
-}
+
+
 // create 2 arrays 
 // one array for the answers 
 // one array to keep track of all nodes plus 's'
@@ -179,26 +121,7 @@ function travereBF(fn) {
 
     }
 }
-function traverseDF(fn) {
-    const arr = [this.root];
-    while (arr.length) {
-        const node = arr.shift();
-        arr.unshift(...node.children);
-        fn(node);
-    }
-}
-
-
-function traverseBF(fn) {
-    const arr = [this.root];
-    while (arr.length) {
-        const node = arr.shift();
-        arr.push(...node.children);
-        fn(node);
-    }
-}
-
-function traverseDF(fn) {
+function traverseDf(fn) {
     const arr = [this.root];
     while (arr.length) {
         const node = arr.shift();
