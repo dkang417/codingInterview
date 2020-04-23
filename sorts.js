@@ -145,7 +145,7 @@ function selectionSort(arr) {
             arr[i] = temp;
         }
     }
-    return arr;
+    return arr
 }
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
