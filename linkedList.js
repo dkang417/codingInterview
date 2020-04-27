@@ -5,6 +5,42 @@ class Node {
         this.next = next;
     }
 }
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const count = 0;
+        const node = this.head;
+        while (node) {
+            node = node.next;
+            count++;
+        }
+        return count;
+    }
+    getLast() {
+        if (!this.head) {
+            return;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            } else {
+                node = node.next;
+            }
+        }
+    }
+}
 
 class LinkedList {
     constructor() {
