@@ -126,6 +126,33 @@ class LinkedList {
         const node = new Node(data, this.prev.next);
         prev.next = node;
     }
+    insertAt(data, index) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        prev.next = node;
+    }
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || !prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
 
 
 }
