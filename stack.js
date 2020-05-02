@@ -84,6 +84,20 @@ class Stack {
         this.data = [];
     }
     add(record) {
+
+    }
+    remove() {
+
+    }
+    peek() {
+
+    }
+}
+class Stack {
+    constructor() {
+        this.data = [];
+    }
+    add(record) {
         this.data.push(record);
     }
     pop() {
