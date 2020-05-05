@@ -26,3 +26,31 @@ function midpoint(list) {
     }
     return slow;
 }
+
+function midpoint(list) {
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+    while (fast.next && fast.next.next) {
+        slow = fast;
+        fast = fast.next.next;
+    }
+    return slow;
+}
+function midpoint(list) {
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+    while (fast.next && fast.next.next) {
+        slow = fast;
+        fast = fast.next.next;
+    }
+    return slow;
+}
+function midpoint(list) {
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+    while (fast.next && fast.next.next) {
+        slow = fast;
+        fast = fast.next.next;
+    }
+    return slow;
+}
