@@ -503,7 +503,18 @@ class Node {
             return this.right.contains(data);
         }
         return false;
-
+    }
+    contains(data) {
+        if (this.data === data) {
+            return true;
+        }
+        if (data > this.data && this.right) {
+            return this.right.contains(data);
+        }
+        else if (data < this.data && this.left) {
+            return this.left.contains(data);
+        }
+        return false;
     }
 
 }
