@@ -282,3 +282,33 @@ class Queue {
     }
 
 }
+// Implement a Queue datastructure using two stacks.
+class Queue {
+    constructor() {
+        this.first = new Stack();
+        this.second = new Stack();
+    }
+    add(data) {
+        this.first.push(data);
+    }
+    remove() {
+        while (this.first.peek()) {
+            this.second.push(this.first.remove());
+        }
+        const node = this.second.remove();
+        while (this.second.peek()) {
+            this.first.push(this.second.remove());
+        }
+        return node;
+    }
+    peek() {
+        while (this.first.peek()) {
+            this.second.push(this.first.remove());
+        }
+        const record = this.second.peek();
+        while (this.second.peek()) {
+            this.first.push(this.second.remove());
+        }
+        return node;
+    }
+}
