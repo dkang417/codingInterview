@@ -533,10 +533,34 @@ class LinkedList {
         }
         prev.next = null;
     }
-    getAt() {
-
+    getAt(index) {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            if (index === count) {
+                return node;
+            } else {
+                count++;
+                node = node.next;
+            }
+        }
+        return null;
     }
-    removeAt() {
+    removeAt(index) {
+        if (!this.head) {
+            return;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
+
+    insertAt() {
 
     }
 }
