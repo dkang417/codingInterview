@@ -478,5 +478,65 @@ class LinkedList {
         prev.next = node;
 
     }
+}
 
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            node = node.next;
+            count++;
+        }
+        return count;
+    }
+    getLast() {
+        const node = this.head;
+        if (!this.head) {
+            return;
+        }
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            else {
+                node = node.next;
+            }
+        }
+    }
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const prev = this.head;
+        const node = this.head.next;
+        while (node.next) {
+            prev = node;
+            node = node.next;
+        }
+        prev.next = null;
+    }
+    getAt() {
+
+    }
+    removeAt() {
+
+    }
 }
