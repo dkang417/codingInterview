@@ -60,6 +60,21 @@ function validate(node, min = null, max = null) {
     return true;
 }
 
+function validate(node, min = null, max = null) {
+    if (node.data > max && max !== null) {
+        return false;
+    }
+    if (node.data < min && min !== null) {
+        return false;
+    }
+    if (node.left && !validate(node.left, min, node.data)) {
+        return false;
+    }
+    if (node.right && !validate(node.right, node.data, max)) {
+        return false;
+    }
+    return true;
+}
 class Node {
     constructor(data) {
         this.data = data;
