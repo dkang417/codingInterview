@@ -11,6 +11,29 @@ class Node {
         this.next = next;
     }
 }
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+}
 class LinkedList {
     constructor() {
         this.head = null;
