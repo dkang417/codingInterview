@@ -93,6 +93,23 @@ function bubbleSort(arr) {
 // [3,4,1,6,2]
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
+        const lesser = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lesser]) {
+                lesser = j;
+            }
+        }
+        if (lesser !== i) {
+            let lesser = arr[indexMin];
+            arr[indexMin] = arr[i];
+            arr[i] = lesser;
+        }
+    }
+    return arr;
+}
+
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
         let indexMin = i;
 
         for (let j = i + 1; j < arr.length; j++) {
@@ -300,7 +317,27 @@ function mergeSort(arr) {
     return merge(mergeSort(left), mergeSort(right));
 }
 
+function merge(left, right) {
+    const temp = [];
+    while (left.length && right.length) {
+        if (left[0] < right[0]) {
+            temp.push(left.shift());
+        } else {
+            temp.push(right.shift());
+        }
+    }
+    return [...temp, ...left, ...right,]
+}
+function mergeSort(arr) {
+    if (arr.length === 1) {
+        return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
 
+    return merge(mergeSort(left), mergeSort(right));
+}
 //merge
 
 function merge(left, right) {
@@ -340,13 +377,29 @@ function bubbleSort(arr) {
     }
     return arr;
 }
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let indexMin = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[indexMin]) {
+                indexMin = j;
+            }
+        }
+        if (indexMin !== i) {
+            let temp = arr[indexMin];
+            arr[indexMin] = arr[i];
+            arr[i] = temp;
 
+        }
+    }
+    return arr;
+}
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         let indexMin = i;
 
         for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[i]) {
+            if (arr[j] < arr[indexMin]) {
                 indexMin = j;
             }
         }
