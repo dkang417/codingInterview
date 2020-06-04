@@ -1,4 +1,56 @@
-
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const node = this.head;
+        const count = 0;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    getLast() {
+        if (!this.head) {
+            return;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            }
+            else {
+                node = node.next;
+            }
+        }
+    }
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const node = this.head;
+        const last = this.head.next;
+        while (last.next) {
+            node = last;
+            last = last.next;
+        }
+        node.next = null;
+    }
+}
 class Node {
     constructor(data, next = null) {
         this.data = data;
