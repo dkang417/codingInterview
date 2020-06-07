@@ -50,6 +50,36 @@ class LinkedList {
         }
         node.next = null;
     }
+    removeLast() {
+        if (!this.head) {
+            return;
+        }
+        if (!this.head.next) {
+            this.head = null;
+            return;
+        }
+        const node = this.head;
+        const last = this.head.next;
+        while (last.next) {
+            node = last;
+            last = last.next;
+        }
+        node.next = null;
+    }
+    removeAt(index) {
+        if (index === 0) {
+            this.head = this.head.next;
+            return;
+        }
+        if (!this.head) {
+            return;
+        }
+        const prev = this.getAt(index - 1);
+        if (!prev || prev.next) {
+            return;
+        }
+        prev.next = prev.next.next;
+    }
     removeAt(index) {
         if (index === 0) {
             this.head = this.head.next;
