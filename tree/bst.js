@@ -10,7 +10,19 @@
 // 3) Implement the 'contains' method for the Node
 // class.  Contains should accept a 'data' argument
 // and return the Node in the tree with the same value.
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+    insert(data) {
 
+    }
+    contains(data) {
+
+    }
+}
 class Node {
     constructor(data) {
         this.data = data;
