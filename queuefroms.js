@@ -13,6 +13,26 @@
 //     q.remove(); // returns 2
 
 const Stack = require('./stack');
+
+class Queue {
+    constructor() {
+        this.first = new Stack();
+        this.second = new Stack();
+    }
+    add(record) {
+        this.first.push(record);
+    }
+    remove() {
+        while (this.first.peek()) {
+            this.second.add(this.first.remove());
+        }
+        const result = this.second.remove();
+        while (this.second.peek()) {
+            this.first.add(this.second.remove());
+        }
+        return result;
+    }
+}
 class Queue {
     constructor() {
         this.first = new Stack();
