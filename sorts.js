@@ -405,3 +405,39 @@ function mergeSort(arr) {
     const right = arr.slice(mid);
     return merge(mergeSort(left), mergesort(right));
 }
+
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        let min = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[min]) {
+                min = j;
+            }
+        }
+        if (min !== i) {
+            const temp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    return arr;
+}
+function selectionSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const lesser = i;
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[lesser]) {
+                lesser = j;
+            }
+        }
+        if (lesser !== i) {
+            const temp = arr[lesser];
+            arr[lesser] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    return arr;
+}
+function bubbleSort(arr) {
+
+}
