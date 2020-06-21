@@ -1,5 +1,23 @@
-// recursion 
-let tracker = 0; 
+function slowfib(n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+const fib = memoize(slowfib);
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) {
+            const result = fn.apply(this, args);
+            cache[args] = result;
+            return result;
+        }
+    }
+}
+
+// recursion
+let tracker = 0;
 
 let callMe = function () {
     tracker++;
@@ -24,7 +42,7 @@ var callMyself = function () {
         callMyself();
     }
     return;
-}; 
+};
 
 const loopNTimes = (n) => {
     if (n <= 1) {
@@ -40,13 +58,13 @@ loopNTimes(3);
 function computeFactorial(num) {
     let result = 1;
 
-    for (let i = 2; i <= num; i++){
+    for (let i = 2; i <= num; i++) {
         result *= i;
     }
     return result;
 }
 
-computeFactorial(5); 
+computeFactorial(5);
 // 1 * 2 (2)
 // 2 * 3 (6)
 // 6 * 4 (24)
