@@ -406,22 +406,7 @@ function mergeSort(arr) {
     return merge(mergeSort(left), mergesort(right));
 }
 
-function selectionSort(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        let min = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-            }
-        }
-        if (min !== i) {
-            const temp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = temp;
-        }
-    }
-    return arr;
-}
+
 function selectionSort(arr) {
     for (let i = 0; i < arr.length; i++) {
         const lesser = i;
@@ -438,6 +423,17 @@ function selectionSort(arr) {
     }
     return arr;
 }
-function bubbleSort(arr) {
 
+
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                const temp = arr[j + 1];
+                arr[j + 1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
 }
