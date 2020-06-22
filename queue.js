@@ -13,7 +13,20 @@
 // first in first out 
 // add to the front and remove from the end  
 // add remove peek 
-
+class Queue {
+    constructor() {
+        this.data = [];
+    }
+    add(record) {
+        this.data.unshift(record);
+    }
+    remove() {
+        return this.data.pop();
+    }
+    peek() {
+        return this.data[this.data.length - 1];
+    }
+}
 class Queue {
     constructor() {
         this.data = [];
