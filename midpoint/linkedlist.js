@@ -8,6 +8,42 @@ class Node {
         this.next = next;
     }
 }
+class Node {
+    constructor(data, next = null) {
+        this.data = data;
+        this.next = next;
+    }
+}
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
+    insertFirst(data) {
+        this.head = new Node(data, this.head);
+    }
+    size() {
+        const count = 0;
+        const node = this.head;
+        while (node) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    getLast() {
+        if (!this.head) {
+            return null;
+        }
+        const node = this.head;
+        while (node) {
+            if (!node.next) {
+                return node;
+            } else {
+                node = node.next;
+            }
+        }
+    }
+}
 
 class LinkedList {
     constructor() {
@@ -33,14 +69,14 @@ class LinkedList {
         return counter;
     }
 
-    
+
 
     // return the first node 
     getFirst() {
-        return this.head; 
+        return this.head;
     }
 
-   
+
     // get the last node 
     getLast() {
         if (!this.head) {
@@ -92,7 +128,7 @@ class LinkedList {
         }
         previous.next = null;
     }
-   
+
 
     // insert data as a new node into last 
 
@@ -105,16 +141,16 @@ class LinkedList {
             // chain is empty
             this.head = new Node(data);
         }
-        
+
     }
-   
+
 
     // get at - returns the node at the provided index 
     getAt(index) {
         let counter = 0;
         let node = this.head;
         while (node) {
-            if (counter === index) { 
+            if (counter === index) {
                 return node;
             }
             counter++;
@@ -124,7 +160,7 @@ class LinkedList {
         // if index is invalid then just return null
         return null;
     }
-   
+
     removeAt(index) {
         // 4 edge cases to think about here 
 
@@ -141,7 +177,7 @@ class LinkedList {
             return;
         }
 
-        previous.next = previous.next.next; 
+        previous.next = previous.next.next;
 
     }
 
@@ -158,7 +194,7 @@ class LinkedList {
         }
         // if index is non existant just use the last node and add new node to the end of the linkedlist 
         const prev = this.getAt(index - 1) || this.getLast();
-        const node = new Node(data,this.prev.next);
+        const node = new Node(data, this.prev.next);
         previous.next = node;
 
     }
