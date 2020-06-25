@@ -43,6 +43,23 @@ class LinkedList {
             }
         }
     }
+    insertAt(data, index) {
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+        const prev = this.getAt(index - 1) || this.getLast();
+        const node = new Node(data, this.prev.next);
+        previous.next = node;
+    }
+
+    removeAt(index) {
+
+    }
 }
 
 class LinkedList {
